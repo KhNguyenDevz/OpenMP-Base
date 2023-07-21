@@ -1,0 +1,84 @@
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[13:05:45] password = ""  (string)
+[13:05:45] filterscripts = ""  (string)
+[13:05:45] 
+[13:05:45] Server Plugins
+[13:05:45] --------------
+[13:05:45]  Loading plugin: streamer
+[13:05:45] 
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+[13:05:45]   Loaded.
+[13:05:45]  Loading plugin: mysql
+[13:05:45]  >> plugin.mysql: R33 successfully loaded.
+[13:05:45]   Loaded.
+[13:05:45]  Loading plugin: sscanf
+[13:05:45] 
+
+[13:05:45]  ===============================
+
+[13:05:45]       sscanf plugin loaded.     
+
+[13:05:45]    (c) 2009 Alex "Y_Less" Cole
+
+[13:05:45]    0.3d-R2 500 Players "dnee"
+
+[13:05:45]  ===============================
+
+[13:05:45]   Loaded.
+[13:05:45]  Loading plugin: whirlpool
+[13:05:45]  
+[13:05:45]  ==================
+[13:05:45]  
+[13:05:45]   Whirlpool loaded
+[13:05:45]  
+[13:05:45]  ==================
+[13:05:45]  
+[13:05:45]   Loaded.
+[13:05:45]  Loaded 4 plugins.
+
+[13:05:45] [artwork:crc] 2BNier.dff CRC = 0x9329542
+[13:05:45] [artwork:crc] 2BNier.txd CRC = 0x569C54B6
+[13:05:45] [artwork:crc] Garen.dff CRC = 0xBA6F292F
+[13:05:45] [artwork:crc] Garen.txd CRC = 0xAB21EBFC
+[13:05:45] [artwork:crc] GokuAkatsuki.dff CRC = 0x31F15953
+[13:05:45] [artwork:crc] GokuAkatsuki.txd CRC = 0xCE76CA90
+[13:05:45] [artwork:crc] Kirito.dff CRC = 0x7B277D81
+[13:05:45] [artwork:crc] Kirito.txd CRC = 0x223418D6
+[13:05:45] [artwork:crc] Sasuke.dff CRC = 0xD1F11280
+[13:05:45] [artwork:crc] Sasuke.txd CRC = 0x9F4FE60F
+[13:05:45] [artwork:crc] Luffy.dff CRC = 0xB96C9428
+[13:05:45] [artwork:crc] Luffy.txd CRC = 0x230BBBD6
+[13:05:45] [artwork:crc] Miku.dff CRC = 0x9105E838
+[13:05:45] [artwork:crc] Miku.txd CRC = 0x2B3A83D7
+[13:05:45] [artwork:crc] OPM.dff CRC = 0x3D0195BB
+[13:05:45] [artwork:crc] OPM.txd CRC = 0x502664CC
+[13:05:45] [artwork:crc] Shiro.dff CRC = 0xA359B2B5
+[13:05:45] [artwork:crc] Shiro.txd CRC = 0x3F4D6C56
+[13:05:45] [artwork:crc] Yasuo.dff CRC = 0x35DFE8E2
+[13:05:45] [artwork:crc] Yasuo.txd CRC = 0x736746D4
+[13:05:45] 
+[13:05:45] Filterscripts
+[13:05:45] ---------------
+[13:05:45]   Loaded 0 filterscripts.
+
+[13:05:45] AMX (43327080) loaded
+[13:05:45]  
+[13:05:45]  ======================================= 
+[13:05:45]  |                                     | 
+[13:05:45]  |        YSI version 3.01.0002        | 
+[13:05:45]  |        By Alex "Y_Less" Cole        | 
+[13:05:45]  |                                     | 
+[13:05:45]  ======================================= 
+[13:05:45]  
+[13:05:45] [MySQL] (Main Pipelines) Connecting to 127.0.0.1...
+[13:05:45] [MySQL] (MainPipeline) Connection successful toward MySQL Database Server!

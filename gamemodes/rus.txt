@@ -1,0 +1,5 @@
+./includes/core/functions.pwn(137) : �������������� 209: ������� "GetVehicleNameExz" ������ ���������� ��������
+Pawn compiler 3.2.3664	 	 	Copyright (c) 1997-2016, ITB CompuPhase
+
+
+��������������:1.

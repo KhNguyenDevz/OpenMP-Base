@@ -1,0 +1,477 @@
+Starting open.mp server (1.0.1.0) from commit 0000000000000000000000000000000000000000
+Loading component Actors.dll
+	Successfully loaded component Actors (1.0.1.0) with UID c81ca021eae2ad5c
+Loading component Checkpoints.dll
+	Successfully loaded component Checkpoints (1.0.1.0) with UID 44a937350d611dde
+Loading component Classes.dll
+	Successfully loaded component Classes (1.0.1.0) with UID 8cfb3183976da208
+Loading component Console.dll
+	Successfully loaded component Console (1.0.1.0) with UID bfa24e49d0c95ee4
+Loading component CustomModels.dll
+	Successfully loaded component CustomModels (1.0.1.0) with UID 15e3cb1e7c77ffff
+Loading component Databases.dll
+	Successfully loaded component Databases (1.0.1.0) with UID 80092e7eb5821a96
+Loading component Dialogs.dll
+	Successfully loaded component Dialogs (1.0.1.0) with UID 44a111350d611dde
+Loading component Fixes.dll
+	Successfully loaded component Fixes (1.0.1.0) with UID b5c615eff0329ff7
+Loading component GangZones.dll
+	Successfully loaded component GangZones (1.0.1.0) with UID b3351d11ee8d8056
+Loading component LegacyConfig.dll
+	Successfully loaded component LegacyConfig (1.0.1.0) with UID 24ef6216838f9ffc
+Loading component LegacyNetwork.dll
+	Successfully loaded component RakNetLegacyNetwork (1.0.1.0) with UID ea9799fd79cf8442
+Loading component Menus.dll
+	Successfully loaded component Menus (1.0.1.0) with UID 621e219eb97ee0b2
+Loading component Objects.dll
+	Successfully loaded component Objects (1.0.1.0) with UID 59f8415f72da6160
+Loading component Pawn.dll
+	Successfully loaded component Pawn (1.0.1.0) with UID 78906cd9f19c36a6
+Loading component Pickups.dll
+	Successfully loaded component Pickups (1.0.1.0) with UID cf304faa363dd971
+Loading component TextDraws.dll
+	Successfully loaded component TextDraws (1.0.1.0) with UID 9b5dc2b1d15c992a
+Loading component TextLabels.dll
+	Successfully loaded component TextLabels (1.0.1.0) with UID a0c57ea80a009742
+Loading component Timers.dll
+	Successfully loaded component Timers (1.0.1.0) with UID 2ad8124c5ea257a3
+Loading component Unicode.dll
+	Successfully loaded component Unicode (1.0.1.0) with UID 8ffb446f8353922b
+Loading component Variables.dll
+	Successfully loaded component Variables (1.0.1.0) with UID 75e121848bc01fa2
+Loading component Vehicles.dll
+	Successfully loaded component Vehicles (1.0.1.0) with UID 3f1f62ee9e22ab19
+Loaded 21 component(s) from E:\SAMPVN\SVN\components
+Executing Server Config...
+Parsing unknown legacy option Language
+[13:02:36] [Info] [artwork:info] Loading artconfig.txt
+[13:02:36] [Warning] No bind address provided. Attempting to start webserver on 127.0.0.1:7777
+[13:02:36] [Info] Web server is running on http://127.0.0.1:7777/
+[13:02:37] [Info] Loading plugin: streamer
+[13:02:37] [Info] 
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+[13:02:37] [Info] Loading plugin: mysql
+[13:02:37] [Info]  >> plugin.mysql: R33 successfully loaded.
+[13:02:37] [Info] Loading plugin: sscanf
+[13:02:37] [Info] 
+
+[13:02:37] [Info]  ===============================
+
+[13:02:37] [Info]       sscanf plugin loaded.     
+
+[13:02:37] [Info]    (c) 2009 Alex "Y_Less" Cole
+
+[13:02:37] [Info]    0.3d-R2 500 Players "dnee"
+
+[13:02:37] [Info]  ===============================
+
+[13:02:37] [Info] Loading plugin: whirlpool
+[13:02:37] [Info]  
+[13:02:37] [Info]  ==================
+[13:02:37] [Info]  
+[13:02:37] [Info]   Whirlpool loaded
+[13:02:37] [Info]  
+[13:02:37] [Info]  ==================
+[13:02:37] [Info]  
+[13:02:37] [Info] Loading plugin: crashdetect
+[13:02:37] [Info]   CrashDetect plugin 4.21
+[13:02:37] [Info] AMX (68123936) loaded
+[13:02:37] [Info]  
+[13:02:37] [Info]  ======================================= 
+[13:02:37] [Info]  |                                     | 
+[13:02:37] [Info]  |        YSI version 3.01.0002        | 
+[13:02:37] [Info]  |        By Alex "Y_Less" Cole        | 
+[13:02:37] [Info]  |                                     | 
+[13:02:37] [Info]  ======================================= 
+[13:02:37] [Info]  
+[13:02:37] [Warning] Parameter count does not match specifier in `Script_Call`. callback: Itter_OnGameModeInit - fmat:  - count: 3)
+[13:02:37] [Info] [debug] Long callback execution detected (hang or performance issue)
+[13:02:37] [Info] [debug] AMX backtrace:
+[13:02:37] [Info] [debug] #0 00008a90 in ?? (0, 135, 125930256, 1598585152) in SVN.amx
+[13:02:37] [Info] [debug] #1 0000a47c in ?? (1079472, 125930416, 1078708, 125930412) in SVN.amx
+[13:02:37] [Info] [debug] #2 0000a698 in ?? () in SVN.amx
+[13:02:37] [Info] [debug] #3 0000d7e4 in public Itter_OnGameModeInit () in SVN.amx
+[13:02:37] [Info] [debug] #4 native CallLocalFunction () in Pawn.dll
+[13:02:37] [Info] [debug] #5 00009818 in public ScriptInit_OnGameModeInit () in SVN.amx
+[13:02:37] [Info] [debug] #6 native CallLocalFunction () in Pawn.dll
+[13:02:37] [Info] [debug] #7 00006e60 in public zcmd_OnGameModeInit () in SVN.amx
+[13:02:37] [Info] [debug] #8 native CallLocalFunction () in Pawn.dll
+[13:02:37] [Info] [debug] #9 00006824 in public SSCANF_OnGameModeInit () in SVN.amx
+[13:02:37] [Info] [debug] #10 00000b8c in public OnGameModeInit () in SVN.amx
+[13:02:37] [Info] [MySQL] (Main Pipelines) Connecting to 127.0.0.1...
+[13:02:37] [Info] [MySQL] (MainPipeline) Connection successful toward MySQL Database Server!
+[13:02:37] [Info] Legacy Network started on port 7777
+[13:02:37] [Info] [debug] Run time error 4: "Array index out of bounds"
+[13:02:37] [Info] [debug]  Attempted to read/write array element at index 101 in array of size 101
+[13:02:37] [Info] [debug] AMX backtrace:
+[13:02:37] [Info] [debug] #0 003d681c in public OnLoadHouses () in SVN.amx
+[13:02:37] [Info] [debug] Long callback execution detected (hang or performance issue)
+[13:02:37] [Info] [debug] AMX backtrace:
+[13:02:37] [Info] [debug] #0 003d3d70 in public OnLoadDynamicDoors () in SVN.amx
+[13:02:37] [Info] [debug] Long callback execution detected (hang or performance issue)
+[13:02:37] [Info] [debug] AMX backtrace:
+[13:02:37] [Info] [debug] #0 003f45ac in public BusinessesLoadQueryFinish () in SVN.amx
+[13:02:37] [Info] [debug] Long callback execution detected (hang or performance issue)
+[13:02:37] [Info] [debug] AMX backtrace:
+[13:02:37] [Info] [debug] #0 003d08b0 in public OnLoadGates () in SVN.amx
+[13:02:37] [Info] [debug] Run time error 4: "Array index out of bounds"
+[13:02:37] [Info] [debug]  Attempted to read/write array element at index 20 in array of size 20
+[13:02:37] [Info] [debug] AMX backtrace:
+[13:02:37] [Info] [debug] #0 003ea4a4 in public Group_QueryFinish (1, 0) in SVN.amx
+[13:02:37] [Info] [debug] Long callback execution detected (hang or performance issue)
+[13:02:37] [Info] [debug] AMX backtrace:
+[13:02:37] [Info] [debug] #0 000ac8f0 in ?? (36) in SVN.amx
+[13:02:37] [Info] [debug] #1 003ef2bc in public DynVeh_QueryFinish (1, 0) in SVN.amx
+[13:02:37] [Info] [debug] Run time error 4: "Array index out of bounds"
+[13:02:37] [Info] [debug]  Attempted to read/write array element at index 20 in array of size 20
+[13:02:37] [Info] [debug] AMX backtrace:
+[13:02:37] [Info] [debug] #0 000abfa4 in ?? (48) in SVN.amx
+[13:02:37] [Info] [debug] #1 003ef2bc in public DynVeh_QueryFinish (1, 0) in SVN.amx
+[13:02:38] [Info]  
+[13:02:38] [Info]  
+[13:02:42] [Info] [debug] Long callback execution detected (hang or performance issue)
+[13:02:42] [Info] [debug] AMX backtrace:
+[13:02:42] [Info] [debug] #0 0003245c in public fpsCounterUpdate () in SVN.amx
+[13:02:59] [Info] [debug] Long callback execution detected (hang or performance issue)
+[13:02:59] [Info] [debug] AMX backtrace:
+[13:02:59] [Info] [debug] #0 00032474 in public fpsCounterUpdate () in SVN.amx
+[13:03:07] [Info] [debug] Long callback execution detected (hang or performance issue)
+[13:03:07] [Info] [debug] AMX backtrace:
+[13:03:07] [Info] [debug] #0 0003247c in public fpsCounterUpdate () in SVN.amx
+[13:03:21] [Info] 
+
+*** Streamer Plugin v2.6.1 by Incognito unloaded ***
+
+[13:03:21] [Info] 
+
+[13:03:21] [Info]  ===============================
+
+[13:03:21] [Info]      sscanf plugin unloaded.    
+
+[13:03:21] [Info]  ===============================
+
+[13:03:21] [Info] plugin.mysql: Unloading plugin...
+[13:03:21] [Info] plugin.mysql: Plugin unloaded.
+[13:03:21] [Info]  
+[13:03:21] [Info]  ====================
+[13:03:21] [Info]  
+[13:03:21] [Info]   Whirlpool unloaded
+[13:03:21] [Info]  
+[13:03:21] [Info]  ====================
+[13:03:21] [Info]  
+Starting open.mp server (1.0.1.0) from commit 0000000000000000000000000000000000000000
+Loading component Actors.dll
+	Successfully loaded component Actors (1.0.1.0) with UID c81ca021eae2ad5c
+Loading component Checkpoints.dll
+	Successfully loaded component Checkpoints (1.0.1.0) with UID 44a937350d611dde
+Loading component Classes.dll
+	Successfully loaded component Classes (1.0.1.0) with UID 8cfb3183976da208
+Loading component Console.dll
+	Successfully loaded component Console (1.0.1.0) with UID bfa24e49d0c95ee4
+Loading component CustomModels.dll
+	Successfully loaded component CustomModels (1.0.1.0) with UID 15e3cb1e7c77ffff
+Loading component Databases.dll
+	Successfully loaded component Databases (1.0.1.0) with UID 80092e7eb5821a96
+Loading component Dialogs.dll
+	Successfully loaded component Dialogs (1.0.1.0) with UID 44a111350d611dde
+Loading component Fixes.dll
+	Successfully loaded component Fixes (1.0.1.0) with UID b5c615eff0329ff7
+Loading component GangZones.dll
+	Successfully loaded component GangZones (1.0.1.0) with UID b3351d11ee8d8056
+Loading component LegacyConfig.dll
+	Successfully loaded component LegacyConfig (1.0.1.0) with UID 24ef6216838f9ffc
+Loading component LegacyNetwork.dll
+	Successfully loaded component RakNetLegacyNetwork (1.0.1.0) with UID ea9799fd79cf8442
+Loading component Menus.dll
+	Successfully loaded component Menus (1.0.1.0) with UID 621e219eb97ee0b2
+Loading component Objects.dll
+	Successfully loaded component Objects (1.0.1.0) with UID 59f8415f72da6160
+Loading component Pawn.dll
+	Successfully loaded component Pawn (1.0.1.0) with UID 78906cd9f19c36a6
+Loading component Pickups.dll
+	Successfully loaded component Pickups (1.0.1.0) with UID cf304faa363dd971
+Loading component TextDraws.dll
+	Successfully loaded component TextDraws (1.0.1.0) with UID 9b5dc2b1d15c992a
+Loading component TextLabels.dll
+	Successfully loaded component TextLabels (1.0.1.0) with UID a0c57ea80a009742
+Loading component Timers.dll
+	Successfully loaded component Timers (1.0.1.0) with UID 2ad8124c5ea257a3
+Loading component Unicode.dll
+	Successfully loaded component Unicode (1.0.1.0) with UID 8ffb446f8353922b
+Loading component Variables.dll
+	Successfully loaded component Variables (1.0.1.0) with UID 75e121848bc01fa2
+Loading component Vehicles.dll
+	Successfully loaded component Vehicles (1.0.1.0) with UID 3f1f62ee9e22ab19
+Loaded 21 component(s) from E:\SAMPVN\SVN\components
+Executing Server Config...
+Parsing unknown legacy option Language
+[13:03:23] [Info] [artwork:info] Loading artconfig.txt
+[13:03:23] [Warning] No bind address provided. Attempting to start webserver on 127.0.0.1:7777
+[13:03:24] [Info] Web server is running on http://127.0.0.1:7777/
+[13:03:24] [Info] Loading plugin: streamer
+[13:03:24] [Info] 
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+[13:03:24] [Info] Loading plugin: mysql
+[13:03:24] [Info]  >> plugin.mysql: R33 successfully loaded.
+[13:03:24] [Info] Loading plugin: sscanf
+[13:03:24] [Info] 
+
+[13:03:24] [Info]  ===============================
+
+[13:03:24] [Info]       sscanf plugin loaded.     
+
+[13:03:24] [Info]    (c) 2009 Alex "Y_Less" Cole
+
+[13:03:24] [Info]    0.3d-R2 500 Players "dnee"
+
+[13:03:24] [Info]  ===============================
+
+[13:03:24] [Info] Loading plugin: whirlpool
+[13:03:24] [Info]  
+[13:03:24] [Info]  ==================
+[13:03:24] [Info]  
+[13:03:24] [Info]   Whirlpool loaded
+[13:03:24] [Info]  
+[13:03:24] [Info]  ==================
+[13:03:24] [Info]  
+[13:03:24] [Info] Loading plugin: crashdetect
+[13:03:24] [Info]   CrashDetect plugin 4.21
+[13:03:24] [Info] AMX (71854144) loaded
+[13:03:24] [Info]  
+[13:03:24] [Info]  ======================================= 
+[13:03:24] [Info]  |                                     | 
+[13:03:24] [Info]  |        YSI version 3.01.0002        | 
+[13:03:24] [Info]  |        By Alex "Y_Less" Cole        | 
+[13:03:24] [Info]  |                                     | 
+[13:03:24] [Info]  ======================================= 
+[13:03:24] [Info]  
+[13:03:24] [Warning] Parameter count does not match specifier in `Script_Call`. callback: Itter_OnGameModeInit - fmat:  - count: 3)
+[13:03:24] [Info] [debug] Long callback execution detected (hang or performance issue)
+[13:03:24] [Info] [debug] AMX backtrace:
+[13:03:24] [Info] [debug] #0 00008a90 in ?? (0, 135, 125930132, 1598585152) in SVN.amx
+[13:03:24] [Info] [debug] #1 0000a47c in ?? (1079472, 125930292, 1078708, 125930288) in SVN.amx
+[13:03:24] [Info] [debug] #2 0000a698 in ?? () in SVN.amx
+[13:03:24] [Info] [debug] #3 0000d7e4 in public Itter_OnGameModeInit () in SVN.amx
+[13:03:24] [Info] [debug] #4 native CallLocalFunction () in Pawn.dll
+[13:03:24] [Info] [debug] #5 00009818 in public ScriptInit_OnGameModeInit () in SVN.amx
+[13:03:24] [Info] [debug] #6 native CallLocalFunction () in Pawn.dll
+[13:03:24] [Info] [debug] #7 00006e60 in public zcmd_OnGameModeInit () in SVN.amx
+[13:03:24] [Info] [debug] #8 native CallLocalFunction () in Pawn.dll
+[13:03:24] [Info] [debug] #9 00006824 in public SSCANF_OnGameModeInit () in SVN.amx
+[13:03:24] [Info] [debug] #10 00000b8c in public OnGameModeInit () in SVN.amx
+[13:03:24] [Info] [MySQL] (Main Pipelines) Connecting to 127.0.0.1...
+[13:03:24] [Info] [MySQL] (MainPipeline) Connection successful toward MySQL Database Server!
+[13:03:24] [Info] Legacy Network started on port 7777
+[13:03:24] [Info] [debug] Run time error 4: "Array index out of bounds"
+[13:03:24] [Info] [debug]  Attempted to read/write array element at index 101 in array of size 101
+[13:03:24] [Info] [debug] AMX backtrace:
+[13:03:24] [Info] [debug] #0 003d667c in public OnLoadHouses () in SVN.amx
+[13:03:24] [Info] [debug] Long callback execution detected (hang or performance issue)
+[13:03:24] [Info] [debug] AMX backtrace:
+[13:03:24] [Info] [debug] #0 003d39c4 in public OnLoadDynamicDoors () in SVN.amx
+[13:03:24] [Info] [debug] Long callback execution detected (hang or performance issue)
+[13:03:24] [Info] [debug] AMX backtrace:
+[13:03:24] [Info] [debug] #0 003f14e4 in public BusinessesLoadQueryFinish () in SVN.amx
+[13:03:24] [Info] [debug] Long callback execution detected (hang or performance issue)
+[13:03:24] [Info] [debug] AMX backtrace:
+[13:03:24] [Info] [debug] #0 003cf9ac in public OnLoadGates () in SVN.amx
+[13:03:24] [Info] [debug] Run time error 4: "Array index out of bounds"
+[13:03:24] [Info] [debug]  Attempted to read/write array element at index 20 in array of size 20
+[13:03:24] [Info] [debug] AMX backtrace:
+[13:03:24] [Info] [debug] #0 003ea304 in public Group_QueryFinish (1, 0) in SVN.amx
+[13:03:24] [Info] [debug] Long callback execution detected (hang or performance issue)
+[13:03:24] [Info] [debug] AMX backtrace:
+[13:03:24] [Info] [debug] #0 003ee9e8 in public DynVeh_QueryFinish (1, 0) in SVN.amx
+[13:03:24] [Info] [debug] Run time error 4: "Array index out of bounds"
+[13:03:24] [Info] [debug]  Attempted to read/write array element at index 20 in array of size 20
+[13:03:24] [Info] [debug] AMX backtrace:
+[13:03:24] [Info] [debug] #0 000abe04 in ?? (48) in SVN.amx
+[13:03:24] [Info] [debug] #1 003ef11c in public DynVeh_QueryFinish (1, 0) in SVN.amx
+[13:03:26] [Info]  
+[13:03:26] [Info]  
+[13:03:46] [Info] [connection] incoming connection: 127.0.0.1:63484 id: 0
+[13:03:46] [Info] [join] Khoi_Nguyenz has joined the server (0:127.0.0.1)
+[13:03:46] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerConnect - fmat: iq - count: 1)
+[13:03:52] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerDisconnect - fmat: iiq - count: 2)
+[13:03:52] [Info] [part] Khoi_Nguyenz has left the server (0:2)
+[13:04:10] [Info] [connection] incoming connection: 127.0.0.1:49212 id: 0
+[13:04:10] [Info] [join] Khoi_Nguyen has joined the server (0:127.0.0.1)
+[13:04:10] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerConnect - fmat: iq - count: 1)
+[13:04:15] [Info] Khoi Nguyen has logged in.
+[13:04:15] [Info] [debug] Long callback execution detected (hang or performance issue)
+[13:04:15] [Info] [debug] AMX backtrace:
+[13:04:15] [Info] [debug] #0 001044e0 in ?? (0) in SVN.amx
+[13:04:15] [Info] [debug] #1 004080bc in public OnPlayerLoad (0) in SVN.amx
+[13:04:15] [Info] [debug] #2 003a5338 in public OnQueryFinish (1, 0, 146) in SVN.amx
+[13:04:39] [Info] [zcmd] [Khoi Nguyen]: /sampvnblog
+[13:04:44] [Info] [zcmd] [Khoi Nguyen]: /sampvnblog 0 99999
+[13:04:54] [Info] [debug] Long callback execution detected (hang or performance issue)
+[13:04:54] [Info] [debug] AMX backtrace:
+[13:04:54] [Info] [debug] #0 000318c4 in public VehicleUpdate () in SVN.amx
+[13:04:57] [Info] [zcmd] [Khoi Nguyen]: /veh 3194 1 1
+[13:04:57] [Info] IndexVeh: 0
+[13:05:05] [Info] [zcmd] [Khoi Nguyen]: /speedo
+[13:05:10] [Info] [zcmd] [Khoi Nguyen]: /vehid
+[13:05:10] [Info] [debug] Run time error 4: "Array index out of bounds"
+[13:05:10] [Info] [debug]  Attempted to read/write array element at index 2794 in array of size 212
+[13:05:10] [Info] [debug] AMX backtrace:
+[13:05:10] [Info] [debug] #0 0024dba8 in public cmd_vehid (0, 10448) in SVN.amx
+[13:05:10] [Info] [debug] #1 native CallLocalFunction () in Pawn.dll
+[13:05:10] [Info] [debug] #2 00006acc in public OnPlayerCommandText (0, 107930420) in SVN.amx
+[13:05:31] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerDisconnect - fmat: iiq - count: 2)
+[13:05:31] [Info] [part] Khoi_Nguyen has left the server (0:0)
+[13:05:35] [Info] 
+
+*** Streamer Plugin v2.6.1 by Incognito unloaded ***
+
+[13:05:35] [Info] 
+
+[13:05:35] [Info]  ===============================
+
+[13:05:35] [Info]      sscanf plugin unloaded.    
+
+[13:05:35] [Info]  ===============================
+
+[13:05:35] [Info] plugin.mysql: Unloading plugin...
+[13:05:35] [Info] plugin.mysql: Plugin unloaded.
+[13:05:35] [Info]  
+[13:05:35] [Info]  ====================
+[13:05:35] [Info]  
+[13:05:35] [Info]   Whirlpool unloaded
+[13:05:35] [Info]  
+[13:05:35] [Info]  ====================
+[13:05:35] [Info]  
+Starting open.mp server (1.0.1.0) from commit 0000000000000000000000000000000000000000
+Loading component Actors.dll
+	Successfully loaded component Actors (1.0.1.0) with UID c81ca021eae2ad5c
+Loading component Checkpoints.dll
+	Successfully loaded component Checkpoints (1.0.1.0) with UID 44a937350d611dde
+Loading component Classes.dll
+	Successfully loaded component Classes (1.0.1.0) with UID 8cfb3183976da208
+Loading component Console.dll
+	Successfully loaded component Console (1.0.1.0) with UID bfa24e49d0c95ee4
+Loading component CustomModels.dll
+	Successfully loaded component CustomModels (1.0.1.0) with UID 15e3cb1e7c77ffff
+Loading component Databases.dll
+	Successfully loaded component Databases (1.0.1.0) with UID 80092e7eb5821a96
+Loading component Dialogs.dll
+	Successfully loaded component Dialogs (1.0.1.0) with UID 44a111350d611dde
+Loading component Fixes.dll
+	Successfully loaded component Fixes (1.0.1.0) with UID b5c615eff0329ff7
+Loading component GangZones.dll
+	Successfully loaded component GangZones (1.0.1.0) with UID b3351d11ee8d8056
+Loading component LegacyConfig.dll
+	Successfully loaded component LegacyConfig (1.0.1.0) with UID 24ef6216838f9ffc
+Loading component LegacyNetwork.dll
+	Successfully loaded component RakNetLegacyNetwork (1.0.1.0) with UID ea9799fd79cf8442
+Loading component Menus.dll
+	Successfully loaded component Menus (1.0.1.0) with UID 621e219eb97ee0b2
+Loading component Objects.dll
+	Successfully loaded component Objects (1.0.1.0) with UID 59f8415f72da6160
+Loading component Pawn.dll
+	Successfully loaded component Pawn (1.0.1.0) with UID 78906cd9f19c36a6
+Loading component Pickups.dll
+	Successfully loaded component Pickups (1.0.1.0) with UID cf304faa363dd971
+Loading component TextDraws.dll
+	Successfully loaded component TextDraws (1.0.1.0) with UID 9b5dc2b1d15c992a
+Loading component TextLabels.dll
+	Successfully loaded component TextLabels (1.0.1.0) with UID a0c57ea80a009742
+Loading component Timers.dll
+	Successfully loaded component Timers (1.0.1.0) with UID 2ad8124c5ea257a3
+Loading component Unicode.dll
+	Successfully loaded component Unicode (1.0.1.0) with UID 8ffb446f8353922b
+Loading component Variables.dll
+	Successfully loaded component Variables (1.0.1.0) with UID 75e121848bc01fa2
+Loading component Vehicles.dll
+	Successfully loaded component Vehicles (1.0.1.0) with UID 3f1f62ee9e22ab19
+Loaded 21 component(s) from E:\SAMPVN\SVN\components
+Executing Server Config...
+Parsing unknown legacy option Language
+[13:05:47] [Info] [artwork:info] Loading artconfig.txt
+[13:05:47] [Warning] No bind address provided. Attempting to start webserver on 127.0.0.1:7777
+[13:05:47] [Info] Web server is running on http://127.0.0.1:7777/
+[13:05:47] [Info] Loading plugin: streamer
+[13:05:47] [Info] 
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+[13:05:47] [Info] Loading plugin: mysql
+[13:05:47] [Info]  >> plugin.mysql: R33 successfully loaded.
+[13:05:47] [Info] Loading plugin: sscanf
+[13:05:47] [Info] 
+
+[13:05:47] [Info]  ===============================
+
+[13:05:47] [Info]       sscanf plugin loaded.     
+
+[13:05:47] [Info]    (c) 2009 Alex "Y_Less" Cole
+
+[13:05:47] [Info]    0.3d-R2 500 Players "dnee"
+
+[13:05:47] [Info]  ===============================
+
+[13:05:47] [Info] Loading plugin: whirlpool
+[13:05:47] [Info]  
+[13:05:47] [Info]  ==================
+[13:05:47] [Info]  
+[13:05:47] [Info]   Whirlpool loaded
+[13:05:47] [Info]  
+[13:05:47] [Info]  ==================
+[13:05:47] [Info]  
+[13:05:48] [Info] AMX (23874848) loaded
+[13:05:48] [Info]  
+[13:05:48] [Info]  ======================================= 
+[13:05:48] [Info]  |                                     | 
+[13:05:48] [Info]  |        YSI version 3.01.0002        | 
+[13:05:48] [Info]  |        By Alex "Y_Less" Cole        | 
+[13:05:48] [Info]  |                                     | 
+[13:05:48] [Info]  ======================================= 
+[13:05:48] [Info]  
+[13:05:48] [Warning] Parameter count does not match specifier in `Script_Call`. callback: Itter_OnGameModeInit - fmat:  - count: 3)
+[13:05:48] [Info] [MySQL] (Main Pipelines) Connecting to 127.0.0.1...
+[13:05:48] [Info] [MySQL] (MainPipeline) Connection successful toward MySQL Database Server!
+[13:05:48] [Info] Legacy Network started on port 7777
+[13:05:49] [Info]  
+[13:05:49] [Info]  
+[13:05:58] [Info] [connection] incoming connection: 127.0.0.1:62517 id: 0
+[13:05:58] [Info] [join] Khoi_Nguyen has joined the server (0:127.0.0.1)
+[13:05:58] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerConnect - fmat: iq - count: 1)
+[13:06:01] [Info] Khoi Nguyen has logged in.
+[13:06:06] [Info] [zcmd] [Khoi Nguyen]: /veh 3194 1 1
+[13:06:06] [Info] IndexVeh: 0
+[13:06:50] [Info] [zcmd] [Khoi Nguyen]: /goto ls
+[13:06:52] [Info] [zcmd] [Khoi Nguyen]: /goto sf
+[13:07:13] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerDisconnect - fmat: iiq - count: 2)
+[13:07:13] [Info] [part] Khoi_Nguyen has left the server (0:0)
+[13:07:25] [Info] [connection] incoming connection: 127.0.0.1:59657 id: 0
+[13:07:25] [Info] [join] Khoi_Nguyen has joined the server (0:127.0.0.1)
+[13:07:25] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerConnect - fmat: iq - count: 1)
+[13:07:29] [Info] Khoi Nguyen has logged in.
+[13:07:58] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerDisconnect - fmat: iiq - count: 2)
+[13:07:58] [Info] [part] Khoi_Nguyen has left the server (0:0)
+[19:30:51] [Info] [plant] 300 plants saved
+[19:31:13] [Info] 
+
+*** Streamer Plugin v2.6.1 by Incognito unloaded ***
+
+[19:31:13] [Info] 
+
+[19:31:13] [Info]  ===============================
+
+[19:31:13] [Info]      sscanf plugin unloaded.    
+
+[19:31:13] [Info]  ===============================
+
+[19:31:13] [Info] plugin.mysql: Unloading plugin...
+[19:31:13] [Info] plugin.mysql: Plugin unloaded.
+[19:31:13] [Info]  
+[19:31:13] [Info]  ====================
+[19:31:13] [Info]  
+[19:31:13] [Info]   Whirlpool unloaded
+[19:31:13] [Info]  
+[19:31:13] [Info]  ====================
+[19:31:13] [Info]  
