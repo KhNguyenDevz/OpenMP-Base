@@ -1,0 +1,844 @@
+Starting open.mp server (1.0.1.0) from commit 0000000000000000000000000000000000000000
+Loading component Actors.dll
+	Successfully loaded component Actors (1.0.1.0) with UID c81ca021eae2ad5c
+Loading component Checkpoints.dll
+	Successfully loaded component Checkpoints (1.0.1.0) with UID 44a937350d611dde
+Loading component Classes.dll
+	Successfully loaded component Classes (1.0.1.0) with UID 8cfb3183976da208
+Loading component Console.dll
+	Successfully loaded component Console (1.0.1.0) with UID bfa24e49d0c95ee4
+Loading component CustomModels.dll
+	Successfully loaded component CustomModels (1.0.1.0) with UID 15e3cb1e7c77ffff
+Loading component Databases.dll
+	Successfully loaded component Databases (1.0.1.0) with UID 80092e7eb5821a96
+Loading component Dialogs.dll
+	Successfully loaded component Dialogs (1.0.1.0) with UID 44a111350d611dde
+Loading component Fixes.dll
+	Successfully loaded component Fixes (1.0.1.0) with UID b5c615eff0329ff7
+Loading component GangZones.dll
+	Successfully loaded component GangZones (1.0.1.0) with UID b3351d11ee8d8056
+Loading component LegacyConfig.dll
+	Successfully loaded component LegacyConfig (1.0.1.0) with UID 24ef6216838f9ffc
+Loading component LegacyNetwork.dll
+	Successfully loaded component RakNetLegacyNetwork (1.0.1.0) with UID ea9799fd79cf8442
+Loading component Menus.dll
+	Successfully loaded component Menus (1.0.1.0) with UID 621e219eb97ee0b2
+Loading component Objects.dll
+	Successfully loaded component Objects (1.0.1.0) with UID 59f8415f72da6160
+Loading component Pawn.dll
+	Successfully loaded component Pawn (1.0.1.0) with UID 78906cd9f19c36a6
+Loading component Pickups.dll
+	Successfully loaded component Pickups (1.0.1.0) with UID cf304faa363dd971
+Loading component TextDraws.dll
+	Successfully loaded component TextDraws (1.0.1.0) with UID 9b5dc2b1d15c992a
+Loading component TextLabels.dll
+	Successfully loaded component TextLabels (1.0.1.0) with UID a0c57ea80a009742
+Loading component Timers.dll
+	Successfully loaded component Timers (1.0.1.0) with UID 2ad8124c5ea257a3
+Loading component Unicode.dll
+	Successfully loaded component Unicode (1.0.1.0) with UID 8ffb446f8353922b
+Loading component Variables.dll
+	Successfully loaded component Variables (1.0.1.0) with UID 75e121848bc01fa2
+Loading component Vehicles.dll
+	Successfully loaded component Vehicles (1.0.1.0) with UID 3f1f62ee9e22ab19
+Loaded 21 component(s) from E:\SAMPVN\OpenMP-Base\components
+Executing Server Config...
+Parsing unknown legacy option Language
+[20:28:12] [Info] [artwork:info] Loading artconfig.txt
+[20:28:12] [Warning] No bind address provided. Attempting to start webserver on 127.0.0.1:7777
+[20:28:12] [Info] Web server is running on http://127.0.0.1:7777/
+[20:28:13] [Info] Loading plugin: streamer
+[20:28:13] [Info] 
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+[20:28:13] [Info] Loading plugin: mysql
+[20:28:13] [Info]  >> plugin.mysql: R33 successfully loaded.
+[20:28:13] [Info] Loading plugin: sscanf
+[20:28:13] [Info] 
+
+[20:28:13] [Info]  ===============================
+
+[20:28:13] [Info]       sscanf plugin loaded.     
+
+[20:28:13] [Info]    (c) 2009 Alex "Y_Less" Cole
+
+[20:28:13] [Info]    0.3d-R2 500 Players "dnee"
+
+[20:28:13] [Info]  ===============================
+
+[20:28:13] [Info] Loading plugin: whirlpool
+[20:28:13] [Info]  
+[20:28:13] [Info]  ==================
+[20:28:13] [Info]  
+[20:28:13] [Info]   Whirlpool loaded
+[20:28:13] [Info]  
+[20:28:13] [Info]  ==================
+[20:28:13] [Info]  
+[20:28:13] [Info] AMX (17643680) loaded
+[20:28:13] [Info]  
+[20:28:13] [Info]  ======================================= 
+[20:28:13] [Info]  |                                     | 
+[20:28:13] [Info]  |        YSI version 3.01.0002        | 
+[20:28:13] [Info]  |        By Alex "Y_Less" Cole        | 
+[20:28:13] [Info]  |                                     | 
+[20:28:13] [Info]  ======================================= 
+[20:28:13] [Info]  
+[20:28:13] [Warning] Parameter count does not match specifier in `Script_Call`. callback: Itter_OnGameModeInit - fmat:  - count: 3)
+[20:28:13] [Info] [MySQL] (Main Pipelines) Connecting to 127.0.0.1...
+[20:28:13] [Info] [MySQL] (MainPipeline) Connection successful toward MySQL Database Server!
+[20:28:13] [Info] 
+--------------------------------------------------------------------------------------
+[20:28:13] [Info] 					Project SVN Community
+
+[20:28:13] [Info] 				Developer: Khoi Nguyen, Dang Nguyen, Thiet Phat
+
+[20:28:13] [Info] 					KhNguyenz giu moi ban quyen. 
+[20:28:13] [Info] 			Copyright (C) SVN Community, LLC (2023)
+[20:28:13] [Info] --------------------------------------------------------------------------------------
+
+[20:28:13] [Info] Legacy Network started on port 7777
+[20:28:14] [Info]  
+[20:28:14] [Info]  
+[20:31:40] [Info] [connection] incoming connection: 127.0.0.1:61430 id: 0
+[20:31:40] [Info] [join] Khoi_Nguyen has joined the server (0:127.0.0.1)
+[20:31:40] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerConnect - fmat: iq - count: 1)
+[20:31:46] [Info] Khoi Nguyen has logged in.
+[20:32:06] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerDisconnect - fmat: iiq - count: 2)
+[20:32:06] [Info] [part] Khoi_Nguyen has left the server (0:0)
+[20:32:14] [Info] [connection] incoming connection: 127.0.0.1:60509 id: 0
+[20:32:14] [Info] [join] Khoi_Nguyen has joined the server (0:127.0.0.1)
+[20:32:14] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerConnect - fmat: iq - count: 1)
+[20:32:18] [Info] Khoi Nguyen has logged in.
+[20:32:19] [Info] [zcmd] [Khoi Nguyen]: /goto ls
+[20:32:20] [Error] Invalid instruction
+[20:32:20] [Error] Invalid instruction
+[20:32:20] [Error] Invalid instruction
+[20:32:33] [Info] [zcmd] [Khoi Nguyen]: /veh 3194
+[20:32:36] [Info] [zcmd] [Khoi Nguyen]: /veh 3194 1 1
+[20:32:42] [Info] [zcmd] [Khoi Nguyen]: /vehid
+[20:34:00] [Info] [zcmd] [Khoi Nguyen]: /sb
+[20:35:04] [Info] [zcmd] [Khoi Nguyen]: /gotoco 1634.469 -2270.561 15.083 0
+[20:35:05] [Error] Invalid instruction
+[20:35:09] [Info] [zcmd] [Khoi Nguyen]: /fly
+[20:35:23] [Info] [zcmd] [Khoi Nguyen]: /fly
+[20:35:45] [Info] [zcmd] [Khoi Nguyen]: /fly
+[20:35:50] [Info] [zcmd] [Khoi Nguyen]: /fly
+[20:43:13] [Info] Account Saving Complete
+[21:01:57] [Info] [plant] 300 plants saved
+[21:02:32] [Info] [zcmd] [Khoi Nguyen]: /fly
+[21:14:49] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerDisconnect - fmat: iiq - count: 2)
+[21:14:49] [Info] [part] Khoi_Nguyen has left the server (0:0)
+[21:17:40] [Info] 
+
+*** Streamer Plugin v2.6.1 by Incognito unloaded ***
+
+[21:17:40] [Info] 
+
+[21:17:40] [Info]  ===============================
+
+[21:17:40] [Info]      sscanf plugin unloaded.    
+
+[21:17:40] [Info]  ===============================
+
+[21:17:40] [Info] plugin.mysql: Unloading plugin...
+[21:17:40] [Info] plugin.mysql: Plugin unloaded.
+[21:17:40] [Info]  
+[21:17:40] [Info]  ====================
+[21:17:40] [Info]  
+[21:17:40] [Info]   Whirlpool unloaded
+[21:17:40] [Info]  
+[21:17:40] [Info]  ====================
+[21:17:40] [Info]  
+Starting open.mp server (1.0.1.0) from commit 0000000000000000000000000000000000000000
+Loading component Actors.dll
+	Successfully loaded component Actors (1.0.1.0) with UID c81ca021eae2ad5c
+Loading component Checkpoints.dll
+	Successfully loaded component Checkpoints (1.0.1.0) with UID 44a937350d611dde
+Loading component Classes.dll
+	Successfully loaded component Classes (1.0.1.0) with UID 8cfb3183976da208
+Loading component Console.dll
+	Successfully loaded component Console (1.0.1.0) with UID bfa24e49d0c95ee4
+Loading component CustomModels.dll
+	Successfully loaded component CustomModels (1.0.1.0) with UID 15e3cb1e7c77ffff
+Loading component Databases.dll
+	Successfully loaded component Databases (1.0.1.0) with UID 80092e7eb5821a96
+Loading component Dialogs.dll
+	Successfully loaded component Dialogs (1.0.1.0) with UID 44a111350d611dde
+Loading component Fixes.dll
+	Successfully loaded component Fixes (1.0.1.0) with UID b5c615eff0329ff7
+Loading component GangZones.dll
+	Successfully loaded component GangZones (1.0.1.0) with UID b3351d11ee8d8056
+Loading component LegacyConfig.dll
+	Successfully loaded component LegacyConfig (1.0.1.0) with UID 24ef6216838f9ffc
+Loading component LegacyNetwork.dll
+	Successfully loaded component RakNetLegacyNetwork (1.0.1.0) with UID ea9799fd79cf8442
+Loading component Menus.dll
+	Successfully loaded component Menus (1.0.1.0) with UID 621e219eb97ee0b2
+Loading component Objects.dll
+	Successfully loaded component Objects (1.0.1.0) with UID 59f8415f72da6160
+Loading component Pawn.dll
+	Successfully loaded component Pawn (1.0.1.0) with UID 78906cd9f19c36a6
+Loading component Pickups.dll
+	Successfully loaded component Pickups (1.0.1.0) with UID cf304faa363dd971
+Loading component TextDraws.dll
+	Successfully loaded component TextDraws (1.0.1.0) with UID 9b5dc2b1d15c992a
+Loading component TextLabels.dll
+	Successfully loaded component TextLabels (1.0.1.0) with UID a0c57ea80a009742
+Loading component Timers.dll
+	Successfully loaded component Timers (1.0.1.0) with UID 2ad8124c5ea257a3
+Loading component Unicode.dll
+	Successfully loaded component Unicode (1.0.1.0) with UID 8ffb446f8353922b
+Loading component Variables.dll
+	Successfully loaded component Variables (1.0.1.0) with UID 75e121848bc01fa2
+Loading component Vehicles.dll
+	Successfully loaded component Vehicles (1.0.1.0) with UID 3f1f62ee9e22ab19
+Loaded 21 component(s) from E:\SAMPVN\OpenMP-Base\components
+Executing Server Config...
+Parsing unknown legacy option Language
+[21:18:32] [Info] [artwork:info] Loading artconfig.txt
+[21:18:32] [Warning] No bind address provided. Attempting to start webserver on 127.0.0.1:7777
+[21:18:32] [Info] Web server is running on http://127.0.0.1:7777/
+[21:18:32] [Info] Loading plugin: streamer
+[21:18:32] [Info] 
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+[21:18:32] [Info] Loading plugin: mysql
+[21:18:32] [Info]  >> plugin.mysql: R33 successfully loaded.
+[21:18:32] [Info] Loading plugin: sscanf
+[21:18:32] [Info] 
+
+[21:18:32] [Info]  ===============================
+
+[21:18:32] [Info]       sscanf plugin loaded.     
+
+[21:18:32] [Info]    (c) 2009 Alex "Y_Less" Cole
+
+[21:18:32] [Info]    0.3d-R2 500 Players "dnee"
+
+[21:18:32] [Info]  ===============================
+
+[21:18:32] [Info] Loading plugin: whirlpool
+[21:18:32] [Info]  
+[21:18:32] [Info]  ==================
+[21:18:32] [Info]  
+[21:18:32] [Info]   Whirlpool loaded
+[21:18:32] [Info]  
+[21:18:32] [Info]  ==================
+[21:18:32] [Info]  
+[21:18:32] [Info] AMX (44865616) loaded
+[21:18:32] [Info]  
+[21:18:32] [Info]  ======================================= 
+[21:18:32] [Info]  |                                     | 
+[21:18:32] [Info]  |        YSI version 3.01.0002        | 
+[21:18:32] [Info]  |        By Alex "Y_Less" Cole        | 
+[21:18:32] [Info]  |                                     | 
+[21:18:32] [Info]  ======================================= 
+[21:18:32] [Info]  
+[21:18:32] [Warning] Parameter count does not match specifier in `Script_Call`. callback: Itter_OnGameModeInit - fmat:  - count: 3)
+[21:18:32] [Info] [MySQL] (Main Pipelines) Connecting to 127.0.0.1...
+[21:18:32] [Info] [MySQL] (MainPipeline) Connection successful toward MySQL Database Server!
+[21:18:32] [Info] 
+--------------------------------------------------------------------------------------
+[21:18:32] [Info] 					Project SVN Community
+
+[21:18:33] [Info] 				Developer: Khoi Nguyen, Dang Nguyen, Thiet Phat
+
+[21:18:33] [Info] 					KhNguyenz giu moi ban quyen. 
+[21:18:33] [Info] 			Copyright (C) SVN Community, LLC (2023)
+[21:18:33] [Info] --------------------------------------------------------------------------------------
+
+[21:18:33] [Info] Legacy Network started on port 7777
+[21:18:34] [Info]  
+[21:18:34] [Info]  
+[21:18:40] [Info] [connection] incoming connection: 127.0.0.1:53565 id: 0
+[21:18:40] [Info] [join] Khoi_Nguyen has joined the server (0:127.0.0.1)
+[21:18:40] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerConnect - fmat: iq - count: 1)
+[21:18:44] [Info] Khoi Nguyen has logged in.
+[21:18:45] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerDisconnect - fmat: iiq - count: 2)
+[21:18:45] [Info] [part] Khoi_Nguyen has left the server (0:1)
+[21:18:59] [Info] [connection] incoming connection: 127.0.0.1:59664 id: 0
+[21:18:59] [Info] [join] Khoi_Nguyenzz has joined the server (0:127.0.0.1)
+[21:18:59] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerConnect - fmat: iq - count: 1)
+[21:19:04] [Info] Khoi Nguyenzz has logged in.
+[21:19:24] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerDisconnect - fmat: iiq - count: 2)
+[21:19:24] [Info] [part] Khoi_Nguyenzz has left the server (0:0)
+[21:19:59] [Info] 
+
+*** Streamer Plugin v2.6.1 by Incognito unloaded ***
+
+[21:19:59] [Info] 
+
+[21:19:59] [Info]  ===============================
+
+[21:19:59] [Info]      sscanf plugin unloaded.    
+
+[21:19:59] [Info]  ===============================
+
+[21:19:59] [Info] plugin.mysql: Unloading plugin...
+[21:19:59] [Info] plugin.mysql: Plugin unloaded.
+[21:19:59] [Info]  
+[21:19:59] [Info]  ====================
+[21:19:59] [Info]  
+[21:19:59] [Info]   Whirlpool unloaded
+[21:19:59] [Info]  
+[21:19:59] [Info]  ====================
+[21:19:59] [Info]  
+Starting open.mp server (1.0.1.0) from commit 0000000000000000000000000000000000000000
+Loading component Actors.dll
+	Successfully loaded component Actors (1.0.1.0) with UID c81ca021eae2ad5c
+Loading component Checkpoints.dll
+	Successfully loaded component Checkpoints (1.0.1.0) with UID 44a937350d611dde
+Loading component Classes.dll
+	Successfully loaded component Classes (1.0.1.0) with UID 8cfb3183976da208
+Loading component Console.dll
+	Successfully loaded component Console (1.0.1.0) with UID bfa24e49d0c95ee4
+Loading component CustomModels.dll
+	Successfully loaded component CustomModels (1.0.1.0) with UID 15e3cb1e7c77ffff
+Loading component Databases.dll
+	Successfully loaded component Databases (1.0.1.0) with UID 80092e7eb5821a96
+Loading component Dialogs.dll
+	Successfully loaded component Dialogs (1.0.1.0) with UID 44a111350d611dde
+Loading component Fixes.dll
+	Successfully loaded component Fixes (1.0.1.0) with UID b5c615eff0329ff7
+Loading component GangZones.dll
+	Successfully loaded component GangZones (1.0.1.0) with UID b3351d11ee8d8056
+Loading component LegacyConfig.dll
+	Successfully loaded component LegacyConfig (1.0.1.0) with UID 24ef6216838f9ffc
+Loading component LegacyNetwork.dll
+	Successfully loaded component RakNetLegacyNetwork (1.0.1.0) with UID ea9799fd79cf8442
+Loading component Menus.dll
+	Successfully loaded component Menus (1.0.1.0) with UID 621e219eb97ee0b2
+Loading component Objects.dll
+	Successfully loaded component Objects (1.0.1.0) with UID 59f8415f72da6160
+Loading component Pawn.dll
+	Successfully loaded component Pawn (1.0.1.0) with UID 78906cd9f19c36a6
+Loading component Pickups.dll
+	Successfully loaded component Pickups (1.0.1.0) with UID cf304faa363dd971
+Loading component TextDraws.dll
+	Successfully loaded component TextDraws (1.0.1.0) with UID 9b5dc2b1d15c992a
+Loading component TextLabels.dll
+	Successfully loaded component TextLabels (1.0.1.0) with UID a0c57ea80a009742
+Loading component Timers.dll
+	Successfully loaded component Timers (1.0.1.0) with UID 2ad8124c5ea257a3
+Loading component Unicode.dll
+	Successfully loaded component Unicode (1.0.1.0) with UID 8ffb446f8353922b
+Loading component Variables.dll
+	Successfully loaded component Variables (1.0.1.0) with UID 75e121848bc01fa2
+Loading component Vehicles.dll
+	Successfully loaded component Vehicles (1.0.1.0) with UID 3f1f62ee9e22ab19
+Loaded 21 component(s) from E:\SAMPVN\OpenMP-Base\components
+Executing Server Config...
+Parsing unknown legacy option Language
+[21:20:03] [Info] [artwork:info] Loading artconfig.txt
+[21:20:03] [Warning] No bind address provided. Attempting to start webserver on 127.0.0.1:7777
+[21:20:03] [Info] Web server is running on http://127.0.0.1:7777/
+[21:20:04] [Info] Loading plugin: streamer
+[21:20:04] [Info] 
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+[21:20:04] [Info] Loading plugin: mysql
+[21:20:04] [Info]  >> plugin.mysql: R33 successfully loaded.
+[21:20:04] [Info] Loading plugin: sscanf
+[21:20:04] [Info] 
+
+[21:20:04] [Info]  ===============================
+
+[21:20:04] [Info]       sscanf plugin loaded.     
+
+[21:20:04] [Info]    (c) 2009 Alex "Y_Less" Cole
+
+[21:20:04] [Info]    0.3d-R2 500 Players "dnee"
+
+[21:20:04] [Info]  ===============================
+
+[21:20:04] [Info] Loading plugin: whirlpool
+[21:20:04] [Info]  
+[21:20:04] [Info]  ==================
+[21:20:04] [Info]  
+[21:20:04] [Info]   Whirlpool loaded
+[21:20:04] [Info]  
+[21:20:04] [Info]  ==================
+[21:20:04] [Info]  
+[21:20:04] [Info] AMX (44148976) loaded
+[21:20:04] [Info]  
+[21:20:04] [Info]  ======================================= 
+[21:20:04] [Info]  |                                     | 
+[21:20:04] [Info]  |        YSI version 3.01.0002        | 
+[21:20:04] [Info]  |        By Alex "Y_Less" Cole        | 
+[21:20:04] [Info]  |                                     | 
+[21:20:04] [Info]  ======================================= 
+[21:20:04] [Info]  
+[21:20:04] [Warning] Parameter count does not match specifier in `Script_Call`. callback: Itter_OnGameModeInit - fmat:  - count: 3)
+[21:20:04] [Info] [MySQL] (Main Pipelines) Connecting to 127.0.0.1...
+[21:20:04] [Info] [MySQL] (MainPipeline) Connection successful toward MySQL Database Server!
+[21:20:04] [Info] 
+--------------------------------------------------------------------------------------
+[21:20:04] [Info] 					Project SVN Community
+
+[21:20:04] [Info] 				Developer: Khoi Nguyen, Dang Nguyen, Thiet Phat
+
+[21:20:04] [Info] 					KhNguyenz giu moi ban quyen. 
+[21:20:04] [Info] 			Copyright (C) SVN Community, LLC (2023)
+[21:20:04] [Info] --------------------------------------------------------------------------------------
+
+[21:20:04] [Info] Legacy Network started on port 7777
+[21:20:05] [Info]  
+[21:20:05] [Info]  
+[21:20:14] [Info] [connection] incoming connection: 127.0.0.1:51611 id: 0
+[21:22:41] [Info] [join] Khoi_Nguyenzz has joined the server (0:127.0.0.1)
+[21:22:41] [Info] Kicking 127.0.0.1 because they didn't logon to the game.
+[21:22:41] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerConnect - fmat: iq - count: 1)
+[21:22:41] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerDisconnect - fmat: iiq - count: 2)
+[21:22:41] [Info] [part] Khoi_Nguyenzz has left the server (0:0)
+[21:22:41] [Info] Blocking 127.0.0.1:52306 due to a 'server full' attack (2)
+[21:22:47] [Info] 
+
+*** Streamer Plugin v2.6.1 by Incognito unloaded ***
+
+[21:22:47] [Info] 
+
+[21:22:47] [Info]  ===============================
+
+[21:22:47] [Info]      sscanf plugin unloaded.    
+
+[21:22:47] [Info]  ===============================
+
+[21:22:47] [Info] plugin.mysql: Unloading plugin...
+[21:22:47] [Info] plugin.mysql: Plugin unloaded.
+[21:22:47] [Info]  
+[21:22:47] [Info]  ====================
+[21:22:47] [Info]  
+[21:22:47] [Info]   Whirlpool unloaded
+[21:22:47] [Info]  
+[21:22:47] [Info]  ====================
+[21:22:47] [Info]  
+Starting open.mp server (1.0.1.0) from commit 0000000000000000000000000000000000000000
+Loading component Actors.dll
+	Successfully loaded component Actors (1.0.1.0) with UID c81ca021eae2ad5c
+Loading component Checkpoints.dll
+	Successfully loaded component Checkpoints (1.0.1.0) with UID 44a937350d611dde
+Loading component Classes.dll
+	Successfully loaded component Classes (1.0.1.0) with UID 8cfb3183976da208
+Loading component Console.dll
+	Successfully loaded component Console (1.0.1.0) with UID bfa24e49d0c95ee4
+Loading component CustomModels.dll
+	Successfully loaded component CustomModels (1.0.1.0) with UID 15e3cb1e7c77ffff
+Loading component Databases.dll
+	Successfully loaded component Databases (1.0.1.0) with UID 80092e7eb5821a96
+Loading component Dialogs.dll
+	Successfully loaded component Dialogs (1.0.1.0) with UID 44a111350d611dde
+Loading component Fixes.dll
+	Successfully loaded component Fixes (1.0.1.0) with UID b5c615eff0329ff7
+Loading component GangZones.dll
+	Successfully loaded component GangZones (1.0.1.0) with UID b3351d11ee8d8056
+Loading component LegacyConfig.dll
+	Successfully loaded component LegacyConfig (1.0.1.0) with UID 24ef6216838f9ffc
+Loading component LegacyNetwork.dll
+	Successfully loaded component RakNetLegacyNetwork (1.0.1.0) with UID ea9799fd79cf8442
+Loading component Menus.dll
+	Successfully loaded component Menus (1.0.1.0) with UID 621e219eb97ee0b2
+Loading component Objects.dll
+	Successfully loaded component Objects (1.0.1.0) with UID 59f8415f72da6160
+Loading component Pawn.dll
+	Successfully loaded component Pawn (1.0.1.0) with UID 78906cd9f19c36a6
+Loading component Pickups.dll
+	Successfully loaded component Pickups (1.0.1.0) with UID cf304faa363dd971
+Loading component TextDraws.dll
+	Successfully loaded component TextDraws (1.0.1.0) with UID 9b5dc2b1d15c992a
+Loading component TextLabels.dll
+	Successfully loaded component TextLabels (1.0.1.0) with UID a0c57ea80a009742
+Loading component Timers.dll
+	Successfully loaded component Timers (1.0.1.0) with UID 2ad8124c5ea257a3
+Loading component Unicode.dll
+	Successfully loaded component Unicode (1.0.1.0) with UID 8ffb446f8353922b
+Loading component Variables.dll
+	Successfully loaded component Variables (1.0.1.0) with UID 75e121848bc01fa2
+Loading component Vehicles.dll
+	Successfully loaded component Vehicles (1.0.1.0) with UID 3f1f62ee9e22ab19
+Loaded 21 component(s) from E:\SAMPVN\OpenMP-Base\components
+Executing Server Config...
+Parsing unknown legacy option Language
+[21:22:49] [Info] [artwork:info] Loading artconfig.txt
+[21:22:49] [Warning] No bind address provided. Attempting to start webserver on 127.0.0.1:7777
+[21:22:50] [Info] Web server is running on http://127.0.0.1:7777/
+[21:22:50] [Info] Loading plugin: streamer
+[21:22:50] [Info] 
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+[21:22:50] [Info] Loading plugin: mysql
+[21:22:50] [Info]  >> plugin.mysql: R33 successfully loaded.
+[21:22:50] [Info] Loading plugin: sscanf
+[21:22:50] [Info] 
+
+[21:22:50] [Info]  ===============================
+
+[21:22:50] [Info]       sscanf plugin loaded.     
+
+[21:22:50] [Info]    (c) 2009 Alex "Y_Less" Cole
+
+[21:22:50] [Info]    0.3d-R2 500 Players "dnee"
+
+[21:22:50] [Info]  ===============================
+
+[21:22:50] [Info] Loading plugin: whirlpool
+[21:22:50] [Info]  
+[21:22:50] [Info]  ==================
+[21:22:50] [Info]  
+[21:22:50] [Info]   Whirlpool loaded
+[21:22:50] [Info]  
+[21:22:50] [Info]  ==================
+[21:22:50] [Info]  
+[21:22:50] [Info] AMX (57441960) loaded
+[21:22:50] [Info]  
+[21:22:50] [Info]  ======================================= 
+[21:22:50] [Info]  |                                     | 
+[21:22:50] [Info]  |        YSI version 3.01.0002        | 
+[21:22:50] [Info]  |        By Alex "Y_Less" Cole        | 
+[21:22:50] [Info]  |                                     | 
+[21:22:50] [Info]  ======================================= 
+[21:22:50] [Info]  
+[21:22:50] [Warning] Parameter count does not match specifier in `Script_Call`. callback: Itter_OnGameModeInit - fmat:  - count: 3)
+[21:22:50] [Info] [MySQL] (Main Pipelines) Connecting to 127.0.0.1...
+[21:22:50] [Info] [MySQL] (MainPipeline) Connection successful toward MySQL Database Server!
+[21:22:50] [Info] 
+--------------------------------------------------------------------------------------
+[21:22:50] [Info] 					Project SVN Community
+
+[21:22:50] [Info] 				Developer: Khoi Nguyen, Dang Nguyen, Thiet Phat
+
+[21:22:50] [Info] 					KhNguyenz giu moi ban quyen. 
+[21:22:50] [Info] 			Copyright (C) SVN Community, LLC (2023)
+[21:22:50] [Info] --------------------------------------------------------------------------------------
+
+[21:22:50] [Info] Legacy Network started on port 7777
+[21:22:51] [Info]  
+[21:22:51] [Info]  
+[21:22:58] [Info] [connection] incoming connection: 127.0.0.1:63605 id: 0
+[21:22:58] [Info] [join] Khoi_Nguyenzz has joined the server (0:127.0.0.1)
+[21:22:58] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerConnect - fmat: iq - count: 1)
+[21:23:07] [Info] Khoi Nguyenzz has logged in.
+[21:23:12] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerDisconnect - fmat: iiq - count: 2)
+[21:23:12] [Info] [part] Khoi_Nguyenzz has left the server (0:1)
+[21:23:23] [Info] [connection] incoming connection: 127.0.0.1:57530 id: 0
+[21:23:23] [Info] [join] Khoi_Nguyena has joined the server (0:127.0.0.1)
+[21:23:23] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerConnect - fmat: iq - count: 1)
+[21:23:42] [Info] Khoi Nguyena has logged in.
+[21:24:01] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerDisconnect - fmat: iiq - count: 2)
+[21:24:01] [Info] [part] Khoi_Nguyena has left the server (0:0)
+[21:25:45] [Info] 
+
+*** Streamer Plugin v2.6.1 by Incognito unloaded ***
+
+[21:25:45] [Info] 
+
+[21:25:45] [Info]  ===============================
+
+[21:25:45] [Info]      sscanf plugin unloaded.    
+
+[21:25:45] [Info]  ===============================
+
+[21:25:45] [Info] plugin.mysql: Unloading plugin...
+[21:25:45] [Info] plugin.mysql: Plugin unloaded.
+[21:25:45] [Info]  
+[21:25:45] [Info]  ====================
+[21:25:45] [Info]  
+[21:25:45] [Info]   Whirlpool unloaded
+[21:25:45] [Info]  
+[21:25:45] [Info]  ====================
+[21:25:45] [Info]  
+Starting open.mp server (1.0.1.0) from commit 0000000000000000000000000000000000000000
+Loading component Actors.dll
+	Successfully loaded component Actors (1.0.1.0) with UID c81ca021eae2ad5c
+Loading component Checkpoints.dll
+	Successfully loaded component Checkpoints (1.0.1.0) with UID 44a937350d611dde
+Loading component Classes.dll
+	Successfully loaded component Classes (1.0.1.0) with UID 8cfb3183976da208
+Loading component Console.dll
+	Successfully loaded component Console (1.0.1.0) with UID bfa24e49d0c95ee4
+Loading component CustomModels.dll
+	Successfully loaded component CustomModels (1.0.1.0) with UID 15e3cb1e7c77ffff
+Loading component Databases.dll
+	Successfully loaded component Databases (1.0.1.0) with UID 80092e7eb5821a96
+Loading component Dialogs.dll
+	Successfully loaded component Dialogs (1.0.1.0) with UID 44a111350d611dde
+Loading component Fixes.dll
+	Successfully loaded component Fixes (1.0.1.0) with UID b5c615eff0329ff7
+Loading component GangZones.dll
+	Successfully loaded component GangZones (1.0.1.0) with UID b3351d11ee8d8056
+Loading component LegacyConfig.dll
+	Successfully loaded component LegacyConfig (1.0.1.0) with UID 24ef6216838f9ffc
+Loading component LegacyNetwork.dll
+	Successfully loaded component RakNetLegacyNetwork (1.0.1.0) with UID ea9799fd79cf8442
+Loading component Menus.dll
+	Successfully loaded component Menus (1.0.1.0) with UID 621e219eb97ee0b2
+Loading component Objects.dll
+	Successfully loaded component Objects (1.0.1.0) with UID 59f8415f72da6160
+Loading component Pawn.dll
+	Successfully loaded component Pawn (1.0.1.0) with UID 78906cd9f19c36a6
+Loading component Pickups.dll
+	Successfully loaded component Pickups (1.0.1.0) with UID cf304faa363dd971
+Loading component TextDraws.dll
+	Successfully loaded component TextDraws (1.0.1.0) with UID 9b5dc2b1d15c992a
+Loading component TextLabels.dll
+	Successfully loaded component TextLabels (1.0.1.0) with UID a0c57ea80a009742
+Loading component Timers.dll
+	Successfully loaded component Timers (1.0.1.0) with UID 2ad8124c5ea257a3
+Loading component Unicode.dll
+	Successfully loaded component Unicode (1.0.1.0) with UID 8ffb446f8353922b
+Loading component Variables.dll
+	Successfully loaded component Variables (1.0.1.0) with UID 75e121848bc01fa2
+Loading component Vehicles.dll
+	Successfully loaded component Vehicles (1.0.1.0) with UID 3f1f62ee9e22ab19
+Loaded 21 component(s) from E:\SAMPVN\OpenMP-Base\components
+Executing Server Config...
+Parsing unknown legacy option Language
+[21:25:47] [Info] [artwork:info] Loading artconfig.txt
+[21:25:47] [Warning] No bind address provided. Attempting to start webserver on 127.0.0.1:7777
+[21:25:48] [Info] Web server is running on http://127.0.0.1:7777/
+[21:25:48] [Info] Loading plugin: streamer
+[21:25:48] [Info] 
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+[21:25:48] [Info] Loading plugin: mysql
+[21:25:48] [Info]  >> plugin.mysql: R33 successfully loaded.
+[21:25:48] [Info] Loading plugin: sscanf
+[21:25:48] [Info] 
+
+[21:25:48] [Info]  ===============================
+
+[21:25:48] [Info]       sscanf plugin loaded.     
+
+[21:25:48] [Info]    (c) 2009 Alex "Y_Less" Cole
+
+[21:25:48] [Info]    0.3d-R2 500 Players "dnee"
+
+[21:25:48] [Info]  ===============================
+
+[21:25:48] [Info] Loading plugin: whirlpool
+[21:25:48] [Info]  
+[21:25:48] [Info]  ==================
+[21:25:48] [Info]  
+[21:25:48] [Info]   Whirlpool loaded
+[21:25:48] [Info]  
+[21:25:48] [Info]  ==================
+[21:25:48] [Info]  
+[21:25:48] [Info] AMX (51186240) loaded
+[21:25:48] [Info]  
+[21:25:48] [Info]  ======================================= 
+[21:25:48] [Info]  |                                     | 
+[21:25:48] [Info]  |        YSI version 3.01.0002        | 
+[21:25:48] [Info]  |        By Alex "Y_Less" Cole        | 
+[21:25:48] [Info]  |                                     | 
+[21:25:48] [Info]  ======================================= 
+[21:25:48] [Info]  
+[21:25:48] [Warning] Parameter count does not match specifier in `Script_Call`. callback: Itter_OnGameModeInit - fmat:  - count: 3)
+[21:25:48] [Info] [MySQL] (Main Pipelines) Connecting to 127.0.0.1...
+[21:25:48] [Info] [MySQL] (MainPipeline) Connection successful toward MySQL Database Server!
+[21:25:48] [Info] 
+--------------------------------------------------------------------------------------
+[21:25:48] [Info] 					Project SVN Community
+
+[21:25:48] [Info] 				Developer: Khoi Nguyen, Dang Nguyen, Thiet Phat
+
+[21:25:48] [Info] 					KhNguyenz giu moi ban quyen. 
+[21:25:48] [Info] 			Copyright (C) SVN Community, LLC (2023)
+[21:25:48] [Info] --------------------------------------------------------------------------------------
+
+[21:25:48] [Info] Legacy Network started on port 7777
+[21:25:49] [Info]  
+[21:25:49] [Info]  
+[21:25:57] [Info] [connection] incoming connection: 127.0.0.1:62592 id: 0
+[21:25:57] [Info] [join] Khoi_Nguyenaz has joined the server (0:127.0.0.1)
+[21:25:57] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerConnect - fmat: iq - count: 1)
+[21:26:01] [Info] Khoi Nguyenaz has logged in.
+[21:26:26] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerDisconnect - fmat: iiq - count: 2)
+[21:26:26] [Info] [part] Khoi_Nguyenaz has left the server (0:0)
+[21:27:36] [Info] 
+
+*** Streamer Plugin v2.6.1 by Incognito unloaded ***
+
+[21:27:36] [Info] 
+
+[21:27:36] [Info]  ===============================
+
+[21:27:36] [Info]      sscanf plugin unloaded.    
+
+[21:27:36] [Info]  ===============================
+
+[21:27:36] [Info] plugin.mysql: Unloading plugin...
+[21:27:36] [Info] plugin.mysql: Plugin unloaded.
+[21:27:36] [Info]  
+[21:27:36] [Info]  ====================
+[21:27:36] [Info]  
+[21:27:36] [Info]   Whirlpool unloaded
+[21:27:36] [Info]  
+[21:27:36] [Info]  ====================
+[21:27:36] [Info]  
+Starting open.mp server (1.0.1.0) from commit 0000000000000000000000000000000000000000
+Loading component Actors.dll
+	Successfully loaded component Actors (1.0.1.0) with UID c81ca021eae2ad5c
+Loading component Checkpoints.dll
+	Successfully loaded component Checkpoints (1.0.1.0) with UID 44a937350d611dde
+Loading component Classes.dll
+	Successfully loaded component Classes (1.0.1.0) with UID 8cfb3183976da208
+Loading component Console.dll
+	Successfully loaded component Console (1.0.1.0) with UID bfa24e49d0c95ee4
+Loading component CustomModels.dll
+	Successfully loaded component CustomModels (1.0.1.0) with UID 15e3cb1e7c77ffff
+Loading component Databases.dll
+	Successfully loaded component Databases (1.0.1.0) with UID 80092e7eb5821a96
+Loading component Dialogs.dll
+	Successfully loaded component Dialogs (1.0.1.0) with UID 44a111350d611dde
+Loading component Fixes.dll
+	Successfully loaded component Fixes (1.0.1.0) with UID b5c615eff0329ff7
+Loading component GangZones.dll
+	Successfully loaded component GangZones (1.0.1.0) with UID b3351d11ee8d8056
+Loading component LegacyConfig.dll
+	Successfully loaded component LegacyConfig (1.0.1.0) with UID 24ef6216838f9ffc
+Loading component LegacyNetwork.dll
+	Successfully loaded component RakNetLegacyNetwork (1.0.1.0) with UID ea9799fd79cf8442
+Loading component Menus.dll
+	Successfully loaded component Menus (1.0.1.0) with UID 621e219eb97ee0b2
+Loading component Objects.dll
+	Successfully loaded component Objects (1.0.1.0) with UID 59f8415f72da6160
+Loading component Pawn.dll
+	Successfully loaded component Pawn (1.0.1.0) with UID 78906cd9f19c36a6
+Loading component Pickups.dll
+	Successfully loaded component Pickups (1.0.1.0) with UID cf304faa363dd971
+Loading component TextDraws.dll
+	Successfully loaded component TextDraws (1.0.1.0) with UID 9b5dc2b1d15c992a
+Loading component TextLabels.dll
+	Successfully loaded component TextLabels (1.0.1.0) with UID a0c57ea80a009742
+Loading component Timers.dll
+	Successfully loaded component Timers (1.0.1.0) with UID 2ad8124c5ea257a3
+Loading component Unicode.dll
+	Successfully loaded component Unicode (1.0.1.0) with UID 8ffb446f8353922b
+Loading component Variables.dll
+	Successfully loaded component Variables (1.0.1.0) with UID 75e121848bc01fa2
+Loading component Vehicles.dll
+	Successfully loaded component Vehicles (1.0.1.0) with UID 3f1f62ee9e22ab19
+Loaded 21 component(s) from E:\SAMPVN\OpenMP-Base\components
+Executing Server Config...
+Parsing unknown legacy option Language
+[21:27:48] [Info] [artwork:info] Loading artconfig.txt
+[21:27:48] [Warning] No bind address provided. Attempting to start webserver on 127.0.0.1:7777
+[21:27:49] [Info] Web server is running on http://127.0.0.1:7777/
+[21:27:49] [Info] Loading plugin: streamer
+[21:27:49] [Info] 
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+[21:27:49] [Info] Loading plugin: mysql
+[21:27:49] [Info]  >> plugin.mysql: R33 successfully loaded.
+[21:27:49] [Info] Loading plugin: sscanf
+[21:27:49] [Info] 
+
+[21:27:49] [Info]  ===============================
+
+[21:27:49] [Info]       sscanf plugin loaded.     
+
+[21:27:49] [Info]    (c) 2009 Alex "Y_Less" Cole
+
+[21:27:49] [Info]    0.3d-R2 500 Players "dnee"
+
+[21:27:49] [Info]  ===============================
+
+[21:27:49] [Info] Loading plugin: whirlpool
+[21:27:49] [Info]  
+[21:27:49] [Info]  ==================
+[21:27:49] [Info]  
+[21:27:49] [Info]   Whirlpool loaded
+[21:27:49] [Info]  
+[21:27:49] [Info]  ==================
+[21:27:49] [Info]  
+[21:27:49] [Info] AMX (52956008) loaded
+[21:27:49] [Info]  
+[21:27:49] [Info]  ======================================= 
+[21:27:49] [Info]  |                                     | 
+[21:27:49] [Info]  |        YSI version 3.01.0002        | 
+[21:27:49] [Info]  |        By Alex "Y_Less" Cole        | 
+[21:27:49] [Info]  |                                     | 
+[21:27:49] [Info]  ======================================= 
+[21:27:49] [Info]  
+[21:27:49] [Warning] Parameter count does not match specifier in `Script_Call`. callback: Itter_OnGameModeInit - fmat:  - count: 3)
+[21:27:49] [Info] [MySQL] (Main Pipelines) Connecting to 127.0.0.1...
+[21:27:49] [Info] [MySQL] (MainPipeline) Connection successful toward MySQL Database Server!
+[21:27:49] [Info] 
+--------------------------------------------------------------------------------------
+[21:27:49] [Info] 					Project SVN Community
+
+[21:27:49] [Info] 				Developer: Khoi Nguyen, Dang Nguyen, Thiet Phat
+
+[21:27:49] [Info] 					KhNguyenz giu moi ban quyen. 
+[21:27:49] [Info] 			Copyright (C) SVN Community, LLC (2023)
+[21:27:49] [Info] --------------------------------------------------------------------------------------
+
+[21:27:49] [Info] Legacy Network started on port 7777
+[21:27:50] [Info]  
+[21:27:50] [Info]  
+[21:28:03] [Info] [connection] incoming connection: 127.0.0.1:61537 id: 0
+[21:28:03] [Info] [join] Khoi_Nguyen has joined the server (0:127.0.0.1)
+[21:28:03] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerConnect - fmat: iq - count: 1)
+[21:28:07] [Info] Khoi Nguyen has logged in.
+[21:28:16] [Info] [zcmd] [Khoi Nguyen]: /thoitiet 1
+[21:28:22] [Info] [zcmd] [Khoi Nguyen]: /sampvnblog 0 99999
+[21:28:24] [Info] [zcmd] [Khoi Nguyen]: /thoitiet 1
+[21:28:37] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerDisconnect - fmat: iiq - count: 2)
+[21:28:37] [Info] [part] Khoi_Nguyen has left the server (0:1)
+[21:36:58] [Info] [connection] incoming connection: 127.0.0.1:50212 id: 0
+[21:36:58] [Info] [join] Khoi_Nguyen has joined the server (0:127.0.0.1)
+[21:36:59] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerConnect - fmat: iq - count: 1)
+[21:37:02] [Info] Khoi Nguyen has logged in.
+[21:37:06] [Info] [zcmd] [Khoi Nguyen]: /veh 3194
+[21:37:09] [Info] [zcmd] [Khoi Nguyen]: /veh 3194 1 1
+[21:38:08] [Info] [zcmd] [Khoi Nguyen]: /givenos 0
+[21:38:41] [Info] [zcmd] [Khoi Nguyen]: /FLY
+[21:38:47] [Info] [zcmd] [Khoi Nguyen]: /FLY
+[21:39:25] [Info] [zcmd] [Khoi Nguyen]: /VEH 3150 1 1
+[21:39:41] [Error] Invalid instruction
+[21:39:41] [Error] Invalid instruction
+[21:39:42] [Error] Invalid instruction
+[21:39:45] [Error] Invalid instruction
+[21:39:45] [Error] Invalid instruction
+[21:39:51] [Error] Invalid instruction
+[21:40:01] [Info] [zcmd] [Khoi Nguyen]: /fixveh
+[21:40:01] [Error] Invalid instruction
+[21:40:08] [Error] Invalid instruction
+[21:40:33] [Info] [zcmd] [Khoi Nguyen]: /speedo
+[21:40:54] [Error] Invalid instruction
+[21:41:02] [Error] Invalid instruction
+[21:41:02] [Error] Invalid instruction
+[21:41:03] [Error] Invalid instruction
+[21:41:04] [Error] Invalid instruction
+[21:41:04] [Error] Invalid instruction
+[21:41:13] [Info] [zcmd] [Khoi Nguyen]: /fly
+[21:41:23] [Error] Invalid instruction
+[21:42:04] [Info] [zcmd] [Khoi Nguyen]: /fly
+[21:42:14] [Warning] Parameter count does not match specifier in `Script_Call`. callback: S@@_OnPlayerDisconnect - fmat: iiq - count: 2)
+[21:42:14] [Info] [part] Khoi_Nguyen has left the server (0:1)
+[21:47:19] [Info] 
+
+*** Streamer Plugin v2.6.1 by Incognito unloaded ***
+
+[21:47:19] [Info] 
+
+[21:47:19] [Info]  ===============================
+
+[21:47:19] [Info]      sscanf plugin unloaded.    
+
+[21:47:19] [Info]  ===============================
+
+[21:47:19] [Info] plugin.mysql: Unloading plugin...
+[21:47:19] [Info] plugin.mysql: Plugin unloaded.
+[21:47:19] [Info]  
+[21:47:19] [Info]  ====================
+[21:47:19] [Info]  
+[21:47:19] [Info]   Whirlpool unloaded
+[21:47:19] [Info]  
+[21:47:19] [Info]  ====================
+[21:47:19] [Info]  

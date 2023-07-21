@@ -65,7 +65,8 @@ new VehicleCustomName[][] =
     "PORSCHE TAYCAN",
     "SH350I",
     "Maybach S680",
-    "Ferrari"
+    "Ferrari",
+    "None"
 };
 stock GetVehicleNameExz(vehid)
 {
@@ -75,6 +76,7 @@ stock GetVehicleNameExz(vehid)
     else
     {
         new IndexVeh = GetVehicleModel(vehid);
+        // new stringNone[128] = "None";
         switch(IndexVeh)
         {
             case 613: return VehicleCustomName[0];
@@ -130,10 +132,11 @@ stock GetVehicleNameExz(vehid)
             case 3213: return VehicleCustomName[50];
             case 3216: return VehicleCustomName[51];
             case 3217: return VehicleCustomName[52];
-            // default: return 0;
+            default: return VehicleCustomName[53];
         }
         printf("IndexVeh: %d", IndexVeh);
     }
+    return VehicleCustomName[53];
 }
 CheckPointCheck(iTargetID)  {
 	if(GetPVarType(iTargetID, "hFind") > 0 || GetPVarType(iTargetID, "TrackCar") > 0 || GetPVarType(iTargetID, "DV_TrackCar") > 0 || GetPVarType(iTargetID, "Packages") > 0 || TaxiAccepted[iTargetID] != INVALID_PLAYER_ID || EMSAccepted[iTargetID] != INVALID_PLAYER_ID || BusAccepted[iTargetID] != INVALID_PLAYER_ID || gPlayerCheckpointStatus[iTargetID] != CHECKPOINT_NONE || MedicAccepted[iTargetID] != INVALID_PLAYER_ID || MechanicCallTime[iTargetID] >= 1) {
@@ -142,194 +145,51 @@ CheckPointCheck(iTargetID)  {
 	return 0;
 }
 
-NationSel_InitNationNameText(Text:txtInit)
+stock PlayerRegisted(playerid)
 {
-  	TextDrawUseBox(txtInit, 0);
-	TextDrawLetterSize(txtInit,1.25,3.0);
-	TextDrawFont(txtInit, 0);
-	TextDrawSetShadow(txtInit,0);
-    TextDrawSetOutline(txtInit,1);
-    TextDrawColor(txtInit,0xEEEEEEFF);
-    TextDrawBackgroundColor(txtNationSelHelper,0x000000FF);
-}
-
-NationSel_InitTextDraws()
-{
-    // Init our observer helper text display
-	txtSanAndreas = TextDrawCreate(10.0, 380.0, "San Andreas");
-	NationSel_InitNationNameText(txtSanAndreas);
-	txtTierraRobada = TextDrawCreate(10.0, 380.0, "Tierra Robada");
-	NationSel_InitNationNameText(txtTierraRobada);
-
-    // Init our observer helper text display
-	txtNationSelHelper = TextDrawCreate(10.0, 415.0,
- 	" Nhan ~b~~k~~GO_LEFT~ ~w~hoac ~b~~k~~GO_RIGHT~ ~w~de chuyen quoc tich.~n~ Nhan ~r~~k~~PED_FIREWEAPON~ ~w~de chon.");
-	TextDrawUseBox(txtNationSelHelper, 1);
-	TextDrawBoxColor(txtNationSelHelper,0x222222BB);
-	TextDrawLetterSize(txtNationSelHelper,0.3,1.0);
-	TextDrawTextSize(txtNationSelHelper,400.0,40.0);
-	TextDrawFont(txtNationSelHelper, 2);
-	TextDrawSetShadow(txtNationSelHelper,0);
-    TextDrawSetOutline(txtNationSelHelper,1);
-    TextDrawBackgroundColor(txtNationSelHelper,0x000000FF);
-    TextDrawColor(txtNationSelHelper,0xFFFFFFFF);
-
-	txtNationSelMain = TextDrawCreate(10.0, 50.0, "Ban hay chon quoc tich cua minh");
-	TextDrawUseBox(txtNationSelMain, 0);
-	TextDrawLetterSize(txtNationSelMain, 0.5, 1.0);
-	TextDrawFont(txtNationSelMain, 1);
-	TextDrawSetShadow(txtNationSelMain, 0);
-    TextDrawSetOutline(txtNationSelMain, 1);
-    TextDrawBackgroundColor(txtNationSelMain, 0x000000FF);
-    TextDrawColor(txtNationSelMain, 0xFFFFFFFF);
-}
-
-NationSel_SetupSelectedNation(playerid)
-{
-	if(PlayerNationSelection[playerid] == -1) {
-		PlayerNationSelection[playerid] = NATION_SAN_ANDREAS;
-	}
-
-	if(PlayerNationSelection[playerid] == NATION_SAN_ANDREAS) {
-		SetPlayerInterior(playerid,0);
-   		SetPlayerCameraPos(playerid,1630.6136,-2286.0298,110.0);
-		SetPlayerCameraLookAt(playerid,1887.6034,-1682.1442,47.6167);
-
-		TextDrawShowForPlayer(playerid,txtSanAndreas);
-		TextDrawHideForPlayer(playerid,txtTierraRobada);
-	}
-	else if(PlayerNationSelection[playerid] == NATION_TIERRA_ROBADA) {
-		SetPlayerInterior(playerid,0);
-   		SetPlayerCameraPos(playerid,-1846.606201,1509.823120,123.755050);
-		SetPlayerCameraLookAt(playerid,-1790.602783,892.187805,42.851142);
-
-		TextDrawHideForPlayer(playerid,txtSanAndreas);
-		TextDrawShowForPlayer(playerid,txtTierraRobada);
-	}
-}
-
-NationSel_SwitchToNextNation(playerid)
-{
-    PlayerNationSelection[playerid]++;
-	if(PlayerNationSelection[playerid] > NATION_TIERRA_ROBADA) {
-	    PlayerNationSelection[playerid] = NATION_SAN_ANDREAS;
-	}
-	PlayerPlaySound(playerid,1052,0.0,0.0,0.0);
-	NationSel_SetupSelectedNation(playerid);
-	TogglePlayerControllable(playerid, 0);
-}
-
-NationSel_SwitchToPrevNation(playerid)
-{
-    PlayerNationSelection[playerid]--;
-	if(PlayerNationSelection[playerid] < NATION_SAN_ANDREAS) {
-	    PlayerNationSelection[playerid] = NATION_TIERRA_ROBADA;
-	}
-	PlayerPlaySound(playerid,1053,0.0,0.0,0.0);
-	NationSel_SetupSelectedNation(playerid);
-	TogglePlayerControllable(playerid, 0);
-}
-
-NationSel_HandleNationSelection(playerid)
-{
-	new Keys,ud,lr;
-	//new Float:diff = float(TRCitizens)/float(TotalCitizens)*100;
-    GetPlayerKeys(playerid,Keys,ud,lr);
-
-    if(PlayerNationSelection[playerid] == -1) {
-		NationSel_SwitchToNextNation(playerid);
-		return;
-	}
-
-	if(Keys & KEY_FIRE)
+	RegistrationStep[playerid] = 0;
+    PlayerInfo[playerid][pTut] = 1;
+	gOoc[playerid] = 0; gNews[playerid] = 0; gFam[playerid] = 0;
+	TogglePlayerControllable(playerid, 1);
+	SetCamBack(playerid);
+	DeletePVar(playerid, "MedicBill");
+	SetPlayerColor(playerid,TEAM_HIT_COLOR);
+	SetPlayerInterior(playerid,0);
+	for(new x;x<10000;x++)
 	{
-	    PlayerHasNationSelected[playerid] = 1;
-	    TextDrawHideForPlayer(playerid,txtNationSelHelper);
-		TextDrawHideForPlayer(playerid,txtNationSelMain);
-		TextDrawHideForPlayer(playerid,txtSanAndreas);
-		TextDrawHideForPlayer(playerid,txtTierraRobada);
-		RegistrationStep[playerid] = 0;
-	    PlayerInfo[playerid][pTut] = 1;
-		gOoc[playerid] = 0; gNews[playerid] = 0; gFam[playerid] = 0;
-		TogglePlayerControllable(playerid, 1);
-		SetCamBack(playerid);
-		DeletePVar(playerid, "MedicBill");
-		SetPlayerColor(playerid,TEAM_HIT_COLOR);
-		SetPlayerInterior(playerid,0);
-		for(new x;x<10000;x++)
+		new rand=random(300);
+		if(PlayerInfo[playerid][pSex] == 0)
 		{
-			new rand=random(300);
-			if(PlayerInfo[playerid][pSex] == 0)
+			if(IsValidSkin(rand) && IsFemaleSpawnSkin(rand))
 			{
-				if(IsValidSkin(rand) && IsFemaleSpawnSkin(rand))
-				{
-					PlayerInfo[playerid][pModel] = rand;
-					SetPlayerSkin(playerid, rand);
-					break;
-				}
-			}
-			else
-			{
-				if(IsValidSkin(rand) && !IsFemaleSkin(rand))
-				{
-					PlayerInfo[playerid][pModel] = rand;
-					SetPlayerSkin(playerid, rand);
-					break;
-				}
+				PlayerInfo[playerid][pModel] = rand;
+				SetPlayerSkin(playerid, rand);
+				break;
 			}
 		}
-		ShowPlayerDialog(playerid, NULLEMAIL, DIALOG_STYLE_INPUT, "{3399FF}Dang ki E-mail", "{FFFFFF}Xin vui long go dung dia chi e-mail cua ban voi tai khoan.\n\nLuu y: Vui long lam dung de bao mat tai khoan tot hon.", "Dong y", "Bo qua");
-		PlayerInfo[playerid][pSVIPExVoucher] += 1;
-		PlayerInfo[playerid][pCredits] += 1000;
-  		PlayerInfo[playerid][pCash] += 2000000;
-		SendClientMessage(playerid, COLOR_YELLOW, "Ban nhan duoc VIP 7 ngay, 1,000 Credit va 2,000,000$");
-		SendClientMessage(playerid, COLOR_YELLOW, "Su dung /myvouchers de kiem tra");
-		SendClientMessage(playerid, COLOR_YELLOW, "Luu y: Ban hay su dung credit ngay bay gio, neu khong se bi mat khi thoat ra khoi game");
-		SetCameraBehindPlayer(playerid);
-		SetPlayerVirtualWorld(playerid, 0);
-		if(NATION_SAN_ANDREAS == PlayerNationSelection[playerid])
+		else
 		{
-			switch(random(2))
+			if(IsValidSkin(rand) && !IsFemaleSkin(rand))
 			{
-				case 0:
-				{
-					SetPlayerPos(playerid, 1804.0280,-1654.1016,14.5093);
-					SetPlayerFacingAngle(playerid, 90.0);
-				}
-				case 1:
-				{
-					SetPlayerPos(playerid, 1804.0280,-1654.1016,14.5093);
-					SetPlayerFacingAngle(playerid, 90.0);
-				}
+				PlayerInfo[playerid][pModel] = rand;
+				SetPlayerSkin(playerid, rand);
+				break;
 			}
-			PlayerInfo[playerid][pNation] = 0; // SA (I guess it'll have to be here for it assign.)
 		}
-		else if(NATION_TIERRA_ROBADA == PlayerNationSelection[playerid])
-		{
-				switch(random(2))
-				{
-					case 0:
-					{
-						SetPlayerPos(playerid, 1804.0280,-1654.1016,14.5093);
-						SetPlayerFacingAngle(playerid, 90.0);
-					}
-     				case 1:
-					{
-						SetPlayerPos(playerid, 1804.0280,-1654.1016,14.5093);
-						SetPlayerFacingAngle(playerid, 90.0);
-					}
-				}
-			}
-	    return;
 	}
-
-	if(lr > 0) {
-	   NationSel_SwitchToNextNation(playerid);
-	}
-	else if(lr < 0) {
-	   NationSel_SwitchToPrevNation(playerid);
-	}
+	ShowPlayerDialog(playerid, NULLEMAIL, DIALOG_STYLE_INPUT, "{3399FF}Dang ki E-mail", "{FFFFFF}Xin vui long go dung dia chi e-mail cua ban voi tai khoan.\n\nLuu y: Vui long lam dung de bao mat tai khoan tot hon.", "Dong y", "Bo qua");
+	PlayerInfo[playerid][pSVIPExVoucher] += 1;
+	PlayerInfo[playerid][pCredits] += 1000;
+	PlayerInfo[playerid][pCash] += 2000000;
+	SendClientMessage(playerid, COLOR_YELLOW, "Ban nhan duoc VIP 7 ngay, 1,000 Credit va 2,000,000$");
+	SendClientMessage(playerid, COLOR_YELLOW, "Su dung /myvouchers de kiem tra");
+	SendClientMessage(playerid, COLOR_YELLOW, "Luu y: Ban hay su dung credit ngay bay gio, neu khong se bi mat khi thoat ra khoi game");
+	SetCameraBehindPlayer(playerid);
+	SetPlayerVirtualWorld(playerid, 0);
+	SetPlayerPos(playerid, 1804.0280,-1654.1016,14.5093);
+	SetPlayerFacingAngle(playerid, 90.0);
 }
+
 
 OnPlayerChangeWeapon(playerid, newweapon)
 {
@@ -3533,7 +3393,6 @@ public InitiateGamemode()
 	LoadElevatorStuff();
 	LoadFamilies();
 	LoadPoints();
-	//LoadHelp();
 	Misc_Load();
 	InitPokerTables();
 	ResetElevatorQueue();
@@ -3543,7 +3402,7 @@ public InitiateGamemode()
 	ShowPlayerMarkers(PLAYER_MARKERS_MODE_STREAMED);
 	DisableInteriorEnterExits();
 	ClearReports();
-	NationSel_InitTextDraws();
+	// NationSel_InitTextDraws();
 	CountCitizens();
 	SetNameTagDrawDistance(40.0);
 	AllowInteriorWeapons(1);
@@ -3555,15 +3414,10 @@ public InitiateGamemode()
 	ResetVariables();
 	FixServerTime();
 	SetTimer("RotateWheel",3*1000,0);
-	// SetTimer("WarmupLock", 15000, 0);
 	SetTimer("MailDeliveryTimer", 60000, 1);
-	//SetTimer("SyncTurfWarsMiniMap", 2500, 1);
 	
 	//Island for crate system
     MAXCRATES = 10; // Sets Default Max Crates
-	
-	//LoadCarrier()
-	//SelectCharmPoint();
 	
 	gWeather = random(19) + 1;
 	if(gWeather == 1) gWeather=10;
@@ -3571,24 +3425,21 @@ public InitiateGamemode()
     
     // Streamer
     Streamer_TickRate(125);
-    //print("[Streamer] Loading Dynamic Static Vehicles...");
     LoadStreamerStaticVehicles();
-    //print("[Streamer] Loading Dynamic Pickups...");
     LoadStreamerDynamicPickups();
-    // print("[Streamer] Loading 3D Text Labels...");
     LoadStreamerDynamic3DTextLabels();
     UpdateSANewsBroadcast();
     BikeParkourObjectStage[0] = 0; //BikeParkourObjectStage[1] = 0;
-    
-    // Textdraws
-    // print("[Textdraws] Loading Textdraws...");
     LoadTextDraws();
-    
-    // Dynamic Groups
-    // print("[Dynamic Groups] Loading Dynamic Groups...");
     LoadDynamicGroups();
-    // print("[Dynamic Groups] Loading Dynamic Groups Vehicles...");
     LoadDynamicGroupVehicles();
+
+    print("\n--------------------------------------------------------------------------------------");
+	print("					Project SVN Community\n");
+	print("				Developer: Khoi Nguyen, Dang Nguyen, Thiet Phat\n");
+	print("					KhNguyenz giu moi ban quyen. ");
+	print("			Copyright (C) SVN Community, LLC (2023)");
+	print("--------------------------------------------------------------------------------------\n");
 	
 	return 1;
 }		

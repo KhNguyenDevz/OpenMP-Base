@@ -12,27 +12,20 @@
 #include <YSI\y_timers>
 #include <YSI\y_utils>
 #include <crashdetect>
+#include <easyDialog>
 #if defined SOCKET_ENABLED
 #include <socket>
 #endif
-#include "./includes/core/defines.pwn"
-#include "./includes/core/enums.pwn"
-#include "./includes/core/variables.pwn"
-#include "./includes/core/timers.pwn"
-#include "./includes/core/functions.pwn"
-#include "./includes/core/commands.pwn"
-#include "./includes/core/mysql.pwn"
-#include "./includes/core/OnPlayerLoad.pwn"
-#include "./includes/core/callbacks.pwn"
-#include "./includes/core/textdraws.pwn"
-#include "./includes/core/streamer.pwn"
-#include "./includes/core/OnDialogResponse.pwn"
+
+#include "./includes/core/build.pwn" // Core
+
+#include "./includes/Server/Maps/Main.pwn"
+#include "./includes/Server/Maps/Spawn.pwn"
 
 main() {}
 
 public OnGameModeInit()
 {
-	//("Dang chuan bi tai gamemode, xin vui long cho doi...");
 	g_mysql_Init();
 	return 1;
 }

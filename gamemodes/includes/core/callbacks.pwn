@@ -361,12 +361,6 @@ public OnPlayerUpdate(playerid)
 	}
 	playerSeconds[playerid] = gettime();
 
-	if(PlayerInfo[playerid][pNation] == -1 && TutStep[playerid] == 24 && RegistrationStep[playerid] == 3)
-	{
-	    NationSel_HandleNationSelection(playerid);
-	    return 1;
-	}
-
 	new pCurWeap = GetPlayerWeapon(playerid);
     if(pCurWeap != pCurrentWeapon{playerid})
     {
@@ -2691,8 +2685,8 @@ public OnPlayerConnect(playerid) {
 		return 1;
 	}
 	
-	CheckAdminWhitelist(playerid);
-	CheckBanEx(playerid);
+	// CheckAdminWhitelist(playerid);
+	// CheckBanEx(playerid);
 	
 	/*new string[128], serial[64];
 	gpci(playerid, serial, sizeof(serial));
@@ -2709,8 +2703,6 @@ public OnPlayerConnect(playerid) {
 	SetPlayerVirtualWorld(playerid, 0);
 
 	SetPlayerColor(playerid,TEAM_HIT_COLOR);
-	SendClientMessage( playerid, COLOR_WHITE, "SERVER: Chao mung ban den voi Server NGG-TDM" );
-	SendClientMessage( playerid, COLOR_WHITE, "SA-MP VN Blog | sampvn94.blogspot.com" );
 
 	SyncPlayerTime(playerid);
 

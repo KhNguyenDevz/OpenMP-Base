@@ -359,16 +359,13 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				TextDrawShowForPlayer(playerid, txtNationSelMain);
 				PlayerNationSelection[playerid] = -1;
 
-			//	Streamer_UpdateEx(playerid, 1607.0160,-1510.8218,207.4438);
-			//	SetPlayerPos(playerid, 1607.0160,-1510.8218,-10.0);
-			//	SetPlayerCameraPos(playerid, 1850.1813,-1765.7552,81.9271);
-			//	SetPlayerCameraLookAt(playerid, 1607.0160,-1510.8218,207.4438);
 				SetPlayerVirtualWorld(playerid, 0);
 				SetPlayerInterior(playerid, 0);
 				Streamer_UpdateEx(playerid,1716.1129,-1880.0715,22.0264);
 				SetPlayerPos(playerid,1716.1129,-1880.0715,-10.0);
 				SetPlayerCameraPos(playerid,1755.0413,-1824.8710,20.2100);
 				SetPlayerCameraLookAt(playerid,1716.1129,-1880.0715,22.0264);
+				PlayerRegisted(playerid);
 			}
 		}
 	}
