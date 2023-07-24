@@ -1,4 +1,4 @@
-/*----------------------------------------------------------------------------*\
+/**--------------------------------------------------------------------------**\
 					=======================================
 					 y_playerset - Collections of players! 
 					=======================================
@@ -54,12 +54,13 @@ Version:
 Changelog:
 	30/04/11:
 		First version
-\*----------------------------------------------------------------------------*/
+</remarks>
+\**--------------------------------------------------------------------------**/
 
 #include <a_samp>
-#include <YSI\y_iterate>
-#include <YSI\y_playerarray>
-#include <YSI\y_debug>
+#include "y_iterate"
+#include "y_playerarray"
+#include "y_debug"
 
 #if !defined MAX_PLAYER_SET_STACK
     #define MAX_PLAYER_SET_STACK (3)

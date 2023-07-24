@@ -596,6 +596,10 @@ public OnQueryFinish(resultid, extraid, handleid)
 					cache_get_field_content(row,  "GVIPExVoucher", szResult, MainPipeline); PlayerInfo[extraid][pGVIPExVoucher] = strval(szResult);		
 					cache_get_field_content(row,  "VIPSellable", szResult, MainPipeline); PlayerInfo[extraid][pVIPSellable] = strval(szResult);	
 					cache_get_field_content(row,  "ReceivedPrize", szResult, MainPipeline); PlayerInfo[extraid][pReceivedPrize] = strval(szResult);
+
+					cache_get_field_content(row,  "Food", szResult, MainPipeline); PlayerInfo[extraid][pFood] = strval(szResult);
+					cache_get_field_content(row,  "Drink", szResult, MainPipeline); PlayerInfo[extraid][pDrink] = strval(szResult);
+					cache_get_field_content(row,  "Sleep", szResult, MainPipeline); PlayerInfo[extraid][pSleep] = strval(szResult);
 					
 					GetPartnerName(extraid);
 					IsEmailPending(extraid, PlayerInfo[extraid][pId], PlayerInfo[extraid][pEmail]);
@@ -690,21 +694,18 @@ public OnQueryFinish(resultid, extraid, handleid)
 					szEmail[256];
 
 				cache_get_field_content(i, "Username", szResult, MainPipeline);
-				if(strcmp(szResult, GetPlayerNameExt(extraid), true) != 0)
-				{
-					//g_mysql_AccountAuthCheck(extraid);
-					return 1;
-				}
 
 				cache_get_field_content(i, "Email", szEmail, MainPipeline);
 				cache_get_field_content(i, "Key", szResult, MainPipeline);
-				GetPVarString(extraid, "PassAuth", szBuffer, sizeof(szBuffer));
+
+				GetPVarString(extraid, "AuthPassword_", szBuffer, sizeof(szBuffer));
+
 				WP_Hash(szPass, sizeof(szPass), szBuffer);
 
 				if(isnull(szEmail)) SetPVarInt(extraid, "NullEmail", 1);
 
 				if((isnull(szPass)) || (isnull(szResult)) || (strcmp(szPass, szResult) != 0)) {
-					// Invalid Password - Try Again!
+					ShowPlayerNotice(extraid, "~r~Ban da nhap sai mat khau", 2000);
 					ShowMainMenuDialog(extraid, 3);
 					HideNoticeGUIFrame(extraid);
 					if(++gPlayerLogTries[extraid] == 2) {
@@ -718,6 +719,7 @@ public OnQueryFinish(resultid, extraid, handleid)
 			}
 			HideNoticeGUIFrame(extraid);
 			g_mysql_LoadAccount(extraid);
+			HidePlayerAuthForm(extraid);
 			return 1;
 		}
 		case REGISTER_THREAD:
@@ -3000,6 +3002,10 @@ stock g_mysql_SaveAccount(playerid)
 	SavePlayerInteger(query, GetPlayerSQLId(playerid), "GVIPExVoucher", PlayerInfo[playerid][pGVIPExVoucher]);
 	SavePlayerInteger(query, GetPlayerSQLId(playerid), "VIPSellable", PlayerInfo[playerid][pVIPSellable]);
 	SavePlayerInteger(query, GetPlayerSQLId(playerid), "ReceivedPrize", PlayerInfo[playerid][pReceivedPrize]);
+
+	SavePlayerInteger(query, GetPlayerSQLId(playerid), "Food", PlayerInfo[playerid][pFood]);
+	SavePlayerInteger(query, GetPlayerSQLId(playerid), "Drink", PlayerInfo[playerid][pDrink]);
+	SavePlayerInteger(query, GetPlayerSQLId(playerid), "Sleep", PlayerInfo[playerid][pSleep]);
 	
 	MySQLUpdateFinish(query, GetPlayerSQLId(playerid));
 	return 1;

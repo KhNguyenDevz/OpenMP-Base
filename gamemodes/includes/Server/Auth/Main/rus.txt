@@ -1,0 +1,7 @@
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Server\Auth\Main\_var.pwn(2) : ������ 017: ������������� ������ "MAX_PLAYERS"
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Server\Auth\Main\_var.pwn(2) : ������������� �� ������������: "AuthPTD"
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Server\Auth\Main\_var.pwn(2) -- (4) : ������ 013: ����������� ����� ����� (��� public-�������)
+Pawn compiler 3.2.3664	 	 	Copyright (c) 1997-2016, ITB CompuPhase
+
+
+������:2.

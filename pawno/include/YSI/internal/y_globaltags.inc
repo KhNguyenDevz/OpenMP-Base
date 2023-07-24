@@ -1,4 +1,4 @@
-/*----------------------------------------------------------------------------*\
+/**--------------------------------------------------------------------------**\
 					=================================
 					 y_globaltags - Variable tags.
 					=================================
@@ -59,13 +59,14 @@ Functions:
 Variables:
 	Global:
 		-
-\*----------------------------------------------------------------------------*/
+</remarks>
+\**--------------------------------------------------------------------------**/
 
 // "File,Float," must remain last always.
 #if defined CUSTOM_TAG_TYPES
-	#define File,Float, Float,File,CUSTOM_TAG_TYPES
+	#define File,Float, Float,File,Text3D,CUSTOM_TAG_TYPES
 #else
-	#define File,Float, Float,File
+	#define File,Float, Float,File,Text3D
 #endif
 // Add new tags to the START of this list.
 //#define GLOBAL_TAG_TYPES {_,Language,Bit,PlayerText3D,Text,Text3D,Menu,DB,DBResult,Style,XML,Bintree,Group,Timer,File,Float} //,CUSTOM_TAG_TYPES}

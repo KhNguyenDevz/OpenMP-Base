@@ -1,4 +1,4 @@
-/*----------------------------------------------------------------------------*\
+/**--------------------------------------------------------------------------**\
                               =====================
                                YSI - Version Check
                               =====================
@@ -91,11 +91,12 @@ Operators:
 	-
 Natives:
 	-
-\*----------------------------------------------------------------------------*/
+</remarks>
+\**--------------------------------------------------------------------------**/
 
 #include <a_samp>
 #tryinclude <a_http>
-#include <YSI\internal\y_natives>
+#include "y_natives"
 
 #if MAX_PLAYER_NAME != (24)
 	#error Unknown MAX_PLAYER_NAME size.
@@ -105,15 +106,13 @@ Natives:
 	#define MAX_PLAYER_NAME 24
 #endif
 
-#include <YSI\y_scriptinit>
+#include "..\y_scriptinit"
 
-// Version of the repository code to use.
-#define YSI_VERSION_RESPO               1
+#define YSI_VERSION_RESPO               2
 
-// Version of the YSI code.
 #define YSI_VERSION_MAJOR               3
-#define YSI_VERSION_MINOR               01
-#define YSI_VERSION_BUILD               0002
+#define YSI_VERSION_MINOR               09
+#define YSI_VERSION_BUILD               0684
 
 #define YSI_VERSION                     #YSI_VERSION_MAJOR "." #YSI_VERSION_MINOR "." #YSI_VERSION_BUILD
 
@@ -128,23 +127,29 @@ Natives:
 			YSI_gLockData[YSI_gLockData[2]++] = (YSI_gLockData[3] | 0x09) & ~0x04;
 			YSI_gLockData[2] *= (6 * x) - 5;
 		#endif
-		CallLocalFunction("YVers_OnScriptInit", "");
+		#if defined YVers_OnScriptInit
+			YVers_OnScriptInit();
+		#endif
 		return 1;
 	}
 	
 	#undef OnScriptInit
 	#define OnScriptInit YVers_OnScriptInit
-	forward OnScriptInit();
+	#if defined YVers_OnScriptInit
+		forward YVers_OnScriptInit();
+	#endif
 	
 #else
-	/*------------------------------------------------------------------------*\
+/**----------------------------------------------------------------------**\
 	Hook:
 		OnScriptInit
-	Notes:
+	</returns>
+<remarks>
 		Constructor.  Checks to see if there is a new version available.  This
 		code can not use ANY of the rest of YSI as it needs to be included by
 		everything first.
-	\*------------------------------------------------------------------------*/
+</remarks>
+\**----------------------------------------------------------------------**/
 	
 	#if !defined _inc_a_http
 	
@@ -159,6 +164,8 @@ Natives:
 				YSI_gLockData[1] = (YSI_gLockData[2] - YSI_gLockData[3]) / 2 + YSI_gLockData[3];
 			#endif
 			print(" ");
+			print(" ");
+			print(" ");
 			print(" ======================================= ");
 			print(" |                                     | ");
 			print(" |        YSI version " YSI_VERSION "        | ");
@@ -169,13 +176,17 @@ Natives:
 			print(" |                                     | ");
 			print(" ======================================= ");
 			print(" ");
-			CallLocalFunction("YVers_OnScriptInit", "");
+			#if defined YVers_OnScriptInit
+				YVers_OnScriptInit();
+			#endif
 			return 1;
 		}
 		
 		#undef OnScriptInit
 		#define OnScriptInit YVers_OnScriptInit
-		forward OnScriptInit();
+		#if defined YVers_OnScriptInit
+			forward YVers_OnScriptInit();
+		#endif
 		
 		#endinput
 	#endif
@@ -197,6 +208,8 @@ Natives:
 			YSI_gLockData[0] -= 1;
 			YSI_gLockData[1] = YSI_gLockData[0] + 7;
 		#endif
+		print(" ");
+		print(" ");
 		print(" ");
 		print(" ======================================= ");
 		print(" |                                     | ");
@@ -229,36 +242,39 @@ Natives:
 		//  
 		// This remote script has now been updated to include changelog
 		// information and keeps a record of what IPs are connecting.
-		HTTP(0, HTTP_GET, "ysi-version.y-less.com/index.php?c=" #YSI_VERSION_RESPO "&v=" YSI_VERSION, "", "YVers_Callback");
-		CallLocalFunction("YVers_OnScriptInit", "");
+		HTTP(0, HTTP_GET, "version.ysi.tl/index.php?c=" #YSI_VERSION_RESPO "&v=" YSI_VERSION, "", "YVers_Callback");
+		#if defined YVers_OnScriptInit
+			YVers_OnScriptInit();
+		#endif
 		return 1;
 	}
 	
 	#undef OnScriptInit
 	#define OnScriptInit YVers_OnScriptInit
-	forward OnScriptInit();
+	#if defined YVers_OnScriptInit
+		forward YVers_OnScriptInit();
+	#endif
 	
-	/*------------------------------------------------------------------------*\
-	Function:
-		YVers_Callback
-	Params:
-		index - Not used.
-		code - Response code from the server.
-		data[] - HTTP data sent from the server.
-	Return:
+	/**----------------------------------------------------------------------**\
+	<summary>YVers_Callback</summary>
+	<param name="	index">Not used.</param>
+	<param name="	code">Response code from the server.</param>
+	<param name="	data[]">HTTP data sent from the server.</param>
+	<returns>
 		-
-	Notes:
+	</returns>
+	<remarks>
 		This is called when my server responds to the HTTP request sent above
 		(or when it doesn't).  This prints information on the current and any
 		future versions of YSI.  Note that it only does a strcmp to determine if
 		the version is newer - people can't have versions newer than the latest,
 		onlyolder or equal (unless they play with the version numbers, but then
 		that's their own fault).
-	\*------------------------------------------------------------------------*/
+	</remarks>
+	\**----------------------------------------------------------------------**/
 	
 	public YVers_Callback(index, code, data[])
 	{
-		print(" ");
 		if (code == 200)
 		{
 			// Got the remote page.
@@ -270,6 +286,7 @@ Natives:
 			if (strcmp(data[pos], YSI_VERSION, false, 9))
 			{
 				//data[pos + 9] = '\0';
+				print(" ");
 				print(" ========================================== ");
 				print(" |                                        | ");
 				printf(" |  A new version (v%.9s) of YSI is  | ", data[pos]);
@@ -301,6 +318,7 @@ Natives:
 				}
 				print(" |                                        | ");
 				print(" ========================================== ");
+				print(" ");
 			}
 			//else
 			//{
@@ -323,7 +341,6 @@ Natives:
 			//print(" |                                      | ");
 			//print(" ======================================== ");
 		//}
-		print(" ");
 	}
 	
 #endif

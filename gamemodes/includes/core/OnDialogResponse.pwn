@@ -5896,18 +5896,18 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			SendClientMessage(playerid, COLOR_RED, "SERVER: Ban tu dong bi kick ra.");
 			SetTimerEx("KickEx", 1000, 0, "i", playerid);
 		}
-		else if(dialogid == MAINMENU)
-		{
-			if(!isnull(inputtext) && strlen(inputtext) < 64)
-			{
-				SetPVarString(playerid, "PassAuth", inputtext);
-				g_mysql_AccountLoginCheck(playerid);
-			}
-			else
-			{
-				ShowMainMenuDialog(playerid, 1);
-			}
-		}
+		// else if(dialogid == MAINMENU)
+		// {
+		// 	if(!isnull(inputtext) && strlen(inputtext) < 64)
+		// 	{
+		// 		SetPVarString(playerid, "PassAuth", inputtext);
+		// 		g_mysql_AccountLoginCheck(playerid);
+		// 	}
+		// 	else
+		// 	{
+		// 		ShowMainMenuDialog(playerid, 1);
+		// 	}
+		// }
 		else if(dialogid == MAINMENU2)
 		{
 			if(!isnull(inputtext) && strlen(inputtext) < 64)

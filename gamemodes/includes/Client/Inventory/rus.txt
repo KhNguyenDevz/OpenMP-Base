@@ -1,0 +1,7 @@
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Client\Inventory\_function.pwn(57) : ������������� �� ������������: "additem"
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Client\Inventory\_function.pwn(51) : ������������� �� ������������: "inv1"
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Client\Inventory\_function.pwn(51) -- (65) : ������ 013: ����������� ����� ����� (��� public-�������)
+Pawn compiler 3.2.3664	 	 	Copyright (c) 1997-2016, ITB CompuPhase
+
+
+������:1.

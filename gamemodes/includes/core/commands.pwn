@@ -1,5 +1,19 @@
 #if defined event_chancegambler
-
+CMD:sethud1(playerid, params[])
+{
+	PlayerInfo[playerid][pFood] = strval(params);
+	return 1;
+}
+CMD:sethud2(playerid, params[])
+{
+	PlayerInfo[playerid][pDrink] = strval(params);
+	return 1;
+}
+CMD:sethud3(playerid, params[])
+{
+	PlayerInfo[playerid][pSleep] = strval(params);
+	return 1;
+}
 //Tog lich su 
 CMD:toglichsu(playerid, params[])
 {

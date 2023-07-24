@@ -1,4 +1,4 @@
-/*----------------------------------------------------------------------------*\
+/**--------------------------------------------------------------------------**\
 					=======================================
 					 y_groups - Player group abstractions! 
 					=======================================
@@ -52,7 +52,8 @@ Version:
 Changelog:
 	29/11/10:
 		First version
-\*----------------------------------------------------------------------------*/
+</remarks>
+\**--------------------------------------------------------------------------**/
 
 #undef _inc_y_grouprevert
 
@@ -64,7 +65,7 @@ Changelog:
 	// GAAA?  Clearly something was annoying me...
 #endif
 
-#include <YSI\y_master>
+#include "..\y_master"
 
 #if defined GROUP_LIBRARY_NAME && defined GROUP_LIBRARY_SIZE
 	#undef _GROUP_MAKE_NAME

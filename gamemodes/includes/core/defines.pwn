@@ -11,6 +11,7 @@
 native WP_Hash(buffer[], len, const str[]);
 native gpci(playerid, serial[], maxlen);
 			/*  ---------------- SERVER DEFINES ----------------- */
+#define 		Msg SendClientMessage
 #undef 			MAX_PLAYERS
 #define 		MAX_PLAYERS					(500)
 #define 		MAX_PING 					1200

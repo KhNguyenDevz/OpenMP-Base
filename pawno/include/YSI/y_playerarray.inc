@@ -1,4 +1,4 @@
-/*----------------------------------------------------------------------------*\
+/**--------------------------------------------------------------------------**\
 					========================================
 					 y_playerarray - Bit arrays of players! 
 					========================================
@@ -54,13 +54,14 @@ Changelog:
 		Scrapped pointless "playing" code I was unhappy with.
 	29/11/10:
 		First version
-\*----------------------------------------------------------------------------*/
+</remarks>
+\**--------------------------------------------------------------------------**/
 
-#include <YSI\internal\y_version>
+#include "internal\y_version"
 
 #include <a_samp>
-#include <YSI\y_debug>
-#include <YSI\y_bit>
+#include "y_debug"
+#include "y_bit"
 
 #define PA_TYPE_NONE                    (-1)
 #define PA_TYPE_BOOL                    (-2)

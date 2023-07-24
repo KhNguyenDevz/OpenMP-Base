@@ -737,6 +737,10 @@ enum sInfo
 
 enum pInfo
 {
+	pFood,
+	pDrink,
+	pSleep,
+	
 	pId,
 	pOnline,
 	pLevel,

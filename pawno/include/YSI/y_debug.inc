@@ -1,4 +1,4 @@
-/*----------------------------------------------------------------------------*\
+/**--------------------------------------------------------------------------**\
 					==============================
 					Y Sever Includes - Debug Setup
 					==============================
@@ -106,15 +106,16 @@ Compile options:
 	_DEBUG - Debugging level to use.
 Operators:
 	-
-\*----------------------------------------------------------------------------*/
+</remarks>
+\**--------------------------------------------------------------------------**/
 
-#include <YSI\internal\y_version>
+#include "internal\y_version"
 
-#include <YSI\internal\y_funcinc>
+#include "internal\y_funcinc"
 
-#include <YSI\y_scriptinit>
+#include "y_scriptinit"
 
-#include <YSI\internal\y_natives>
+#include "internal\y_natives"
 
 #if !defined _DEBUG
 	#define _DEBUG 0
@@ -123,22 +124,22 @@ Operators:
 #define P:%1(%2); Debug_Print%1(%2);
 #define C:%1(%2); Debug_Code%1(%2);
 
-/*----------------------------------------------------------------------------*\
-Function:
-	Debug_Code
-Params:
-	level - Debug level to run the code at.
-	code - Code to run.
-Return:
+/**--------------------------------------------------------------------------**\
+<summary>Debug_Code</summary>
+<param name="level">Debug level to run the code at.</param>
+<param name="code">Code to run.</param>
+<returns>
 	-
-Notes:
+</returns>
+<remarks>
 	Code is not a variable, it's a code chunk and may be written as so:
 	
 	Debug_Code1(if (bla == 2) { bla++; printf("%d", bla); });
 	
 	The code must all be on one line to avoid errors.
 	This isn't really a function as the first parameter is part of the name.
-\*----------------------------------------------------------------------------*/
+</remarks>
+\**--------------------------------------------------------------------------**/
 
 #define DBGC1 Debug_Code1
 #define DBGC2 Debug_Code2
@@ -188,20 +189,20 @@ Notes:
 	#define Debug_Code6(%1);
 #endif
 
-/*----------------------------------------------------------------------------*\
-Function:
-	Debug_Print
-Params:
-	level - Debug level to print at.
-	format[] - Format.
-	...
-Return:
+/**--------------------------------------------------------------------------**\
+<summary>Debug_Print</summary>
+<param name="level">Debug level to print at.</param>
+<param name="format[]">Format.</param>
+<param name="..."></param>
+<returns>
 	-
-Notes:
+</returns>
+<remarks>
 	This isn't really a function as the first parameter is part of the name:
 	
 	Debug_Print4("variables: %d, %d", i, j);
-\*----------------------------------------------------------------------------*/
+</remarks>
+\**--------------------------------------------------------------------------**/
 
 #define DBGP1 Debug_Print1
 #define DBGP2 Debug_Print2
@@ -259,16 +260,16 @@ Notes:
 #endif
 
 #define Debug_PrintE(%1); \
-	Debug_Print0("*** YSI Error: " #%1);
+	Debug_Print0("\7\7\7*** YSI Error: " #%1);
 
 #define Debug_PrintW(%1); \
-	Debug_Print0("*** YSI Warning: " #%1);
+	Debug_Print0("\7*** YSI Warning: " #%1);
 
 #define Debug_PrintI(%1); \
 	Debug_Print0("*** YSI Info: " #%1);
 
 #define Debug_PrintF(%1); \
-	Debug_Print0("*** YSI Fatal Error: " #%1);
+	Debug_Print0("\7\7\7\7\7*** YSI Fatal Error: " #%1);
 
 #define Debug_PrintC(%1); \
 	Debug_Code1(%1);
@@ -345,6 +346,30 @@ stock Debug_Print0(str[], {Float,_}:...) <>
 	#pragma unused str
 }
 
+stock Debug_PrintArray(arr[], size)
+{
+	new
+		str[96];
+	switch (size)
+	{
+		case 0:
+			str = "<>";
+		case 1:
+			format(str, sizeof (str), "<%d>", arr[0]);
+		case 2:
+			format(str, sizeof (str), "<%d, %d>", arr[0], arr[1]);
+		case 3:
+			format(str, sizeof (str), "<%d, %d, %d>", arr[0], arr[1], arr[2]);
+		case 4:
+			format(str, sizeof (str), "<%d, %d, %d, %d>", arr[0], arr[1], arr[2], arr[3]);
+		case 5:
+			format(str, sizeof (str), "<%d, %d, %d, %d, %d>", arr[0], arr[1], arr[2], arr[3], arr[4]);
+		default:
+			format(str, sizeof (str), "<%d, %d, %d, %d, %d, ... (+ %d)>", arr[0], arr[1], arr[2], arr[3], arr[4], size - 5);
+	}
+	return str;
+}
+
 /*#if _DEBUG > 0
 	#define Debug_Print0(%1); \
 		printf(%1);
@@ -352,19 +377,23 @@ stock Debug_Print0(str[], {Float,_}:...) <>
 
 public OnScriptInit()
 {
-	goto Debug_OnScriptInit_check_fault;
-Debug_OnScriptInit_no_fault:
-	CallLocalFunction("Debug_OnScriptInit", "");
-	// Fake the "return" instruction to avoid warnings we know won't happen.
-	#emit CONST.pri 1
-	#emit RETN
-Debug_OnScriptInit_check_fault:
-	//printf("FILTERSCRIPT: %d, %s", YSI_FILTERSCRIPT, #OnScriptInit);
 	Debug_SetState();
+	new
+		s;
+	// Test the ADDRESS of the variable, not the value.
 	#emit CONST.pri YSI_FILTERSCRIPT
-	//#emit PUSH.C    ysi_debug
-	#emit JNZ       Debug_OnScriptInit_no_fault
+	#emit STOR.S.pri s
+	if (s)
+	{
+		//goto Debug_OnScriptInit_no_fault();
+		#if defined Debug_OnScriptInit
+			return Debug_OnScriptInit();
+		#else
+			return 1;
+		#endif
+	}
 	P:F("YSI_FILTERSCRIPT == 0");
+	while (s != 10000000) ++s;
 	#emit CONST.pri 0
 	#emit SCTRL     6
 	return 1;
@@ -381,4 +410,6 @@ static stock Debug_SetState() <>
 
 #undef OnScriptInit
 #define OnScriptInit Debug_OnScriptInit
-forward OnScriptInit();
+#if defined Debug_OnScriptInit
+	forward Debug_OnScriptInit();
+#endif

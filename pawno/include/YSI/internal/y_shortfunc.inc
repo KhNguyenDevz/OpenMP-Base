@@ -1,4 +1,4 @@
-/*----------------------------------------------------------------------------*\
+/**--------------------------------------------------------------------------**\
                               ====================
                                YSI - Master Funcs
                               ====================
@@ -92,13 +92,23 @@ Natives:
 	V@ - Renaming of getproperty for size reasons.
 	S@ - Renaming of setproperty for size reasons.
 	P@ - Renaming of __CallLocalFunction for size reasons.
-\*----------------------------------------------------------------------------*/
+</remarks>
+\**--------------------------------------------------------------------------**/
 
-#include <YSI\y_utils>
-#include <YSI\internal\y_globaltags>
-#include <YSI\y_debug>
+// Used to get rid of the "string:" tag once it has been used.
+#if !defined string
+	#define string:
+#endif
 
-#include <YSI\internal\y_renative>
+#if !defined void
+	#define void:
+#endif
+
+#include "..\y_utils"
+#include "y_globaltags"
+#include "..\y_debug"
+
+#include "y_renative"
 
 // Public variable.
 public stock
@@ -117,7 +127,7 @@ stock
 
 native _YSI_RE_NATIVE<U@|||id=0, const name[]="", value=cellmin, const string[]=""|||setproperty>
 
-native _YSI_RE_NATIVE<V@|||id=0, const name[]="", value=cellmin, string[]=""|||getproperty>
+native _YSI_RE_NATIVE<V@|||GLOBAL_TAG_TYPES:id=0, const name[]="", value=cellmin, string[]=""|||getproperty>
 
 #if defined _YSI_MINI_MODE
 	#undef CallRemoteFunction
@@ -139,7 +149,7 @@ native _YSI_RE_NATIVE<O@|||const function[], time, repeat, const format[], GLOBA
 
 native _YSI_RE_NATIVE<K@|||const function[], time, repeat|||SetTimer>
 
-stock X@(n)
+stock X@(GLOBAL_TAG_TYPES:n)
 {
 	P:3("X@ called: %i", n);
 	setproperty(8, YSIM_RETURN, n);
@@ -175,7 +185,7 @@ stock S@(GLOBAL_TAG_TYPES:v = -1)
 	getproperty(8, "", YSIM_STRING, Q@);
 	strunpack(Q@, Q@);
 	setproperty(8, YSIM_CALLER, v);
-	return 0;
+	return Q@;
 }
 
 stock R@(buffer[])
@@ -196,19 +206,28 @@ stock G@(GLOBAL_TAG_TYPES:...)
 	return Q@;
 }
 
+stock F@()
+{
+	P:3("F@ called");
+	getproperty(8, "", YSIM_STRING, Q@);
+	strunpack(Q@, Q@);
+	return Q@;
+}
+
 // Consume trailing spaces.  Despite being a common letter, this is unlkely to
 // ever be matched due to the unusual series of operators after it.  If anyone
 // else tries to define "x" however they may have a slight problem (they can't).
 //#define x,), x),
 // Changed as x,): was also needed (for ?:).
-#define x,) )
-#define q,ALS_RS_end:) )
+#define x:##),) #))
+//#define x,) )
+#define q:##),ALS_RS_none:) #))
 
 // This is for getting excess parameters on non-strings.
 #define _:%0,) %0)
 
 #if defined YSI_LOCK_MODE
-	#include <YSI\y_hooks>
+	#include "..\y_hooks"
 	hook OnScriptInit()
 	{
 		new
@@ -221,9 +240,4 @@ stock G@(GLOBAL_TAG_TYPES:...)
 			y_lock 1;
 		}
 	}
-#endif
-
-// Used to get rid of the "string:" tag once it has been used.
-#if !defined string
-	#define string:
 #endif

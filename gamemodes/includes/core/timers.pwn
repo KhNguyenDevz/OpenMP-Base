@@ -1647,19 +1647,6 @@ task ServerHeartbeat[1000]() {
 					}
 				}
 			}
-
-			// update hunger text draw
-			switch (PlayerInfo[i][pHunger])
-			{
-				case 80..100:
-					PlayerTextDrawSetString(i, _hungerText[i], "Trang Thai: ~g~Rat No");
-				case 40..79:
-					PlayerTextDrawSetString(i, _hungerText[i], "Trang Thai: ~y~No Bung");
-				case 20..39:
-					PlayerTextDrawSetString(i, _hungerText[i], "Trang Thai: ~y~Doi Bung");
-				case 0..19:
-					PlayerTextDrawSetString(i, _hungerText[i], "Trang Thai: ~r~Rat Doi");
-			}
 		}
 
 		if (GetPVarInt(i, "_BoxingQueue") == 1)

@@ -1,4 +1,4 @@
-/*----------------------------------------------------------------------------*\
+/**--------------------------------------------------------------------------**\
 					=================================
 					 y_dialog - Dialogs wrapper.
 					=================================
@@ -60,24 +60,25 @@ Functions:
 Variables:
 	Global:
 		-
-\*----------------------------------------------------------------------------*/
+</remarks>
+\**--------------------------------------------------------------------------**/
 
 // y_dialog - does stuff with dialogs.
 
-#include <YSI\internal\y_version>
-#include <YSI\y_bit>
+#include "internal\y_version"
+#include "y_bit"
 
-#include <YSI\y_remote>
+#include "y_remote"
 
-#include <YSI\y_inline>
-#include <YSI\y_iterate>
+#include "y_inline"
+#include "y_iterate"
 
-#include <YSI\y_hooks>
+#include "y_hooks"
 
-#include <YSI\y_amx>
+#include "y_amx"
 
 #define YSIM_U_DISABLE
-#include <YSI\y_master>
+#include "y_master"
 
 #if !defined MAX_DIALOGS
 	#define MAX_DIALOGS (2000)
@@ -152,17 +153,17 @@ global Dialog_Get(playerid)
 	return YSI_g_sPlayerDialog[playerid];
 }
 
-foreign Dialog_Garbage(dialogid);
+foreign void:Dialog_Garbage(dialogid);
 
-global Dialog_Garbage(dialogid)
+global void:Dialog_Garbage(dialogid)
 {
 	Bit_Let(YSI_g_sFree, dialogid);
-	return 1;
+	//return 1;
 }
 
-foreign Dialog_Free(dialogid);
+foreign void:Dialog_Free(dialogid);
 
-global Dialog_Free(dialogid)
+global void:Dialog_Free(dialogid)
 {
 	Bit_Vet(YSI_g_sFree, dialogid);
 	Bit_Let(YSI_g_sIDs, dialogid);
@@ -178,7 +179,7 @@ global Dialog_Free(dialogid)
 			}
 		}
 	}
-	return 1;
+	//return 1;
 }
 
 foreign Dialog_Set(playerid, dialogid);
@@ -259,21 +260,7 @@ hook OnPlayerDisconnect(playerid, reason)
 	return 1;
 }
 
-/*#define Dialog_SetCallback(%0) _Dialog_SetCallback(%0,Master_Caller())
-
-foreign @Dialog_SetCallback(dialogid, a, b, c, d);
-
-global @Dialog_SetCallback(dialogid, a, b, c, d)
-{
-	YSI_g_sDialogInfo[dialogid] = callback;
-}
-
-stock _Dialog_SetCallback(dialogid, callback[E_CALLBACK_DATA], master)
-{
-	@Dialog_SetCallback(dialogid
-}*/
-
-remotefunc Dialog_SetMaster(dialogid, master)
+remotefunc void:Dialog_SetMaster(dialogid, master)
 {
 	//printf("SETTING %d MASTER: %d", dialogid, master);
 	YSI_g_sDialogMasters[dialogid] = master;
@@ -320,8 +307,17 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		return 0;
 	}
 	// Dialogs close automaticaly.
-	Dialog_Set(playerid, -1);
-	if (Bit_Get(YSI_g_sIDs, dialogid))
+	if (Dialog_Set(playerid, -1))
+	{
+		P:5("OnDialogResponse: Not free");
+		if (YSI_g_sDialogInfo[dialogid][E_CALLBACK_DATA_POINTER])
+		{
+			//printf("Calling function at 0x%08x", YSI_g_sDialogInfo[dialogid][E_CALLBACK_DATA_POINTER]);
+			Callback_Call(YSI_g_sDialogInfo[dialogid], playerid, dialogid, response, listitem, inputtext);
+			return 1;
+		}
+	}
+	else
 	{
 		// Or it will screw up when you show a new dialog from a dialog.
 		P:5("OnDialogResponse: Already freed");
@@ -331,17 +327,9 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		// Callback no longer needed.
 		if (dat[E_CALLBACK_DATA_POINTER])
 		{
+			//printf("Calling function at 0x%08x", dat[E_CALLBACK_DATA_POINTER]);
 			Callback_Call(dat, playerid, dialogid, response, listitem, inputtext);
 			Callback_Release(dat);
-			return 1;
-		}
-	}
-	else
-	{
-		P:5("OnDialogResponse: Not free");
-		if (YSI_g_sDialogInfo[dialogid][E_CALLBACK_DATA_POINTER])
-		{
-			Callback_Call(YSI_g_sDialogInfo[dialogid], playerid, dialogid, response, listitem, inputtext);
 			return 1;
 		}
 	}
@@ -372,4 +360,4 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 }*/
 
 //#define YSI_SET_LAST_GROUP 19
-#include <YSI\internal\y_grouprevert>
+#include "internal\y_grouprevert"

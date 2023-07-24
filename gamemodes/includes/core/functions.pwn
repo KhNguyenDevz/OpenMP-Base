@@ -8488,7 +8488,9 @@ stock SafeLogin(playerid, type)
 	{
 		case 1: // Account Exists
 		{
-			ShowMainMenuDialog(playerid, 1);
+			// ShowMainMenuDialog(playerid, 1);
+			ShowPlayerAuthForm(playerid);
+			SetPVarInt(playerid, #account_exits, 1);
 		}
 		case 2: // No Account Exists
 		{
@@ -8499,7 +8501,8 @@ stock SafeLogin(playerid, type)
 			}
 			else
 			{
-			    ShowMainMenuDialog(playerid, 2);
+			    // ShowMainMenuDialog(playerid, 2);
+			    ShowPlayerAuthForm(playerid);
 			}
 		}
 	}

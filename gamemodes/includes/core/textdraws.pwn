@@ -2147,6 +2147,97 @@ stock HideFPSCounter(playerid)
 
 stock CreatePlayerTextDraws(playerid)
 {
+	HudPTD[playerid][0] = CreatePlayerTextDraw(playerid, 86.000, 419.000, "mdl-2001:bg");
+	PlayerTextDrawTextSize(playerid, HudPTD[playerid][0], 20.000, 22.000);
+	PlayerTextDrawAlignment(playerid, HudPTD[playerid][0], 1);
+	PlayerTextDrawColor(playerid, HudPTD[playerid][0], -1);
+	PlayerTextDrawSetShadow(playerid, HudPTD[playerid][0], 0);
+	PlayerTextDrawSetOutline(playerid, HudPTD[playerid][0], 0);
+	PlayerTextDrawBackgroundColor(playerid, HudPTD[playerid][0], 255);
+	PlayerTextDrawFont(playerid, HudPTD[playerid][0], 4);
+	PlayerTextDrawSetProportional(playerid, HudPTD[playerid][0], 1);
+
+	HudPTD[playerid][1] = CreatePlayerTextDraw(playerid, 86.500, 440.000, "mdl-2001:org");
+	PlayerTextDrawTextSize(playerid, HudPTD[playerid][1], 18.500, 0.000);
+	PlayerTextDrawAlignment(playerid, HudPTD[playerid][1], 1);
+	PlayerTextDrawColor(playerid, HudPTD[playerid][1], -1);
+	PlayerTextDrawSetShadow(playerid, HudPTD[playerid][1], 0);
+	PlayerTextDrawSetOutline(playerid, HudPTD[playerid][1], 0);
+	PlayerTextDrawBackgroundColor(playerid, HudPTD[playerid][1], 255);
+	PlayerTextDrawFont(playerid, HudPTD[playerid][1], 4);
+	PlayerTextDrawSetProportional(playerid, HudPTD[playerid][1], 1);
+
+	HudPTD[playerid][2] = CreatePlayerTextDraw(playerid, 108.000, 419.000, "mdl-2001:bg");
+	PlayerTextDrawTextSize(playerid, HudPTD[playerid][2], 20.000, 22.000);
+	PlayerTextDrawAlignment(playerid, HudPTD[playerid][2], 1);
+	PlayerTextDrawColor(playerid, HudPTD[playerid][2], -1);
+	PlayerTextDrawSetShadow(playerid, HudPTD[playerid][2], 0);
+	PlayerTextDrawSetOutline(playerid, HudPTD[playerid][2], 0);
+	PlayerTextDrawBackgroundColor(playerid, HudPTD[playerid][2], 255);
+	PlayerTextDrawFont(playerid, HudPTD[playerid][2], 4);
+	PlayerTextDrawSetProportional(playerid, HudPTD[playerid][2], 1);
+
+	HudPTD[playerid][3] = CreatePlayerTextDraw(playerid, 108.500, 440.000, "mdl-2001:blue");
+	PlayerTextDrawTextSize(playerid, HudPTD[playerid][3], 18.500, -20.000);
+	PlayerTextDrawAlignment(playerid, HudPTD[playerid][3], 1);
+	PlayerTextDrawColor(playerid, HudPTD[playerid][3], -1);
+	PlayerTextDrawSetShadow(playerid, HudPTD[playerid][3], 0);
+	PlayerTextDrawSetOutline(playerid, HudPTD[playerid][3], 0);
+	PlayerTextDrawBackgroundColor(playerid, HudPTD[playerid][3], 255);
+	PlayerTextDrawFont(playerid, HudPTD[playerid][3], 4);
+	PlayerTextDrawSetProportional(playerid, HudPTD[playerid][3], 1);
+
+	HudPTD[playerid][4] = CreatePlayerTextDraw(playerid, 130.000, 419.000, "mdl-2001:bg");
+	PlayerTextDrawTextSize(playerid, HudPTD[playerid][4], 20.000, 22.000);
+	PlayerTextDrawAlignment(playerid, HudPTD[playerid][4], 1);
+	PlayerTextDrawColor(playerid, HudPTD[playerid][4], -1);
+	PlayerTextDrawSetShadow(playerid, HudPTD[playerid][4], 0);
+	PlayerTextDrawSetOutline(playerid, HudPTD[playerid][4], 0);
+	PlayerTextDrawBackgroundColor(playerid, HudPTD[playerid][4], 255);
+	PlayerTextDrawFont(playerid, HudPTD[playerid][4], 4);
+	PlayerTextDrawSetProportional(playerid, HudPTD[playerid][4], 1);
+
+	HudPTD[playerid][5] = CreatePlayerTextDraw(playerid, 130.500, 440.000, "mdl-2001:pp");
+	PlayerTextDrawTextSize(playerid, HudPTD[playerid][5], 18.500, -20.000);
+	PlayerTextDrawAlignment(playerid, HudPTD[playerid][5], 1);
+	PlayerTextDrawColor(playerid, HudPTD[playerid][5], -1);
+	PlayerTextDrawSetShadow(playerid, HudPTD[playerid][5], 0);
+	PlayerTextDrawSetOutline(playerid, HudPTD[playerid][5], 0);
+	PlayerTextDrawBackgroundColor(playerid, HudPTD[playerid][5], 255);
+	PlayerTextDrawFont(playerid, HudPTD[playerid][5], 4);
+	PlayerTextDrawSetProportional(playerid, HudPTD[playerid][5], 1);
+
+
+	HudPTD[playerid][7] = CreatePlayerTextDraw(playerid, 88.500, 422.000, "mdl-2001:food");
+	PlayerTextDrawTextSize(playerid, HudPTD[playerid][7], 14.500, 16.000);
+	PlayerTextDrawAlignment(playerid, HudPTD[playerid][7], 1);
+	PlayerTextDrawColor(playerid, HudPTD[playerid][7], 255);
+	PlayerTextDrawSetShadow(playerid, HudPTD[playerid][7], 0);
+	PlayerTextDrawSetOutline(playerid, HudPTD[playerid][7], 0);
+	PlayerTextDrawBackgroundColor(playerid, HudPTD[playerid][7], 255);
+	PlayerTextDrawFont(playerid, HudPTD[playerid][7], 4);
+	PlayerTextDrawSetProportional(playerid, HudPTD[playerid][7], 1);
+
+	HudPTD[playerid][8] = CreatePlayerTextDraw(playerid, 110.500, 422.000, "mdl-2001:drink");
+	PlayerTextDrawTextSize(playerid, HudPTD[playerid][8], 14.500, 16.000);
+	PlayerTextDrawAlignment(playerid, HudPTD[playerid][8], 1);
+	PlayerTextDrawColor(playerid, HudPTD[playerid][8], 255);
+	PlayerTextDrawSetShadow(playerid, HudPTD[playerid][8], 0);
+	PlayerTextDrawSetOutline(playerid, HudPTD[playerid][8], 0);
+	PlayerTextDrawBackgroundColor(playerid, HudPTD[playerid][8], 255);
+	PlayerTextDrawFont(playerid, HudPTD[playerid][8], 4);
+	PlayerTextDrawSetProportional(playerid, HudPTD[playerid][8], 1);
+
+	HudPTD[playerid][9] = CreatePlayerTextDraw(playerid, 132.500, 422.000, "mdl-2001:sleep");
+	PlayerTextDrawTextSize(playerid, HudPTD[playerid][9], 14.500, 16.000);
+	PlayerTextDrawAlignment(playerid, HudPTD[playerid][9], 1);
+	PlayerTextDrawColor(playerid, HudPTD[playerid][9], 255);
+	PlayerTextDrawSetShadow(playerid, HudPTD[playerid][9], 0);
+	PlayerTextDrawSetOutline(playerid, HudPTD[playerid][9], 0);
+	PlayerTextDrawBackgroundColor(playerid, HudPTD[playerid][9], 255);
+	PlayerTextDrawFont(playerid, HudPTD[playerid][9], 4);
+	PlayerTextDrawSetProportional(playerid, HudPTD[playerid][9], 1);
+	
 	//Shop Notice Textdraw
 	ShopNotice[playerid] = CreatePlayerTextDraw(playerid,16.000000, 193.000000, "_");
 	PlayerTextDrawBackgroundColor(playerid, ShopNotice[playerid], 255);
@@ -2169,16 +2260,7 @@ stock CreatePlayerTextDraws(playerid)
 	PlayerTextDrawSetOutline(playerid,BackupText[playerid] , true);
 	PlayerTextDrawSetProportional(playerid,BackupText[playerid] , true);
 	PlayerTextDrawSetShadow(playerid, BackupText[playerid] , 1);
-	
-	//Hunger Games Textdraws
-	_hungerText[playerid] = CreatePlayerTextDraw(playerid, 633.000000, 430.000000, "Trang Thai: ~w~Hai long");
-	PlayerTextDrawAlignment(playerid, _hungerText[playerid], 3);
-	PlayerTextDrawBackgroundColor(playerid, _hungerText[playerid], 255);
-	PlayerTextDrawFont(playerid, _hungerText[playerid], 1);
-	PlayerTextDrawLetterSize(playerid, _hungerText[playerid], 0.390000, 1.500000);
-	PlayerTextDrawColor(playerid, _hungerText[playerid], -1);
-	PlayerTextDrawSetOutline(playerid, _hungerText[playerid], 1);
-	PlayerTextDrawSetProportional(playerid, _hungerText[playerid], 1);
+
 
 	if (PlayerInfo[playerid][pAdmin] < 2) // not an admin
 	{

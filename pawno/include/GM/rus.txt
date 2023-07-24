@@ -1,0 +1,6 @@
+E:\SAMPVN\OpenMP-Base\pawno\include\YSI\y_amx.inc(294) : ��������������: �������� � AMX_GetGlobal
+��� ���������� ������ ��������: #pragma disablerecursion
+Pawn compiler 3.2.3664	 	 	Copyright (c) 1997-2016, ITB CompuPhase
+
+
+��������������:1.

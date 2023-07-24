@@ -354,6 +354,13 @@ public OnPlayerLeaveDynamicArea(playerid, areaid)
 
 public OnPlayerUpdate(playerid)
 {
+	SetHudPercent(playerid, PlayerInfo[playerid][pFood], 0);
+ 	SetHudPercent(playerid, PlayerInfo[playerid][pDrink], 1);
+ 	SetHudPercent(playerid, PlayerInfo[playerid][pSleep], 2);
+ 	PlayerTextDrawShow(playerid, HudPTD[playerid][1]);
+ 	PlayerTextDrawShow(playerid, HudPTD[playerid][3]);
+ 	PlayerTextDrawShow(playerid, HudPTD[playerid][5]);
+ 	
 	// Do not put heavy cpu checks in here. Use the 1 second timer.
 	if(playerTabbed[playerid] >= 1)
 	{
@@ -1232,6 +1239,10 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 
 public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 {
+	Login_Click(playerid, PlayerText:playertextid);
+	
+	InvClick(playerid, PlayerText:playertextid);
+
 	if(GetPVarInt(playerid, "mS_list_active") == 1 || (GetTickCount()-GetPVarInt(playerid, "mS_list_time")) > 200)
 	{
 		new curpage = GetPVarInt(playerid, "mS_list_page");
@@ -2685,8 +2696,8 @@ public OnPlayerConnect(playerid) {
 		return 1;
 	}
 	
-	// CheckAdminWhitelist(playerid);
-	// CheckBanEx(playerid);
+	CheckAdminWhitelist(playerid);
+	CheckBanEx(playerid);
 	
 	/*new string[128], serial[64];
 	gpci(playerid, serial, sizeof(serial));
@@ -2703,6 +2714,8 @@ public OnPlayerConnect(playerid) {
 	SetPlayerVirtualWorld(playerid, 0);
 
 	SetPlayerColor(playerid,TEAM_HIT_COLOR);
+	SendClientMessage( playerid, COLOR_WHITE, "SERVER: Chao mung ban den voi Server NGG-TDM" );
+	SendClientMessage( playerid, COLOR_WHITE, "SA-MP VN Blog | sampvn94.blogspot.com" );
 
 	SyncPlayerTime(playerid);
 
