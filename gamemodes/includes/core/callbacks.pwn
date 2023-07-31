@@ -1455,7 +1455,7 @@ public OnPlayerModelSelection(playerid, response, listid, modelid)
 		{
 			new string[128];
 			SetPVarInt(playerid, "VehicleID", modelid), SetPVarInt(playerid, "BoatShop", 1);
-			format(string, sizeof(string), "Item: %s\nCredits cua ban: %s\nCost: {FFD700}%s{A9C4E4}\nCredits Left: %s", VehicleName[modelid-400], number_format(PlayerInfo[playerid][pCredits]),number_format(ShopItems[5][sItemPrice]), number_format(PlayerInfo[playerid][pCredits]-ShopItems[5][sItemPrice]));
+			format(string, sizeof(string), "Item: %s\nCredits cua ban: %s\nCost: {FFD700}%s{A9C4E4}\nCredits Left: %s", GetVehicleName(modelid), number_format(PlayerInfo[playerid][pCredits]),number_format(ShopItems[5][sItemPrice]), number_format(PlayerInfo[playerid][pCredits]-ShopItems[5][sItemPrice]));
 			ShowPlayerDialog(playerid, DIALOG_CARSHOP, DIALOG_STYLE_MSGBOX, "Cua hang xe", string, "Mua", "Huy bo");
 		}
 	}
@@ -1465,7 +1465,7 @@ public OnPlayerModelSelection(playerid, response, listid, modelid)
 		{
 			new string[128];
 			SetPVarInt(playerid, "VehicleID", modelid);
-			format(string, sizeof(string), "Item: %s\nCredits cua ban: %s\nCost: {FFD700}%s{A9C4E4}\nCredits Left: %s", VehicleName[modelid-400], number_format(PlayerInfo[playerid][pCredits]),number_format(ShopItems[5][sItemPrice]), number_format(PlayerInfo[playerid][pCredits]-ShopItems[5][sItemPrice]));
+			format(string, sizeof(string), "Item: %s\nCredits cua ban: %s\nCost: {FFD700}%s{A9C4E4}\nCredits Left: %s", GetVehicleName(modelid), number_format(PlayerInfo[playerid][pCredits]),number_format(ShopItems[5][sItemPrice]), number_format(PlayerInfo[playerid][pCredits]-ShopItems[5][sItemPrice]));
 			ShowPlayerDialog(playerid, DIALOG_CARSHOP, DIALOG_STYLE_MSGBOX, "Cua hang xe", string, "Mua", "Huy bo");
 		}
 	}
@@ -1491,14 +1491,14 @@ public OnPlayerModelSelection(playerid, response, listid, modelid)
 				{
 					new string[128];
 					SetPVarInt(playerid, "VehicleID", modelid);
-					format(string, sizeof(string), "Item: %s\nCredits cua ban: %s\nGia: {FFD700}%s{A9C4E4}\nCredits Left: %s", VehicleName[modelid-400], number_format(PlayerInfo[playerid][pCredits]),number_format(ShopItems[5][sItemPrice]), number_format(PlayerInfo[playerid][pCredits]-ShopItems[5][sItemPrice]));
+					format(string, sizeof(string), "Item: %s\nCredits cua ban: %s\nGia: {FFD700}%s{A9C4E4}\nCredits Left: %s", GetVehicleName(modelid), number_format(PlayerInfo[playerid][pCredits]),number_format(ShopItems[5][sItemPrice]), number_format(PlayerInfo[playerid][pCredits]-ShopItems[5][sItemPrice]));
 					ShowPlayerDialog(playerid, DIALOG_CARSHOP, DIALOG_STYLE_MSGBOX, "Cua hang xe", string, "Mua", "Huy bo");
 				}
 				else
 				{
 					new string[128];
 					SetPVarInt(playerid, "VehicleID", modelid);
-					format(string, sizeof(string), "Item: %s\nCredits cua ban: %s\nGia: {FFD700}%s{A9C4E4}\nCredits Left: %s", VehicleName[modelid-400], number_format(PlayerInfo[playerid][pCredits]),number_format(ShopItems[20][sItemPrice]), number_format(PlayerInfo[playerid][pCredits]-ShopItems[20][sItemPrice]));
+					format(string, sizeof(string), "Item: %s\nCredits cua ban: %s\nGia: {FFD700}%s{A9C4E4}\nCredits Left: %s", GetVehicleName(modelid), number_format(PlayerInfo[playerid][pCredits]),number_format(ShopItems[20][sItemPrice]), number_format(PlayerInfo[playerid][pCredits]-ShopItems[20][sItemPrice]));
 					ShowPlayerDialog(playerid, DIALOG_RENTACAR, DIALOG_STYLE_MSGBOX, "Thue xe", string, "Mua", "Huy bo");
 				}
 			}
@@ -1529,7 +1529,7 @@ public OnPlayerModelSelection(playerid, response, listid, modelid)
 	    {
 	        new string[128];
        		SetPVarInt(playerid, "VehicleID", modelid);
-       		format(string, sizeof(string), "Item: %s\nGia: 1 Restricted Car Voucher", VehicleName[modelid-400]);
+       		format(string, sizeof(string), "Item: %s\nGia: 1 Restricted Car Voucher", GetVehicleName(modelid));
    			ShowPlayerDialog(playerid, DIALOG_CARSHOP2, DIALOG_STYLE_MSGBOX, "Restricted Vehicle Shop", string, "Mua", "Huy bo");
 	    }
 	}
@@ -2197,81 +2197,6 @@ public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 				}
 			}
 		}
-		else if(IsAPizzaCar(vehicleid))
-		{
-		    if(PlayerInfo[playerid][pJob] != 21 && PlayerInfo[playerid][pJob2] != 21)
-		    {
-			    new Float:slx, Float:sly, Float:slz;
-				GetPlayerPos(playerid, slx, sly, slz);
-				SetPlayerPos(playerid, slx, sly, slz+1.3);
-				PlayerPlaySound(playerid, 1130, slx, sly, slz+1.3);
-			    RemovePlayerFromVehicle(playerid);
-			    defer NOPCheck(playerid);
-			    SendClientMessageEx(playerid, COLOR_GRAD2, "Ban khong phai pizza!");
-			}
-		}
-
-		else if(IsATruckerCar(vehicleid))
-		{
-		    if((PlayerInfo[playerid][pJob] == 20 || PlayerInfo[playerid][pJob2] == 20))
-			{
-				new string[128];
-				new iTruckContents = TruckContents{vehicleid};
-				new truckcontentname[50];
-				if(iTruckContents == 1)
-				{ format(truckcontentname, sizeof(truckcontentname), "{00F70C}Thuc pham & Do uong");}
-				else if(iTruckContents == 2)
-				{ format(truckcontentname, sizeof(truckcontentname), "{00F70C}Quan ao"); }
-				else if(iTruckContents == 3)
-				{ format(truckcontentname, sizeof(truckcontentname), "{00F70C}Vat lieu hop phap"); }
-				else if(iTruckContents == 4)
-				{ format(truckcontentname, sizeof(truckcontentname), "{00F70C}Vat pham 24/7"); }
-				else if(iTruckContents == 5)
-				{ format(truckcontentname, sizeof(truckcontentname), "{FF0606}Vu khi khong hop phap"); }
-				else if(iTruckContents == 6)
-				{ format(truckcontentname, sizeof(truckcontentname), "{FF0606}Ma tuy"); }
-				else if(iTruckContents == 7)
-				{ format(truckcontentname, sizeof(truckcontentname), "{FF0606}Vat lieu khong hop phap"); }
-				if(iTruckContents == 0)
-				{ format(truckcontentname, sizeof(truckcontentname), "%s",  GetInventoryType(TruckDeliveringTo[vehicleid])); }
-				format(string, sizeof(string), "TRUCKER: (Dang ky xe: %s %d) - (Noi dung: %s{FFFF00})", GetVehicleName(vehicleid), vehicleid, truckcontentname);
-				SendClientMessageEx(playerid, COLOR_YELLOW, string);
-
-				if(IsACop(playerid))
-				{
-					SendClientMessageEx(playerid, COLOR_DBLUE, "LAW ENFORCEMENT: De loai bo bat ki hang hoa khong hop phap nao,su dung /clearcargo de dua no ra khoi xe.");
-				}
-				if(TruckDeliveringTo[vehicleid] != INVALID_BUSINESS_ID && TruckUsed[playerid] == INVALID_VEHICLE_ID)
-				{
-					SendClientMessageEx(playerid, COLOR_YELLOW, "TRUCKER JOB: De cung cap cac  hang hoa,su dung /hijackcargo cho tai xe.");
-				}
-				else if(TruckUsed[playerid] == INVALID_VEHICLE_ID)
-				{
-    				SendClientMessageEx(playerid, COLOR_YELLOW, "TRUCKER JOB: De co duoc hang hoa,su dung /loadshipment cho tai xe.");
-				}
-				else if(TruckUsed[playerid] == vehicleid && gPlayerCheckpointStatus[playerid] == CHECKPOINT_RETURNTRUCK)
-				{
-					SendClientMessageEx(playerid, COLOR_YELLOW, "TRUCKER JOB: Day la chuyen hang cua ban,ban khong co luong vi chua tra lai cho ben cang.");
-				}
-				else if(TruckUsed[playerid] == vehicleid)
-   				{
-      				SendClientMessageEx(playerid, COLOR_YELLOW, "TRUCKER JOB: Day la chuyen hang cua ban,ban chua cung cap hang hoa.");
-     			}
-				else if(TruckUsed[playerid] != INVALID_VEHICLE_ID)
-   				{
-      				SendClientMessageEx(playerid, COLOR_YELLOW, "TRUCKER JOB: Ban co chuyen hang khac can van chuyen, su dung /huybo shipment de huy bo giao chuyen hang nay.");
-     			}
-			}
-		    else if(!IsABoat(vehicleid))
-			{
-			    RemovePlayerFromVehicle(playerid);
-			    new Float:slx, Float:sly, Float:slz;
-				GetPlayerPos(playerid, slx, sly, slz);
-				SetPlayerPos(playerid, slx, sly, slz);
-			    defer NOPCheck(playerid);
-			    SendClientMessageEx(playerid, COLOR_GRAD2, "Ban khong phai la Trucker!");
-			}
-		}
 	   	else if(IsAPlane(vehicleid))
 		{
 	  		if(PlayerInfo[playerid][pFlyLic] != 1)
@@ -2326,6 +2251,8 @@ public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 }
 
 public OnPlayerConnect(playerid) {
+	// CreateProgressCustom(playerid);
+	
 	if(IsPlayerNPC(playerid)) return 1;
 
 	g_arrQueryHandle{playerid} = random(256);
@@ -2714,8 +2641,6 @@ public OnPlayerConnect(playerid) {
 	SetPlayerVirtualWorld(playerid, 0);
 
 	SetPlayerColor(playerid,TEAM_HIT_COLOR);
-	SendClientMessage( playerid, COLOR_WHITE, "SERVER: Chao mung ban den voi Server NGG-TDM" );
-	SendClientMessage( playerid, COLOR_WHITE, "SA-MP VN Blog | sampvn94.blogspot.com" );
 
 	SyncPlayerTime(playerid);
 
@@ -3653,9 +3578,9 @@ public OnPlayerDeath(playerid, killerid, reason)
 			SetPVarInt(playerid, "_BoxingFightOver", time + 8);
 			SetPVarInt(winner, "_BoxingFightOver", time + 1);
 		}
-	    if (_vhudVisible[playerid] == 1)
+	    if (GetPVarInt(playerid, #openSpeedo) == 1)
 		{
-			HideVehicleHUDForPlayer(playerid); // incase vehicle despawns
+			HidePlayerSpeedo(playerid);
 		}
 		if (CarRadars[playerid] > 0)
 		{
@@ -5723,7 +5648,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 	{
 		if (PlayerInfo[playerid][pSpeedo] != 0)
 		{
-			ShowVehicleHUDForPlayer(playerid);
+			HidePlayerSpeedo(playerid);
 		}
 	}
 	if(newstate == PLAYER_STATE_DRIVER)
@@ -5748,7 +5673,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 
 		if (PlayerInfo[playerid][pSpeedo] != 0)
 		{
-			ShowVehicleHUDForPlayer(playerid);
+			ShowPlayerSpeedo(playerid);
 		}
 
 	    new vehicleid = GetPlayerVehicleID(playerid);
@@ -5810,10 +5735,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 
 	    if(oldstate == PLAYER_STATE_DRIVER)
 		{
-			if (_vhudVisible[playerid] == 1)
-			{
-				HideVehicleHUDForPlayer(playerid); // incase vehicle despawns
-			}
+			HidePlayerSpeedo(playerid);
 			if (CarRadars[playerid] > 0)
 			{
 				PlayerTextDrawHide(playerid, _crTextTarget[playerid]);
@@ -6227,10 +6149,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 
 public OnPlayerExitVehicle(playerid, vehicleid)
 {
-	if (_vhudVisible[playerid] == 1)
-	{
-		HideVehicleHUDForPlayer(playerid);
-	}
+	HidePlayerSpeedo(playerid);
 	if (CarRadars[playerid] > 0)
 	{
 		PlayerTextDrawHide(playerid, _crTextTarget[playerid]);

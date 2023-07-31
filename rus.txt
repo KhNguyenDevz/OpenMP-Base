@@ -1,0 +1,6 @@
+E:\SAMPVN\OpenMP-Base\server.cfg(1) : ������ 010: �������� ������� ��� ����������
+E:\SAMPVN\OpenMP-Base\server.cfg(24) : ������ 013: ����������� ����� ����� (��� public-�������)
+Pawn compiler 3.2.3664	 	 	Copyright (c) 1997-2016, ITB CompuPhase
+
+
+������:2.

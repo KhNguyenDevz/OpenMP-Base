@@ -105,7 +105,7 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 	if(GetPVarInt(playerid, "Injured") != 0) return;
 	if(!gPlayerUsingLoopingAnim[playerid]) return;
 
-	if(IsKeyJustDown(KEY_S//,newkeys,oldkeys))
+	if(IsKeyJustDown(KEY_FIRE))
 	{
 	    StopLoopingAnim(playerid);
         TextDrawHideForPlayer(playerid,txtAnimHelper);
@@ -1312,6 +1312,11 @@ CMD:carchat(playerid, params[])
 	default: SendClientMessage(playerid, COLOR_WHITE, "USAGE: /carchat [1-19]");
 	}
 	return 1;
+}
+CMD:carryz(playerid, params[])
+{
+    PlayAnimEx(playerid, "CARRY", "liftup", 4.1, 0, 1, 1, 1, 1, 1);
+    return 1;
 }
 forward Theodau(playerid);
 public Theodau(playerid)

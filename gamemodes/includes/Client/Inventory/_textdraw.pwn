@@ -544,8 +544,6 @@ hook OnPlayerConnect(playerid) {
 	PlayerTextDrawTextSize(playerid, btnPage[playerid][2], 12.000, 72.000);
 	PlayerTextDrawAlignment(playerid, btnPage[playerid][2], 2);
 	PlayerTextDrawColor(playerid, btnPage[playerid][2], -1);
-	PlayerTextDrawUseBox(playerid, btnPage[playerid][2], 1);
-	PlayerTextDrawBoxColor(playerid, btnPage[playerid][2], 150);
 	PlayerTextDrawSetShadow(playerid, btnPage[playerid][2], 1);
 	PlayerTextDrawSetOutline(playerid, btnPage[playerid][2], 0);
 	PlayerTextDrawBackgroundColor(playerid, btnPage[playerid][2], 150);
@@ -591,17 +589,58 @@ hook OnPlayerConnect(playerid) {
 
 stock ShowPlayerIndexInv(playerid)
 {
-	for(new i = 0 ; i < 41 ; i++)
+	for(new i = 0 ; i < 21 ; i++)
 	{
-		PlayerTextDrawShow(playerid, ItemBackground[playerid][i]);
+		PlayerTextDrawHide(playerid, ItemBackground[playerid][i]);
+	}
+	for(new j = 0; j < MAX_INV_PAGES; j++)
+	{
+		for(new i = 0; i < MAX_INV_ITEM; i++)
+		{
+			PlayerTextDrawColor(playerid, ItemInv[playerid][j][i], -1);
+			PlayerTextDrawHide(playerid, ItemInv[playerid][j][i]);
+			PlayerTextDrawHide(playerid, ItemName[playerid][j][i]);
+		}
+	}
+	
+	// if(PlayerInvInfo[playerid][PlayerPage[playerid]][pCountItem] == 0) PlayerTextDrawShow(playerid,ItemBackground[playerid][1]);
+
+	PlayerInvInfo[playerid][PlayerPage[playerid]][pSelectItemID] = 0;
+	for(new i = 21; i < 41; i++)
+	{
+		PlayerTextDrawShow(playerid,ItemBackground[playerid][i]);
+	}
+	new szPage[1280];
+	format(szPage, sizeof(szPage), "%d/%d",PlayerPage[playerid], GetPlayerPage(playerid)+1);
+
+	PlayerTextDrawSetString(playerid, btnPage[playerid][2], szPage);
+
+	for(new i = 0; i < 6; i++)
+	{
+
+		PlayerTextDrawShow(playerid, btnPage[playerid][i]);
 	}
 	SelectTextDraw(playerid, -1);
 	SetPVarInt(playerid, #open_inv, 1);
-	GetPlayerItem(playerid);
+	for(new j = 0; j < MAX_INV_ITEM; j++)
+	{
+		if(PlayerInvItem[playerid][PlayerPage[playerid]][pInvItemID][j] > 0 && PlayerInvItem[playerid][PlayerPage[playerid]][pInvAmount][j] > 0)
+		{
+			CreateInvItem(playerid, PlayerInvItem[playerid][PlayerPage[playerid]][pInvItemID][j], PlayerPage[playerid], PlayerInvItem[playerid][PlayerPage[playerid]][pInvAmount][j]);
+		}
+	}
+	GetPlayerItem(playerid, PlayerPage[playerid]);
 }
 
 stock HidePlayerIndexInv(playerid)
 {
+	for(new i = 0; i < MAX_INV_PAGES; i++)
+	{
+		PlayerInvInfo[playerid][i][pCountItem] = 0;
+	}
+	CountAllItem[playerid] = 0;
+	pCurrentSelect[playerid] = 0;
+
 	for(new i = 0 ; i < 41 ; i++)
 	{
 		PlayerTextDrawHide(playerid, ItemBackground[playerid][i]);
@@ -614,12 +653,35 @@ stock HidePlayerIndexInv(playerid)
 	{
 		PlayerTextDrawHide(playerid, ItemInv[playerid][pPagez][i]);
 	}
-
+	for(new i = 0; i < 4; i++)
+	{
+		PlayerTextDrawHide(playerid, btnInv[playerid][i]);
+	}
+	for(new i = 0; i < 6; i++)
+	{
+		PlayerTextDrawHide(playerid, btnPage[playerid][i]);
+	}
+	for(new j = 0; j < MAX_INV_PAGES; j++)
+	{
+		for(new i = 0; i < MAX_INV_ITEM; i++)
+		{
+			PlayerTextDrawColor(playerid, ItemInv[playerid][j][i], -1);
+			PlayerTextDrawHide(playerid, ItemInv[playerid][j][i]);
+			PlayerTextDrawHide(playerid, ItemName[playerid][j][i]);
+			PlayerTextDrawDestroy(playerid, ItemInv[playerid][j][i]);
+			PlayerTextDrawDestroy(playerid, ItemName[playerid][j][i]);
+		}
+	}
+	for(new i = 0; i < MAX_INV_TRADE; i++)
+	{
+		PlayerTextDrawHide(playerid, TradeItem[playerid][i]);
+		PlayerTextDrawHide(playerid, TradeName[playerid][i]);
+	}
 	return 1;
 }
 stock ReloadInv(playerid)
 {
-	HidePlayerIndexInv(playerid);
+	// HidePlayerIndexInv(playerid);
 	ShowPlayerIndexInv(playerid);
 	return 1;
 }

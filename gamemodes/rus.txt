@@ -1,3 +1,2 @@
-./includes/Client/Inventory/_var.pwn(48) : ������������� �� ������������: "TradeInv"
 Pawn compiler 3.2.3664	 	 	Copyright (c) 1997-2016, ITB CompuPhase
 

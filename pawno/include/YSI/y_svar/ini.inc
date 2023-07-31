@@ -170,7 +170,7 @@ public _Config_Load_y_svar(name[], value[])
 			return;
 		}
 		// Check that the data is the right size.
-		P:C(if (strval(value) != YSI_g_sLastSize) P:E("uvar data changed in %s", YSI_g_sLastName););
+		P:C(if (strval(value) != YSI_g_sLastSize) P:E("uvar data changed in %s", YSI_g_sLastName));
 	}
 	else
 	{

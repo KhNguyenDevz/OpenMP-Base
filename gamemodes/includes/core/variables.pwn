@@ -6,6 +6,9 @@ new ShopToggle = 0;
 //Tog lich su
 new bool:InfoMessage[MAX_PLAYERS] = true;
 
+// new Player_Language[MAX_PLAYERS];
+
+new IndexVeh = 53;
 
 //Login
 new Text:LoginHoclamSAMP;

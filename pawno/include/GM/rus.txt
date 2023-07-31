@@ -1,6 +1,6 @@
-E:\SAMPVN\OpenMP-Base\pawno\include\YSI\y_amx.inc(294) : ��������������: �������� � AMX_GetGlobal
-��� ���������� ������ ��������: #pragma disablerecursion
+E:\SAMPVN\OpenMP-Base\pawno\include\GM\Progressbar.inc(79) : ïđåäóïđåæäåíèå 213: íåñîâïàäåíèå ̣èïîâ
+E:\SAMPVN\OpenMP-Base\pawno\include\GM\Progressbar.inc(4) : èäåị́èôèêạ̀îđ íå èñïîëüçóạ̊ñÿ: "CreateProgressCustom"
 Pawn compiler 3.2.3664	 	 	Copyright (c) 1997-2016, ITB CompuPhase
 
 
-��������������:1.
+Ïđåäóïđåæäåíèé:1.

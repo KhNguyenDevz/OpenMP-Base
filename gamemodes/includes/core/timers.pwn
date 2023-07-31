@@ -259,7 +259,7 @@ task ProductionUpdate[300000]()
 			SendClientMessageEx(i, COLOR_LIGHTBLUE, "Can ho tro? Doi ngu Community Advisors co the giup do ban. (/yeucautrogiup de duoc giup do)");
 		}
 		if(PlayerInfo[i][pConnectHours] < 2) {
-			SendClientMessageEx(i, COLOR_LIGHTRED, "Vu khi se bi gioi han trong 2 gio choi dau tien khi tham gia may chu NGG-TDM.");
+			SendClientMessageEx(i, COLOR_LIGHTRED, "{ff8a8a}Vu khi se bi gioi han trong 2 gio choi dau tien khi tham gia may chu SVN.");
 		}
 
 		if(PlayerInfo[i][pFishes] >= 5) {
@@ -2034,9 +2034,9 @@ task ServerMicrobeat[500]() {
 
 	foreach(new i: Player)
 	{
-		if (_vhudVisible[i] == 1 && !IsPlayerInAnyVehicle(i))
+		if (GetPVarInt(i, #openSpeedo) == 1 && !IsPlayerInAnyVehicle(i))
 		{
-			HideVehicleHUDForPlayer(i);
+			HidePlayerSpeedo(i);
 		}
 
 		switch(GetPlayerState(i)) {
@@ -2077,7 +2077,8 @@ task ServerMicrobeat[500]() {
 					arr_Engine{iVehicle} = 0;
 				}
 				else if(PlayerInfo[i][pSpeedo] != 0 && FindTimePoints[i] == 0 && arr_Engine{iVehicle} == 1 && !GetPVarType(i, "LoadTruckTime")) {
-					UpdateVehicleHUDForPlayer(i, floatround(VehicleFuel[iVehicle]), floatround(fCurrentSpeed));
+					// UpdateVehicleHUDForPlayer(i, floatround(VehicleFuel[iVehicle]), floatround(fCurrentSpeed));
+					UpdatePlayerSpeedo(i, floatround(VehicleFuel[iVehicle]), floatround(fCurrentSpeed));
 				}
 			}
 			case PLAYER_STATE_PASSENGER: {
@@ -2086,7 +2087,8 @@ task ServerMicrobeat[500]() {
 	            GetVehicleHealth(iVehicle,fExpHealth);
 				fCurrentSpeed = player_get_speed(i);
 				if(PlayerInfo[i][pSpeedo] != 0) {
-					UpdateVehicleHUDForPlayer(i, floatround(VehicleFuel[iVehicle]), floatround(fCurrentSpeed));
+					// UpdateVehicleHUDForPlayer(i, floatround(VehicleFuel[iVehicle]), floatround(fCurrentSpeed));+
+					UpdatePlayerSpeedo(i, floatround(VehicleFuel[iVehicle]), floatround(fCurrentSpeed));
 				}
 				if(fCurrentSpeed >= 40 && 60 <= fCurrentSpeed)
 				{

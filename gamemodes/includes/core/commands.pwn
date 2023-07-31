@@ -36,7 +36,7 @@ CMD:gotosz(playerid, params[])
 {
 	if(!IsPlayerAdmin(playerid))
 	{
-		SendClientMessage(playerid, -1, "Ban khong du quyen de su dung lenh nay.");
+		SendClientMessage(playerid, -1, "Bạn không có quyền sử dụng lệnh này.");
 		SendClientMessage(playerid, COLOR_YELLOW, "Chi co Admin RCON moi co the su dung lenh nay.");
 		SendClientMessage(playerid, COLOR_YELLOW, "Dang nhap bang cach /rcon login [matkhaurcon].");
 		return 1;
@@ -56,7 +56,7 @@ CMD:szedit(playerid, params[])
 {
 	if(!IsPlayerAdmin(playerid))
 	{
-		SendClientMessage(playerid, -1, "Ban khong du quyen de su dung lenh nay.");
+		SendClientMessage(playerid, -1, "Bạn không có quyền sử dụng lệnh này.");
 		SendClientMessage(playerid, COLOR_YELLOW, "Chi co Admin RCON moi co the su dung lenh nay.");
 		SendClientMessage(playerid, COLOR_YELLOW, "Dang nhap bang cach /rcon login [matkhaurcon].");
 		return 1;
@@ -100,7 +100,7 @@ CMD:szdelete(playerid, params[])
 {
 	if(!IsPlayerAdmin(playerid))
 	{
-		SendClientMessage(playerid, -2, "Ban khong du quyen de su dung lenh nay!");
+		SendClientMessage(playerid, -2, "Bạn không có quyền sử dụng lệnh này!");
 		SendClientMessage(playerid, COLOR_YELLOW, "Chi co Admin RCON moi co the su dung lenh nay.");
 		SendClientMessage(playerid, COLOR_YELLOW, "Dang nhap bang cach /rcon login [matkhaurcon].");
 		return 1;
@@ -6523,13 +6523,13 @@ CMD:impound(playerid, params[]) {
 						new
 							szMessage[96];
 
-						format(szMessage, sizeof(szMessage),"* Ban da tich thu %s's %s.",GetPlayerNameEx(iTargetOwner), VehicleName[PlayerVehicleInfo[iTargetOwner][iVehIndex][pvModelId] - 400]);
+						format(szMessage, sizeof(szMessage),"* Ban da tich thu %s's %s.",GetPlayerNameEx(iTargetOwner), GetVehicleName(PlayerVehicleInfo[iTargetOwner][iVehIndex][pvModelId]));
 						SendClientMessageEx(playerid, COLOR_LIGHTBLUE, szMessage);
 
-						format(szMessage, sizeof(szMessage), "Xe %s cua ban da bi giam giu. Vui long toi DMV de nop tien phat va lay lai xe.", VehicleName[PlayerVehicleInfo[iTargetOwner][iVehIndex][pvModelId] - 400]);
+						format(szMessage, sizeof(szMessage), "Xe %s cua ban da bi giam giu. Vui long toi DMV de nop tien phat va lay lai xe.", GetVehicleName(PlayerVehicleInfo[iTargetOwner][iVehIndex][pvModelId]));
 						SendClientMessageEx(iTargetOwner, COLOR_LIGHTBLUE, szMessage);
 
-						format(szMessage, sizeof(szMessage), "HQ: %s da tich thu %s's %s ($%s ve phat thanh toan).", GetPlayerNameEx(playerid), GetPlayerNameEx(iTargetOwner), VehicleName[PlayerVehicleInfo[iTargetOwner][iVehIndex][pvModelId] - 400], number_format(PlayerVehicleInfo[iTargetOwner][iVehIndex][pvTicket]));
+						format(szMessage, sizeof(szMessage), "HQ: %s da tich thu %s's %s ($%s ve phat thanh toan).", GetPlayerNameEx(playerid), GetPlayerNameEx(iTargetOwner), GetVehicleName(PlayerVehicleInfo[iTargetOwner][iVehIndex][pvModelId]), number_format(PlayerVehicleInfo[iTargetOwner][iVehIndex][pvTicket]));
 						SendGroupMessage(1, RADIO, szMessage);
 					}
 					/*case 2: {
@@ -6602,10 +6602,10 @@ CMD:aimpound(playerid, params[]) {
 				new
 					szMessage[96];
 
-				format(szMessage, sizeof(szMessage),"* Ban da tich thu xe %s's %s.",GetPlayerNameEx(iTargetOwner), VehicleName[PlayerVehicleInfo[iTargetOwner][iVehIndex][pvModelId] - 400]);
+				format(szMessage, sizeof(szMessage),"* Ban da tich thu xe %s's %s.",GetPlayerNameEx(iTargetOwner), GetVehicleName(PlayerVehicleInfo[iTargetOwner][iVehIndex][pvModelId]));
 				SendClientMessageEx(playerid, COLOR_LIGHTBLUE, szMessage);
 
-				format(szMessage, sizeof(szMessage), "Xe %s cua ban da bi giam giu boi mot admin. Vui long toi DMV de nop tien phat va lay lai xe.", VehicleName[PlayerVehicleInfo[iTargetOwner][iVehIndex][pvModelId] - 400]);
+				format(szMessage, sizeof(szMessage), "Xe %s cua ban da bi giam giu boi mot admin. Vui long toi DMV de nop tien phat va lay lai xe.", GetVehicleName(PlayerVehicleInfo[iTargetOwner][iVehIndex][pvModelId]));
 				SendClientMessageEx(iTargetOwner, COLOR_LIGHTBLUE, szMessage);
 
 			}
@@ -6818,10 +6818,10 @@ CMD:vehname(playerid, params[]) {
 		if(!params[2]) return SendClientMessageEx(playerid, COLOR_GREY, "Search keyword too short.");
 
 		for(new v; v < sizeof(VehicleName); v++) {
-			if(strfind(VehicleName[v], params, true) != -1) {
+			if(strfind(GetVehicleName(v), params, true) != -1) {
 
-				if(isnull(string)) format(string, sizeof(string), "%s (ID %d)", VehicleName[v], v+400);
-				else format(string, sizeof(string), "%s | %s (ID %d)", string, VehicleName[v], v+400);
+				if(isnull(string)) format(string, sizeof(string), "%s (ID %d)", GetVehicleName(v), v+400);
+				else format(string, sizeof(string), "%s | %s (ID %d)", string, GetVehicleName(v), v+400);
 			}
 		}
 
@@ -7120,7 +7120,7 @@ CMD:luatchoi(playerid, params[]) return cmd_quydinh(playerid, params);
 CMD:quydinh(playerid, params[])
 {
 	SendClientMessageEx(playerid, COLOR_WHITE,"*** Server Rules ***");
-	SendClientMessageEx(playerid, COLOR_GRAD1,"Luon luon ROLEPLAY tai server GvN. Hanh vi nhan vat can phai duoc nhu thuc te, va gan gui voi cuoc song cang tot!");
+	SendClientMessageEx(playerid, COLOR_GRAD1,"Luon luon ROLEPLAY tai server SVN. Hanh vi nhan vat can phai duoc nhu thuc te, va gan gui voi cuoc song cang tot!");
 	SendClientMessageEx(playerid, COLOR_GRAD1,"Khong metaming! Khong ket hop ky tu (IC)va cua ky tu (OOC) chat/thong tin. IC chat la chat mac dinh bang cach go~ /b!");
 	SendClientMessageEx(playerid, COLOR_GRAD2,"Khong killing on sight (KOS). No luc de giet mot nguoi choi tren man hinh mac da roleplay!");
 	SendClientMessageEx(playerid, COLOR_GRAD2,"Khong Tra Thu(RK)). Neu ban quay lai tan cong mot nguoi choi da giet ban. Tu khi chet sau 30 phut ban khong duoc quay lai tan cong,neu tra thu ban se vao tu!");
@@ -19079,9 +19079,6 @@ CMD:shopcar(playerid, params[]) {
 		if(sscanf(params, "uiiis[32]", iTargetID, iModelID, iColors[0], iColors[1], szInvoice)) {
 			SendClientMessageEx(playerid, COLOR_GREY, "SU DUNG: /shopcar [player] [model] [color 1] [color 2] [invoice #]");
 		}
-		else if(!(400 <= iModelID <= 611)) {
-			SendClientMessageEx(playerid, COLOR_GRAD2, "Invalid model specified (model IDs start at 400, and end at 611).");
-		}
 		else if(IsATrain(iModelID)) {
 			SendClientMessageEx(playerid, COLOR_GREY, "Trains cannot be spawned during runtime.");
 		}
@@ -19107,10 +19104,10 @@ CMD:shopcar(playerid, params[]) {
 			GetPlayerFacingAngle(iTargetID, arr_fPlayerPos[3]);
 			CreatePlayerVehicle(iTargetID, GetPlayerFreeVehicleId(iTargetID), iModelID, arr_fPlayerPos[0], arr_fPlayerPos[1], arr_fPlayerPos[2], arr_fPlayerPos[3], iColors[0], iColors[1], 2000000, GetPlayerVirtualWorld(playerid), GetPlayerInterior(playerid));
 
-			format(szMessage, sizeof(szMessage), "You have successfully created a %s for %s (invoice %s).", VehicleName[iModelID - 400], GetPlayerNameEx(iTargetID), szInvoice);
+			format(szMessage, sizeof(szMessage), "You have successfully created a %s for %s (invoice %s).", GetVehicleName(iModelID), GetPlayerNameEx(iTargetID), szInvoice);
 			SendClientMessageEx(playerid, COLOR_WHITE, szMessage);
 
-			format(szMessage, sizeof(szMessage), "%s created a %s (%i) for %s (invoice %s).", GetPlayerNameEx(playerid), VehicleName[iModelID - 400], iModelID, GetPlayerNameEx(iTargetID), szInvoice);
+			format(szMessage, sizeof(szMessage), "%s created a %s (%i) for %s (invoice %s).", GetPlayerNameEx(playerid), GetVehicleName(iModelID), iModelID, GetPlayerNameEx(iTargetID), szInvoice);
 			Log("logs/shoplog.log", szMessage);
 		}
 	}
@@ -19124,7 +19121,6 @@ CMD:destroypvehicle(playerid, params[])
 	{
 		new string[128], giveplayerid, vehicleid;
 		if(sscanf(params, "ud", giveplayerid, vehicleid)) return SendClientMessageEx(playerid, COLOR_GREY, "SU DUNG: /destroypvehicle [player] [vehicleid]");
-		if(!(400 <= GetVehicleModel(vehicleid) <= 612)) return SendClientMessageEx(playerid, COLOR_GREY, "Invalid vehicle specified.");
 		new playervehicleid = GetPlayerVehicle(giveplayerid, vehicleid);
 		if(playervehicleid == -1) return SendClientMessageEx(playerid, COLOR_GREY, "ERROR: That person doesn't own that vehicle.");
 
@@ -20079,13 +20075,11 @@ CMD:dvtrackcar(playerid, params[])
 		new vstring[2500];
 		for(new i; i < MAX_DYNAMIC_VEHICLES; i++) {
 			new iModelID = DynVehicleInfo[i][gv_iModel];
-			if(400 <= iModelID < 612 && DynVehicleInfo[i][gv_igID] == iGroupID) {
-				if(DynVehicleInfo[i][gv_iDisabled]) {
-					format(vstring, sizeof(vstring), "%s\n(%d)%s (Upkeep: $%s) (repo'd)", vstring, i, VehicleName[iModelID - 400], number_format(DynVehicleInfo[i][gv_iUpkeep]));
-				}
-				else if(DynVehicleInfo[i][gv_iSpawnedID] != INVALID_VEHICLE_ID) {
-					format(vstring, sizeof(vstring), "%s\n(%d) %s (Upkeep: $%s) (VID: %d)", vstring, i, VehicleName[iModelID - 400], number_format(DynVehicleInfo[i][gv_iUpkeep]), DynVehicleInfo[i][gv_iSpawnedID]);
-				}
+			if(DynVehicleInfo[i][gv_iDisabled]) {
+				format(vstring, sizeof(vstring), "%s\n(%d)%s (Upkeep: $%s) (repo'd)", vstring, i, GetVehicleName(iModelID), number_format(DynVehicleInfo[i][gv_iUpkeep]));
+			}
+			else if(DynVehicleInfo[i][gv_iSpawnedID] != INVALID_VEHICLE_ID) {
+				format(vstring, sizeof(vstring), "%s\n(%d) %s (Upkeep: $%s) (VID: %d)", vstring, i, GetVehicleName(iModelID), number_format(DynVehicleInfo[i][gv_iUpkeep]), DynVehicleInfo[i][gv_iSpawnedID]);
 			}
 		}
 		ShowPlayerDialog(playerid, DV_TRACKCAR, DIALOG_STYLE_LIST, "Vehicle GPS Tracking", vstring, "Track", "Cancel");
@@ -20095,13 +20089,11 @@ CMD:dvtrackcar(playerid, params[])
         new vstring[2500];
 		for(new i; i < MAX_DYNAMIC_VEHICLES; i++) {
 			new iModelID = DynVehicleInfo[i][gv_iModel];
-			if(400 <= iModelID < 612 && DynVehicleInfo[i][gv_ifID] == iFamilyID) {
-				if(DynVehicleInfo[i][gv_iDisabled]) {
-					format(vstring, sizeof(vstring), "%s\n(%d)%s (repo'd)", vstring, i, VehicleName[iModelID - 400]);
-				}
-				else if(DynVehicleInfo[i][gv_iSpawnedID] != INVALID_VEHICLE_ID) {
-					format(vstring, sizeof(vstring), "%s\n(%d) %s (VID: %d)", vstring, i, VehicleName[iModelID - 400], DynVehicleInfo[i][gv_iSpawnedID]);
-				}
+			if(DynVehicleInfo[i][gv_iDisabled]) {
+				format(vstring, sizeof(vstring), "%s\n(%d)%s (repo'd)", vstring, i, GetVehicleName(iModelID));
+			}
+			else if(DynVehicleInfo[i][gv_iSpawnedID] != INVALID_VEHICLE_ID) {
+				format(vstring, sizeof(vstring), "%s\n(%d) %s (VID: %d)", vstring, i, GetVehicleName(iModelID), DynVehicleInfo[i][gv_iSpawnedID]);
 			}
 		}
 		ShowPlayerDialog(playerid, DV_TRACKCAR, DIALOG_STYLE_LIST, "Vehicle GPS Tracking", vstring, "Track", "Cancel");
@@ -20124,7 +20116,7 @@ CMD:grepocars(playerid, params[])
 			    {
 			        if(DynVehicleInfo[iDvSlotID][gv_iDisabled] == 1)
 			        {
-			            format(string, sizeof(string), "Vehicle ID: %d - %s - Buyback Cost $%d.", iDvSlotID, VehicleName[DynVehicleInfo[iDvSlotID][gv_iModel] - 400], floatround(DynVehicleInfo[iDvSlotID][gv_iUpkeep] * 2), floatround(DynVehicleInfo[iDvSlotID][gv_iUpkeep] / 2));
+			            format(string, sizeof(string), "Vehicle ID: %d - %s - Buyback Cost $%d.", iDvSlotID, GetVehicleName(DynVehicleInfo[iDvSlotID][gv_iModel]), floatround(DynVehicleInfo[iDvSlotID][gv_iUpkeep] * 2), floatround(DynVehicleInfo[iDvSlotID][gv_iUpkeep] / 2));
 			            SendClientMessageEx(playerid, COLOR_GRAD1, string);
 					}
 			    }
@@ -20406,14 +20398,11 @@ CMD:dvrespawn(playerid, params[])
 		{
 			for(new i; i < MAX_DYNAMIC_VEHICLES; i++)
 			{
-			    new iModelID = DynVehicleInfo[i][gv_iModel];
-			    if(400 <= iModelID < 612 && DynVehicleInfo[i][gv_igID] == iGroupID)
-			    {
-					if(!IsVehicleOccupied(DynVehicleInfo[i][gv_iSpawnedID]))
-					{
-						DynVeh_Spawn(i);
-					}
-			    }
+			    // new iModelID = DynVehicleInfo[i][gv_iModel];
+				if(!IsVehicleOccupied(DynVehicleInfo[i][gv_iSpawnedID]))
+				{
+					DynVeh_Spawn(i);
+				}
 			}
 			format(szString, sizeof(szString), "** Respawning all dynamic group vehicles...");
 			foreach(new i: Player)
@@ -20430,14 +20419,11 @@ CMD:dvrespawn(playerid, params[])
 		{
 		    for(new i; i < MAX_DYNAMIC_VEHICLES; i++)
 		    {
-		        new iModelID = DynVehicleInfo[i][gv_iModel];
-		        if(400 <= iModelID < 612 && DynVehicleInfo[i][gv_ifID] == iFamilyID)
-		        {
-					if(!IsVehicleOccupied(DynVehicleInfo[i][gv_iSpawnedID]))
-					{
-						DynVeh_Spawn(i);
-					}
-		        }
+		        // new iModelID = DynVehicleInfo[i][gv_iModel];
+		        if(!IsVehicleOccupied(DynVehicleInfo[i][gv_iSpawnedID]))
+				{
+					DynVeh_Spawn(i);
+				}
 		    }
 			format(szString, sizeof(szString), "** Respawning all dynamic family vehicles...");
 		    foreach(new i: Player)
@@ -21700,17 +21686,14 @@ CMD:dvstorage(playerid, params[])
 				for(new i; i < MAX_DYNAMIC_VEHICLES; i++)
 				{
 					new iModelID = DynVehicleInfo[i][gv_iModel];
-					if(400 <= iModelID < 612 && DynVehicleInfo[i][gv_igID] == iGroupID)
-					{
-						if(DynVehicleInfo[i][gv_iDisabled]) {
-							format(vstring, sizeof(vstring), "%s\n(%d)%s (Disabled) [VehicleID : %d]", vstring, i, VehicleName[iModelID - 400], DynVehicleInfo[i][gv_iSpawnedID]);
-						}
-						else if(DynVehicleInfo[i][gv_iSpawnedID] != INVALID_VEHICLE_ID) {
-							format(vstring, sizeof(vstring), "%s\n(%d) %s (Spawned) [VehicleID : %d]", vstring, i, VehicleName[iModelID - 400], DynVehicleInfo[i][gv_iSpawnedID]);
-						}
-						else if(DynVehicleInfo[i][gv_iSpawnedID] == INVALID_VEHICLE_ID) {
-							format(vstring, sizeof(vstring), "%s\n(%d) %s (Stored)", vstring, i, VehicleName[iModelID - 400], DynVehicleInfo[i][gv_iSpawnedID]);
-						}
+					if(DynVehicleInfo[i][gv_iDisabled]) {
+						format(vstring, sizeof(vstring), "%s\n(%d)%s (Disabled) [VehicleID : %d]", vstring, i, GetVehicleName(iModelID), DynVehicleInfo[i][gv_iSpawnedID]);
+					}
+					else if(DynVehicleInfo[i][gv_iSpawnedID] != INVALID_VEHICLE_ID) {
+						format(vstring, sizeof(vstring), "%s\n(%d) %s (Spawned) [VehicleID : %d]", vstring, i, GetVehicleName(iModelID), DynVehicleInfo[i][gv_iSpawnedID]);
+					}
+					else if(DynVehicleInfo[i][gv_iSpawnedID] == INVALID_VEHICLE_ID) {
+						format(vstring, sizeof(vstring), "%s\n(%d) %s (Stored)", vstring, i, GetVehicleName(iModelID), DynVehicleInfo[i][gv_iSpawnedID]);
 					}
 				}
 				ShowPlayerDialog(playerid, DV_STORAGE, DIALOG_STYLE_LIST, "Dynamic Group Vehicle Storage", vstring, "Track", "Cancel");
@@ -21735,15 +21718,15 @@ CMD:vstorage(playerid, params[])
 		for(new i, iModelID; i < icount; i++) {
 			if((iModelID = PlayerVehicleInfo[playerid][i][pvModelId] - 400) >= 0) {
 				if(PlayerVehicleInfo[playerid][i][pvImpounded]) {
-					format(vstring, sizeof(vstring), "%s\n%s (Tich thu)", vstring, VehicleName[iModelID]);
+					format(vstring, sizeof(vstring), "%s\n%s (Tich thu)", vstring, GetVehicleName(iModelID + 400));
 				}
 				else if(PlayerVehicleInfo[playerid][i][pvDisabled]) {
-					format(vstring, sizeof(vstring), "%s\n%s (Khong dung duoc)", vstring, VehicleName[iModelID]);
+					format(vstring, sizeof(vstring), "%s\n%s (Khong dung duoc)", vstring, GetVehicleName(iModelID + 400));
 				}
 				else if(!PlayerVehicleInfo[playerid][i][pvSpawned]) {
-					format(vstring, sizeof(vstring), "%s\n%s (Trong kho)", vstring, VehicleName[iModelID]);
+					format(vstring, sizeof(vstring), "%s\n%s (Trong kho)", vstring, GetVehicleName(iModelID + 400));
 				}
-				else format(vstring, sizeof(vstring), "%s\n%s (Dang dung)", vstring, VehicleName[iModelID]);
+				else format(vstring, sizeof(vstring), "%s\n%s (Dang dung)", vstring, GetVehicleName(iModelID + 400));
 			}
 			else strcat(vstring, "\nTrong");
 		}
@@ -21767,15 +21750,15 @@ CMD:removepvehicle(playerid, params[])
 		for(new i, iModelID; i < GetPlayerVehicleSlots(giveplayerid); i++) {
 			if((iModelID = PlayerVehicleInfo[giveplayerid][i][pvModelId] - 400) >= 0) {
 				if(PlayerVehicleInfo[giveplayerid][i][pvImpounded]) {
-					format(vstring, sizeof(vstring), "%s\n%s (impounded)", vstring, VehicleName[iModelID]);
+					format(vstring, sizeof(vstring), "%s\n%s (impounded)", vstring, GetVehicleName(iModelID + 400));
 				}
 				else if(PlayerVehicleInfo[giveplayerid][i][pvDisabled]) {
-					format(vstring, sizeof(vstring), "%s\n%s (disabled)", vstring, VehicleName[iModelID]);
+					format(vstring, sizeof(vstring), "%s\n%s (disabled)", vstring, GetVehicleName(iModelID + 400));
 				}
 				else if(!PlayerVehicleInfo[giveplayerid][i][pvSpawned]) {
-					format(vstring, sizeof(vstring), "%s\n%s (stored)", vstring, VehicleName[iModelID]);
+					format(vstring, sizeof(vstring), "%s\n%s (stored)", vstring, GetVehicleName(iModelID + 400));
 				}
-				else format(vstring, sizeof(vstring), "%s\n%s (spawned)", vstring, VehicleName[iModelID]);
+				else format(vstring, sizeof(vstring), "%s\n%s (spawned)", vstring, GetVehicleName(iModelID + 400));
 			}
 			else strcat(vstring, "\nEmpty");
 		}
@@ -21801,15 +21784,15 @@ CMD:trackcar(playerid, params[])
 		for(new i, iModelID; i < icount; i++) {
 			if((iModelID = PlayerVehicleInfo[playerid][i][pvModelId] - 400) >= 0) {
 				if(PlayerVehicleInfo[playerid][i][pvImpounded]) {
-					format(vstring, sizeof(vstring), "%s\n%s (impounded)", vstring, VehicleName[iModelID]);
+					format(vstring, sizeof(vstring), "%s\n%s (impounded)", vstring, GetVehicleName(iModelID + 400));
 				}
 				else if(PlayerVehicleInfo[playerid][i][pvDisabled]) {
-					format(vstring, sizeof(vstring), "%s\n%s (disabled)", vstring, VehicleName[iModelID]);
+					format(vstring, sizeof(vstring), "%s\n%s (disabled)", vstring, GetVehicleName(iModelID + 400));
 				}
 				else if(!PlayerVehicleInfo[playerid][i][pvSpawned]) {
-					format(vstring, sizeof(vstring), "%s\n%s (stored)", vstring, VehicleName[iModelID]);
+					format(vstring, sizeof(vstring), "%s\n%s (stored)", vstring, GetVehicleName(iModelID + 400));
 				}
-				else format(vstring, sizeof(vstring), "%s\n%s", vstring, VehicleName[iModelID]);
+				else format(vstring, sizeof(vstring), "%s\n%s", vstring, GetVehicleName(iModelID + 400));
 			}
 		}
 		ShowPlayerDialog(playerid, TRACKCAR, DIALOG_STYLE_LIST, "Vehicle GPS Tracking", vstring, "Track", "Cancel");
@@ -22013,10 +21996,10 @@ CMD:deletecar(playerid, params[])
 	for(new i, iModelID; i < icount; i++) {
 		if((iModelID = PlayerVehicleInfo[playerid][i][pvModelId] - 400) >= 0)
 		{
-			if(PlayerVehicleInfo[playerid][i][pvImpounded]) format(vstring, sizeof(vstring), "%s\n%s (impounded)", vstring, VehicleName[iModelID]);
-			else if(PlayerVehicleInfo[playerid][i][pvDisabled]) format(vstring, sizeof(vstring), "%s\n%s (disabled)", vstring, VehicleName[iModelID]);
-			else if(!PlayerVehicleInfo[playerid][i][pvSpawned]) format(vstring, sizeof(vstring), "%s\n%s (stored)", vstring, VehicleName[iModelID]);
-			else format(vstring, sizeof(vstring), "%s\n%s", vstring, VehicleName[iModelID]);
+			if(PlayerVehicleInfo[playerid][i][pvImpounded]) format(vstring, sizeof(vstring), "%s\n%s (impounded)", vstring, GetVehicleName(iModelID + 400));
+			else if(PlayerVehicleInfo[playerid][i][pvDisabled]) format(vstring, sizeof(vstring), "%s\n%s (disabled)", vstring, GetVehicleName(iModelID + 400));
+			else if(!PlayerVehicleInfo[playerid][i][pvSpawned]) format(vstring, sizeof(vstring), "%s\n%s (stored)", vstring, GetVehicleName(iModelID + 400));
+			else format(vstring, sizeof(vstring), "%s\n%s", vstring, GetVehicleName(iModelID + 400));
 		}
 		else strcat(vstring, "\nEmpty");
 	}
@@ -22160,10 +22143,10 @@ CMD:apark(playerid, params[]) {
 
 				 	new szMessage[128];
 
-				 	format(szMessage, sizeof(szMessage),"* Ban da dau %s's %s.",GetPlayerNameEx(ownerid), VehicleName[PlayerVehicleInfo[ownerid][d][pvModelId] - 400]);
+				 	format(szMessage, sizeof(szMessage),"* Ban da dau %s's %s.",GetPlayerNameEx(ownerid), GetVehicleName(PlayerVehicleInfo[ownerid][d][pvModelId]));
 					SendClientMessageEx(playerid, COLOR_LIGHTBLUE, szMessage);
 
-					format(szMessage, sizeof(szMessage), "Xe cua ban %s da duoc di chuyen toi mot cho khoac. Su dung /timxe de tim chiec xe cua minh.", VehicleName[PlayerVehicleInfo[ownerid][d][pvModelId] - 400]);
+					format(szMessage, sizeof(szMessage), "Xe cua ban %s da duoc di chuyen toi mot cho khoac. Su dung /timxe de tim chiec xe cua minh.", GetVehicleName(PlayerVehicleInfo[ownerid][d][pvModelId]));
 					SendClientMessageEx(ownerid, COLOR_LIGHTBLUE, szMessage);
 					return 1;
 				}
@@ -22447,9 +22430,6 @@ CMD:createcdveh(playerid, params[]) {
 		if(sscanf(params, "iiii", iBusiness, iVehicle, iColors[0], iColors[1])) {
 			SendClientMessageEx(playerid, COLOR_GREY, "SU DUNG: /createcdveh [business ID] [model id] [color 1] [color 2]");
 		}
-		else if(!(400 <= iVehicle <= 611)) {
-			SendClientMessageEx(playerid, COLOR_GRAD2, "Invalid model specified (model IDs start at 400, and end at 611).");
-		}
 		else if(IsATrain(iVehicle)) {
 			SendClientMessageEx(playerid, COLOR_GREY, "Trains cannot be spawned during runtime.");
 		}
@@ -22528,8 +22508,10 @@ CMD:veh(playerid, params[]) {
 			Vehicle_ResetData(CreatedCars[iIterator]);
 			LinkVehicleToInterior(CreatedCars[iIterator], GetPlayerInterior(playerid));
 			SetVehicleVirtualWorld(CreatedCars[iIterator], fVW);
+			PutPlayerInVehicle(playerid,CreatedCars[iIterator], 0);
 			new stringzz[1280];
-			format(stringzz, sizeof(stringzz), "Xe %s da duoc tao ra!", GetVehicleNameExz(iVehicle));
+			new idcar = GetPlayerVehicleID(playerid);
+			format(stringzz, sizeof(stringzz), "Xe %s da duoc tao ra!", GetVehicleName(GetVehicleModel(idcar)));
 			
 			return SendClientMessageEx(playerid, COLOR_GREY, stringzz);
 		}
@@ -23246,14 +23228,14 @@ CMD:carkeys(playerid, params[])
 	{
 	    if(PlayerVehicleInfo[playerid][i][pvId] != INVALID_PLAYER_VEHICLE_ID) {
 	        if(PlayerVehicleInfo[playerid][i][pvAllowedPlayerId] != INVALID_PLAYER_ID) {
-				format(vstring, sizeof(vstring), "%s\n%s | Keys: %s", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400], GetPlayerNameEx(PlayerVehicleInfo[playerid][i][pvAllowedPlayerId])), ++iValidVehicles;
+				format(vstring, sizeof(vstring), "%s\n%s | Keys: %s", vstring, GetVehicleName(PlayerVehicleInfo[playerid][i][pvModelId]), GetPlayerNameEx(PlayerVehicleInfo[playerid][i][pvAllowedPlayerId])), ++iValidVehicles;
 			}
 			else {
-                format(vstring, sizeof(vstring), "%s\n%s | Keys: No-one", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400]);
+                format(vstring, sizeof(vstring), "%s\n%s | Keys: No-one", vstring, GetVehicleName(PlayerVehicleInfo[playerid][i][pvModelId]));
 			}
 		}
         else if((PlayerVehicleInfo[playerid][i][pvImpounded] == 1 || PlayerVehicleInfo[playerid][i][pvSpawned] == 0) && PlayerVehicleInfo[playerid][i][pvModelId] != 0) {
-            format(vstring, sizeof(vstring), "%s\n%s | Keys: Unavailable", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400]);
+            format(vstring, sizeof(vstring), "%s\n%s | Keys: Unavailable", vstring, GetVehicleName(PlayerVehicleInfo[playerid][i][pvModelId]));
 		}
         else {
 			format(vstring, sizeof(vstring), "%s\nEmpty", vstring);
@@ -23374,16 +23356,16 @@ CMD:givekeys(playerid, params[])
 			for(new i; i < MAX_PLAYERVEHICLES; i++) if(PlayerVehicleInfo[playerid][i][pvModelId] >= 400)
 			{
 				if(PlayerVehicleInfo[playerid][i][pvImpounded] == 1)
-					format(vstring, sizeof(vstring), "%s\n%s (Dang bi thu giu)", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400]);
+					format(vstring, sizeof(vstring), "%s\n%s (Dang bi thu giu)", vstring, GetVehicleName(PlayerVehicleInfo[playerid][i][pvModelId]));
 
 				else if(PlayerVehicleInfo[playerid][i][pvDisabled] == 1)
-					format(vstring, sizeof(vstring), "%s\n%s (Khong the su dung)", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400]);
+					format(vstring, sizeof(vstring), "%s\n%s (Khong the su dung)", vstring, GetVehicleName(PlayerVehicleInfo[playerid][i][pvModelId]));
 
 				else if(PlayerVehicleInfo[playerid][i][pvSpawned] == 0)
-					format(vstring, sizeof(vstring), "%s\n%s (Trong gara)", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400]);
+					format(vstring, sizeof(vstring), "%s\n%s (Trong gara)", vstring, GetVehicleName(PlayerVehicleInfo[playerid][i][pvModelId]));
 
 				else
-					format(vstring, sizeof(vstring), "%s\n%s", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400]), ++iValidVehicles;
+					format(vstring, sizeof(vstring), "%s\n%s", vstring, GetVehicleName(PlayerVehicleInfo[playerid][i][pvModelId])), ++iValidVehicles;
 			}
 			else strcat(vstring, "\nEmpty");
             if(iValidVehicles != 0)
@@ -23670,13 +23652,13 @@ CMD:dmvrelease(playerid, params[]) {
 					if(PlayerVehicleInfo[iTargetID][i][pvPrice] < 1) PlayerVehicleInfo[iTargetID][i][pvPrice] = 2000000;
 					if(PlayerVehicleInfo[iTargetID][i][pvId] > INVALID_PLAYER_VEHICLE_ID) {
 						if(PlayerVehicleInfo[iTargetID][i][pvTicket]) {
-							format(vstring, sizeof(vstring), "%s\n%s (ve phat - $%i)", vstring, VehicleName[PlayerVehicleInfo[iTargetID][i][pvModelId] - 400], PlayerVehicleInfo[iTargetID][i][pvTicket]);
+							format(vstring, sizeof(vstring), "%s\n%s (ve phat - $%i)", vstring, GetVehicleName(PlayerVehicleInfo[iTargetID][i][pvModelId]), PlayerVehicleInfo[iTargetID][i][pvTicket]);
 							++iCount;
 						}
-						else format(vstring, sizeof(vstring), "%s\n%s", vstring, VehicleName[PlayerVehicleInfo[iTargetID][i][pvModelId] - 400]);
+						else format(vstring, sizeof(vstring), "%s\n%s", vstring, GetVehicleName(PlayerVehicleInfo[iTargetID][i][pvModelId]));
 					}
 					else if(PlayerVehicleInfo[iTargetID][i][pvImpounded]) {
-						format(vstring, sizeof(vstring), "%s\n%s (Dang bi thu giu - $%i de lay xe ra)", vstring, VehicleName[PlayerVehicleInfo[iTargetID][i][pvModelId] - 400], (PlayerVehicleInfo[iTargetID][i][pvPrice] / 20) + PlayerVehicleInfo[iTargetID][i][pvTicket] + (PlayerInfo[iTargetID][pLevel] * 3000));
+						format(vstring, sizeof(vstring), "%s\n%s (Dang bi thu giu - $%i de lay xe ra)", vstring, GetVehicleName(PlayerVehicleInfo[iTargetID][i][pvModelId]), (PlayerVehicleInfo[iTargetID][i][pvPrice] / 20) + PlayerVehicleInfo[iTargetID][i][pvTicket] + (PlayerInfo[iTargetID][pLevel] * 3000));
 						++iCount;
 					}
 					else format(vstring, sizeof(vstring), "%s\nNone", vstring);
@@ -23702,13 +23684,13 @@ CMD:dmvmenu(playerid, params[])
 		if(PlayerVehicleInfo[playerid][i][pvPrice] < 1) PlayerVehicleInfo[playerid][i][pvPrice] = 2000000;
 		if(PlayerVehicleInfo[playerid][i][pvId] > INVALID_PLAYER_VEHICLE_ID) {
 			if(PlayerVehicleInfo[playerid][i][pvTicket]) {
-				format(vstring, sizeof(vstring), "%s\n%s (ve phat - $%i)", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400], PlayerVehicleInfo[playerid][i][pvTicket]);
+				format(vstring, sizeof(vstring), "%s\n%s (ve phat - $%i)", vstring, GetVehicleName(PlayerVehicleInfo[playerid][i][pvModelId]), PlayerVehicleInfo[playerid][i][pvTicket]);
 				++icount;
 			}
-			else format(vstring, sizeof(vstring), "%s\n%s", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400]);
+			else format(vstring, sizeof(vstring), "%s\n%s", vstring, GetVehicleName(PlayerVehicleInfo[playerid][i][pvModelId]));
 		}
 		else if(PlayerVehicleInfo[playerid][i][pvImpounded]) {
-			format(vstring, sizeof(vstring), "%s\n%s (Dang bi thu giu - $%i de lay xe ra)", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400], (PlayerVehicleInfo[playerid][i][pvPrice] / 20) + PlayerVehicleInfo[playerid][i][pvTicket] + (PlayerInfo[playerid][pLevel] * 3000));
+			format(vstring, sizeof(vstring), "%s\n%s (Dang bi thu giu - $%i de lay xe ra)", vstring, GetVehicleName(PlayerVehicleInfo[playerid][i][pvModelId]), (PlayerVehicleInfo[playerid][i][pvPrice] / 20) + PlayerVehicleInfo[playerid][i][pvTicket] + (PlayerInfo[playerid][pLevel] * 3000));
 			++icount;
 		}
 		else format(vstring, sizeof(vstring), "%s\nKhong co", vstring);
@@ -23741,7 +23723,7 @@ CMD:vmdc(playerid, params[])
 	    		}
 				else if(PlayerVehicleInfo[giveplayerid][i][pvImpounded])
 				{
-    				format(string, sizeof(string), "Giay to xe: Voided (tich thu) | Vehicle Name: %s | Ve phat: $%d.",VehicleName[PlayerVehicleInfo[giveplayerid][i][pvModelId]-400],PlayerVehicleInfo[giveplayerid][i][pvTicket]);
+    				format(string, sizeof(string), "Giay to xe: Voided (tich thu) | Vehicle Name: %s | Ve phat: $%d.",GetVehicleName(PlayerVehicleInfo[giveplayerid][i][pvModelId]),PlayerVehicleInfo[giveplayerid][i][pvTicket]);
 					SendClientMessageEx(playerid, COLOR_WHITE, string);
 	    		}
 	    	}
@@ -24113,15 +24095,15 @@ CMD:gotopveh(playerid, params[]) {
 			for(new i, iModelID; i < icount; i++) {
 				if((iModelID = PlayerVehicleInfo[iTargetID][i][pvModelId] - 400) >= 0) {
 					if(PlayerVehicleInfo[iTargetID][i][pvImpounded]) {
-						format(szVehString, sizeof(szVehString), "%s\n%s (impounded)", szVehString, VehicleName[iModelID]);
+						format(szVehString, sizeof(szVehString), "%s\n%s (impounded)", szVehString, GetVehicleName(iModelID + 400));
 					}
 					else if(PlayerVehicleInfo[iTargetID][i][pvDisabled]) {
-						format(szVehString, sizeof(szVehString), "%s\n%s (disabled)", szVehString, VehicleName[iModelID]);
+						format(szVehString, sizeof(szVehString), "%s\n%s (disabled)", szVehString, GetVehicleName(iModelID + 400));
 					}
 					else if(!PlayerVehicleInfo[iTargetID][i][pvSpawned]) {
-						format(szVehString, sizeof(szVehString), "%s\n%s (stored)", szVehString, VehicleName[iModelID]);
+						format(szVehString, sizeof(szVehString), "%s\n%s (stored)", szVehString, GetVehicleName(iModelID + 400));
 					}
-					else format(szVehString, sizeof(szVehString), "%s\n%s (ID %i)", szVehString, VehicleName[iModelID], PlayerVehicleInfo[iTargetID][i][pvId]);
+					else format(szVehString, sizeof(szVehString), "%s\n%s (ID %i)", szVehString, GetVehicleName(iModelID + 400), PlayerVehicleInfo[iTargetID][i][pvId]);
 				}
 			}
 		    ShowPlayerDialog(playerid, GOTOPLAYERCAR, DIALOG_STYLE_LIST, "Vehicle Teleportation", szVehString, "Teleport", "Cancel");
@@ -24210,7 +24192,7 @@ CMD:vehid(playerid, params[])
     {
 		new string[128];
     	new idcar = GetPlayerVehicleID(playerid);
-		format(string, sizeof(string), "* Vehicle Name: %s | Vehicle Model:%d | Vehicle ID: %d.",GetVehicleName(idcar), GetVehicleModel(idcar), idcar);
+		format(string, sizeof(string), "* Vehicle Name: %s | Vehicle Model:%d | Vehicle ID: %d.",GetVehicleName(GetVehicleModel(idcar)), GetVehicleModel(idcar), idcar);
 		SendClientMessageEx(playerid, COLOR_GREY, string);
 	}
 	return 1;
@@ -24265,7 +24247,6 @@ CMD:createpvehicle(playerid, params[]) {
 		new iColors[2], iTargetID, iModelID;
 
 		if(sscanf(params, "uiii", iTargetID, iModelID, iColors[0], iColors[1])) SendClientMessageEx(playerid, COLOR_GREY, "SU DUNG: /createpvehicle [player] [model] [color 1] [color 2]");
-		else if(!(400 <= iModelID <= 611)) SendClientMessageEx(playerid, COLOR_GRAD2, "Invalid model specified (model IDs start at 400, and end at 611).");
 		else if(IsATrain(iModelID)) SendClientMessageEx(playerid, COLOR_GREY, "Trains cannot be spawned during runtime.");
 		else if(!(0 <= iColors[0] <= 255 && 0 <= iColors[1] <= 255)) SendClientMessageEx(playerid, COLOR_GRAD2, "Invalid color specified (IDs start at 0, and end at 255).");
 		else if(!vehicleCountCheck(iTargetID)) SendClientMessageEx(playerid, COLOR_GREY, "That person can't have more vehicles - they own too many.");
@@ -24278,9 +24259,9 @@ CMD:createpvehicle(playerid, params[]) {
 			GetPlayerFacingAngle(iTargetID, arr_fPlayerPos[3]);
 			CreatePlayerVehicle(iTargetID, GetPlayerFreeVehicleId(iTargetID), iModelID, arr_fPlayerPos[0], arr_fPlayerPos[1], arr_fPlayerPos[2], arr_fPlayerPos[3], iColors[0], iColors[1], 2000000, GetPlayerVirtualWorld(iTargetID), GetPlayerInterior(iTargetID));
 
-			format(szMessage, sizeof(szMessage), "You have successfully created a %s for %s.", VehicleName[iModelID - 400], GetPlayerNameEx(iTargetID));
+			format(szMessage, sizeof(szMessage), "You have successfully created a %s for %s.", GetVehicleName(iModelID), GetPlayerNameEx(iTargetID));
 			SendClientMessageEx(playerid, COLOR_WHITE, szMessage);
-			format(szMessage, sizeof(szMessage), "%s created a %s (%i) for %s.", GetPlayerNameEx(playerid), VehicleName[iModelID - 400], iModelID, GetPlayerNameEx(iTargetID));
+			format(szMessage, sizeof(szMessage), "%s created a %s (%i) for %s.", GetPlayerNameEx(playerid), GetVehicleName(iModelID), iModelID, GetPlayerNameEx(iTargetID));
 			Log("logs/playervehicle.log", szMessage);
 		}
 	}
@@ -28249,7 +28230,7 @@ CMD:accent(playerid, params[])
 		SendClientMessageEx(playerid, COLOR_GRAD2, "Available Accnets: Normal [1], Ha Noi [2], Sai Gon [3], Mien Trung [4], Mien Bac [5], Mien Nam [6]");
 		SendClientMessageEx(playerid, COLOR_GRAD2, "Available Accents: Ke lap di [7], Crazy [8], Kid [9], Troll [10], Music [11], Haivl [12], Cute [13]");
 		SendClientMessageEx(playerid, COLOR_GRAD2, "Available Accents: Les [14], Gay [18], Nha Giau [19], Dai Gia [17], Nha Ngheo [18], An May [19], An Xin [20], Gangster [21]");
-		SendClientMessageEx(playerid, COLOR_GRAD2, "Available Accents: Mr. [22], Sinh Vien [23], Hoc Sinh [24], Tre Trau [25], GTA-VIETNAM [26], Sieu Quay [27], Sieu Nhan [28]");
+		SendClientMessageEx(playerid, COLOR_GRAD2, "Available Accents: Mr. [22], Sinh Vien [23], Hoc Sinh [24], Tre Trau [25], SVN [26], Sieu Quay [27], Sieu Nhan [28]");
 		return 1;
 	}
 
@@ -28383,7 +28364,7 @@ CMD:accent(playerid, params[])
 		case 26:
 	    {
 	        PlayerInfo[playerid][pAccent] = 26;
-			SendClientMessageEx(playerid, COLOR_WHITE, "You will now speak in the GTA-VIETNAM accent, use /accent to change it." );
+			SendClientMessageEx(playerid, COLOR_WHITE, "You will now speak in the SVN accent, use /accent to change it." );
 	    }
 		case 27:
 	    {
@@ -35930,25 +35911,18 @@ CMD:setskin(playerid, params[])
 
 		if(IsPlayerConnected(giveplayerid))
 		{
-			if(!IsInvalidSkin(skinid))
+			if(GetPlayerSkin(giveplayerid) == skinid)
 			{
-				if(GetPlayerSkin(giveplayerid) == skinid)
-				{
-					SendClientMessageEx( playerid, COLOR_WHITE, "The person you're trying to change skins of already is using the skin you're trying to set." );
-				}
-				else
-				{
-					PlayerInfo[giveplayerid][pModel] = skinid;
-					format(string, sizeof(string), "Your skin has been changed to ID %d by Administrator %s.", skinid, GetPlayerNameEx(playerid));
-					SendClientMessageEx(giveplayerid, COLOR_WHITE, string);
-					format(string, sizeof(string), "Ban da cho %s skin ID %d.", GetPlayerNameEx(giveplayerid), skinid);
-					SendClientMessageEx(playerid, COLOR_WHITE, string);
-					SetPlayerSkin(giveplayerid, PlayerInfo[giveplayerid][pModel]);
-				}
+				SendClientMessageEx( playerid, COLOR_WHITE, "The person you're trying to change skins of already is using the skin you're trying to set." );
 			}
 			else
 			{
-				SendClientMessageEx(playerid, COLOR_GREY, "Invalid skin ID!");
+				PlayerInfo[giveplayerid][pModel] = skinid;
+				format(string, sizeof(string), "Your skin has been changed to ID %d by Administrator %s.", skinid, GetPlayerNameEx(playerid));
+				SendClientMessageEx(giveplayerid, COLOR_WHITE, string);
+				format(string, sizeof(string), "Ban da cho %s skin ID %d.", GetPlayerNameEx(giveplayerid), skinid);
+				SendClientMessageEx(playerid, COLOR_WHITE, string);
+				SetPlayerSkin(giveplayerid, PlayerInfo[giveplayerid][pModel]);
 			}
 		}
 	}
@@ -37906,7 +37880,7 @@ CMD:placeboombox(playerid, params[])
 	}
 	else
 	{
-		SendClientMessageEx(playerid, COLOR_GRAD1, "Ban khong co boombox! Mua tai /gvnshop > /miscshop");
+		SendClientMessageEx(playerid, COLOR_GRAD1, "Ban khong co boombox! Mua tai /SVNshop > /miscshop");
 	}
 	return 1;
 }
@@ -42591,16 +42565,16 @@ CMD:shophelp(playerid, params[]) {
     return ShowPlayerDialog(playerid, DIALOG_SHOPHELPMENU, DIALOG_STYLE_LIST, "Nhung cua hang ma ban muon tim hieu them?","VIP Shop\nHouse Shop\nBusiness Shop\nToy Shop\nMiscellaneous Shop\nCar Shop\nPlane Shop\nBoat Shop", "Chon", "Thoat");
 }
 
-CMD:gvnshop(playerid, params[]) {
+CMD:SVNshop(playerid, params[]) {
 	if(GetPVarType(playerid, "PlayerCuffed") || GetPVarType(playerid, "Injured") || GetPVarType(playerid, "IsFrozen") || PlayerInfo[playerid][pHospital] || PlayerInfo[playerid][pJailTime] > 0 || GetPVarInt(playerid, "EventToken") == 1 || GetPVarInt(playerid, "IsInArena") >= 0)
 		return SendClientMessage(playerid, COLOR_GRAD2, "You can't do this at this time!");
 	if(PlayerInfo[playerid][pWantedLevel] > 0) return SendClientMessageEx(playerid, COLOR_GRAD2, "Ban dan muon, ban khong the su dung lenh nay.");
 	if(gettime() - LastShot[playerid] < 60) return SendClientMessageEx(playerid, COLOR_GRAD2, "Ban da bi ban' trong vong 60s cuoi cung, ban khong the su dung lenh nay.");
-	if(IsPlayerInDynamicArea(playerid, NGGShop)) return SendClientMessageEx(playerid, COLOR_GRAD2, "Ban da o GTA-VIETNAM Shop");
+	if(IsPlayerInDynamicArea(playerid, NGGShop)) return SendClientMessageEx(playerid, COLOR_GRAD2, "Ban da o SVN Shop");
 	if(IsPlayerInAnyVehicle(playerid)) return SendClientMessageEx(playerid, COLOR_GRAD2, "Ban khong the lam dieu nay ben trong mot chiec xe.");
-	if(GetPVarInt(playerid, "ShopTP") == 1) return SendClientMessageEx(playerid, COLOR_GRAD2, "Ban da yeu cau mot Teleport den GTA-VIETNAM Shop.");
+	if(GetPVarInt(playerid, "ShopTP") == 1) return SendClientMessageEx(playerid, COLOR_GRAD2, "Ban da yeu cau mot Teleport den SVN Shop.");
 
-	SendClientMessageEx(playerid, COLOR_LIGHTBLUE, "Ban da yeu cau Teleport den GvN Shop, xin vui long cho 30 giay..");
+	SendClientMessageEx(playerid, COLOR_LIGHTBLUE, "Ban da yeu cau Teleport den SVN Shop, xin vui long cho 30 giay..");
 	SetTimerEx("TeleportToShop", 30000, false, "i", playerid);
 	TogglePlayerControllable(playerid, 0);
 	SetPVarInt(playerid, "ShopTP", 1);
@@ -46432,104 +46406,6 @@ CMD:givemehit(playerid, params[])
 	return 1;
 } // old speedometer */
 
-CMD:speedopos(playerid, params[])
-{
-	if (GetPlayerState(playerid) != PLAYER_STATE_DRIVER && GetPlayerState(playerid) != PLAYER_STATE_PASSENGER )
-	{
-		return SendClientMessageEx(playerid, COLOR_GREY, "Ban khong lai chiec xe nao ca.");
-	}
-	if (PlayerInfo[playerid][pSpeedo])
-	{
-		new Float: TPosX[2], Float:TPosY[2];
-		if(!sscanf(params, "ff", TPosX[0], TPosY[0]))
-		{
-			if(TPosX[0] < 0 || TPosX[0] > 640)
-			{
-				SendClientMessageEx(playerid, COLOR_GREY, "SU DUNG: /speedopos (optional) [X] [Y]");
-				return SendClientMessageEx(playerid, COLOR_GREY, "X phai tren 0 va duoi 640");
-			}
-			if(TPosY[0] < 0 || TPosY[0] > 640)
-			{
-				SendClientMessageEx(playerid, COLOR_GREY, "SU DUNG: /speedopos (optional) [X] [Y]");
-				return SendClientMessageEx(playerid, COLOR_GREY, "Y phai tren 0 va duoi 480");
-			}
-			TPosX[1] = TPosX[0] + 60.0;
-			TPosY[1] = TPosY[0] + 17.0;
-		}
-		else
-		{
-			switch(GetPVarInt(playerid, "SpeedoPos"))
-			{
-				case 0:
-				{
-					TPosX[0] = 495.0;
-					TPosY[0] = 20.0;
-					TPosX[1] = 555.0;
-					TPosY[1] = 37.0;
-					SetPVarInt(playerid, "SpeedoPos", 1);
-				}
-				case 1:
-				{
-					TPosX[0] = 495.0;
-					TPosY[0] = 367.0;
-					TPosX[1] = 555.0;
-					TPosY[1] = 384.0;
-					SetPVarInt(playerid, "SpeedoPos", 2);
-				}
-				case 2:
-				{
-					TPosX[0] = 495.0;
-					TPosY[0] = 133.0;
-					TPosX[1] = 555.0;
-					TPosY[1] = 150.0;
-					SetPVarInt(playerid, "SpeedoPos", 0);
-				}
-			}
-		}
-
-		PlayerTextDrawDestroy(playerid, _vhudTextFuel[playerid]);
-		_vhudTextFuel[playerid] = CreatePlayerTextDraw(playerid, TPosX[0], TPosY[0], "~b~Xang: N/A");
-		PlayerTextDrawBackgroundColor(playerid, _vhudTextFuel[playerid], 255);
-		PlayerTextDrawFont(playerid, _vhudTextFuel[playerid], 1);
-		PlayerTextDrawLetterSize(playerid, _vhudTextFuel[playerid], 0.270000, 2.000000);
-		PlayerTextDrawColor(playerid, _vhudTextFuel[playerid], -1);
-		PlayerTextDrawSetOutline(playerid, _vhudTextFuel[playerid], 1);
-		PlayerTextDrawSetProportional(playerid, _vhudTextFuel[playerid], 1);
-
-		PlayerTextDrawDestroy(playerid, _vhudTextSpeed[playerid]);
-		_vhudTextSpeed[playerid] = CreatePlayerTextDraw(playerid, TPosX[1], TPosY[0], "~b~MPH: N/A");
-		PlayerTextDrawBackgroundColor(playerid, _vhudTextSpeed[playerid], 255);
-		PlayerTextDrawFont(playerid, _vhudTextSpeed[playerid], 1);
-		PlayerTextDrawLetterSize(playerid, _vhudTextSpeed[playerid], 0.270000, 2.000000);
-		PlayerTextDrawColor(playerid, _vhudTextSpeed[playerid], -1);
-		PlayerTextDrawSetOutline(playerid, _vhudTextSpeed[playerid], 1);
-		PlayerTextDrawSetProportional(playerid, _vhudTextSpeed[playerid], 1);
-
-		PlayerTextDrawDestroy(playerid, _vhudSeatBelt[playerid]);
-		_vhudSeatBelt[playerid] = CreatePlayerTextDraw(playerid, TPosX[1], TPosY[1], "~b~SB: ~r~OFF");
-		PlayerTextDrawBackgroundColor(playerid, _vhudSeatBelt[playerid], 255);
-		PlayerTextDrawFont(playerid, _vhudSeatBelt[playerid], 1);
-		PlayerTextDrawLetterSize(playerid, _vhudSeatBelt[playerid], 0.270000, 2.000000);
-		PlayerTextDrawColor(playerid, _vhudSeatBelt[playerid], -1);
-		PlayerTextDrawSetOutline(playerid, _vhudSeatBelt[playerid], 1);
-		PlayerTextDrawSetProportional(playerid, _vhudSeatBelt[playerid], 1);
-
-		PlayerTextDrawDestroy(playerid, _vhudLights[playerid]);
-		_vhudLights[playerid] = CreatePlayerTextDraw(playerid, TPosX[0], TPosY[1], "~b~Den: ~r~OFF");
-		PlayerTextDrawBackgroundColor(playerid, _vhudLights[playerid], 255);
-		PlayerTextDrawFont(playerid, _vhudLights[playerid], 1);
-		PlayerTextDrawLetterSize(playerid, _vhudLights[playerid], 0.270000, 2.000000);
-		PlayerTextDrawColor(playerid, _vhudLights[playerid], -1);
-		PlayerTextDrawSetOutline(playerid, _vhudLights[playerid], 1);
-		PlayerTextDrawSetProportional(playerid, _vhudLights[playerid], 1);
-
-		ShowVehicleHUDForPlayer(playerid);
-		SendClientMessageEx(playerid, COLOR_WHITE, "Ban da di chuyen vi tri dong ho toc do.");
-
-	}
-	return 1;
-}
-
 CMD:speedo(playerid, params[])
 {
 	if (GetPlayerState(playerid) != PLAYER_STATE_DRIVER && GetPlayerState(playerid) != PLAYER_STATE_PASSENGER )
@@ -46540,13 +46416,13 @@ CMD:speedo(playerid, params[])
 	{
 		SendClientMessageEx(playerid, COLOR_WHITE, "Ban da bat dong ho toc do.");
 		PlayerInfo[playerid][pSpeedo] = 1;
-		ShowVehicleHUDForPlayer(playerid);
+		ShowPlayerSpeedo(playerid);
 	}
 	else
 	{
 		SendClientMessageEx(playerid, COLOR_WHITE, "Ban da vo hieu hoa dong ho toc do.");
 		PlayerInfo[playerid][pSpeedo] = 0;
-		HideVehicleHUDForPlayer(playerid);
+		HidePlayerSpeedo(playerid);
 	}
 
 	return 1;

@@ -1,2 +1,7 @@
 [21:48:08] [ERROR] "mysql_tquery" - invalid connection handle (ID = 0)
 [21:48:08] [ERROR] "mysql_tquery" - invalid connection handle (ID = 0)
+[23:00:21] [ERROR] "mysql_close" - invalid connection handle (ID = 0)
+[23:00:23] [ERROR] "mysql_close" - invalid connection handle (ID = 0)
+[23:12:59] [ERROR] "mysql_close" - invalid connection handle (ID = 0)
+[23:25:33] [ERROR] "mysql_close" - invalid connection handle (ID = 0)
+[23:26:32] [ERROR] "mysql_close" - invalid connection handle (ID = 0)

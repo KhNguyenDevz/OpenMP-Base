@@ -1,0 +1,19 @@
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Server\Jobs\_callback.pwn(1) : îøèáêà 010: íåâåđíàÿ ôóíêöèÿ èëè îáúÿâëåíèå
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Server\Jobs\_callback.pwn(3) : îøèáêà 010: íåâåđíàÿ ôóíêöèÿ èëè îáúÿâëåíèå
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Server\Jobs\_callback.pwn(6) : ïđåäóïđåæäåíèå 219: ïåđǻåííàÿ "szLabelJob" óæå îáúÿâëåíà â áîëåå ăëîáàëüíîé çîíå âèäè́îṇ̃è
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Server\Jobs\_callback.pwn(6) : îøèáêà 010: íåâåđíàÿ ôóíêöèÿ èëè îáúÿâëåíèå
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Server\Jobs\_callback.pwn(6) : îøèáêà 010: íåâåđíàÿ ôóíêöèÿ èëè îáúÿâëåíèå
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Server\Jobs\_callback.pwn(7) : îøèáêà 010: íåâåđíàÿ ôóíêöèÿ èëè îáúÿâëåíèå
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Server\Jobs\_callback.pwn(7) -- (9) : îøèáêà 010: íåâåđíàÿ ôóíêöèÿ èëè îáúÿâëåíèå
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Server\Jobs\_callback.pwn(10) : îøèáêà 054: íåñîị̂âạ̊ṇ̃âó₫ùàÿ çàêđûâà₫ùàÿ ñêîáêà ("}")
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Server\Jobs\_callback.pwn(11) : îøèáêà 010: íåâåđíàÿ ôóíêöèÿ èëè îáúÿâëåíèå
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Server\Jobs\_callback.pwn(14) : îøèáêà 010: íåâåđíàÿ ôóíêöèÿ èëè îáúÿâëåíèå
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Server\Jobs\_callback.pwn(17) : îøèáêà 054: íåñîị̂âạ̊ṇ̃âó₫ùàÿ çàêđûâà₫ùàÿ ñêîáêà ("}")
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Server\Jobs\_callback.pwn(7) : èäåị́èôèêạ̀îđ íå èñïîëüçóạ̊ñÿ: "CreateDynamic3DTextLabel"
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Server\Jobs\_callback.pwn(6) : èäåị́èôèêạ̀îđ íå èñïîëüçóạ̊ñÿ: "format"
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Server\Jobs\_callback.pwn(5) : èäåị́èôèêạ̀îđ íå èñïîëüçóạ̊ñÿ: "szLabelJob"
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\Server\Jobs\_callback.pwn(5) -- (17) : îøèáêà 013: ị̂ñọ́ṇ̃âóạ̊ ̣î÷êà âơîäà (íạ̊ public-ôóíêöèé)
+Pawn compiler 3.2.3664	 	 	Copyright (c) 1997-2016, ITB CompuPhase
+
+
+Îøèáîê:11.

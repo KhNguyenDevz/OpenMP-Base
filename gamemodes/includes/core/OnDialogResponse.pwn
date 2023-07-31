@@ -1724,8 +1724,8 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 					szDialogStr[256];
 
 				SetPVarInt(playerid, "vDel", listitem);
-				if(PlayerVehicleInfo[playerid][listitem][pvTicket] != 0) format(szDialogStr, sizeof(szDialogStr), "{FFFFFF}%s{FFFFFF} Cua ban {FF0000} se bi {FF0000}xoa vinh vien{FFFFFF}.\n\n{FF0000}Chiec xe nay hien dang co mot ve phat.\n{FFFFFF}Ban se bi phat {FF0000}$%s{FFFFFF} khi xoa xe.\n\nBan co the xac nhan hoac huy viec xoa bay gio.", VehicleName[PlayerVehicleInfo[playerid][listitem][pvModelId] - 400], number_format(PlayerVehicleInfo[playerid][listitem][pvTicket]));
-				else format(szDialogStr, sizeof(szDialogStr), "{FFFFFF}%s{FFFFFF} Cua ban {FF0000} se bi {FF0000}xoa vinh vien{FFFFFF}.\n\nBan co the xac nhan hoac huy viec xoa bay gio.", VehicleName[PlayerVehicleInfo[playerid][listitem][pvModelId] - 400]);
+				if(PlayerVehicleInfo[playerid][listitem][pvTicket] != 0) format(szDialogStr, sizeof(szDialogStr), "{FFFFFF}%s{FFFFFF} Cua ban {FF0000} se bi {FF0000}xoa vinh vien{FFFFFF}.\n\n{FF0000}Chiec xe nay hien dang co mot ve phat.\n{FFFFFF}Ban se bi phat {FF0000}$%s{FFFFFF} khi xoa xe.\n\nBan co the xac nhan hoac huy viec xoa bay gio.", GetVehicleName(PlayerVehicleInfo[playerid][listitem][pvModelId]), number_format(PlayerVehicleInfo[playerid][listitem][pvTicket]));
+				else format(szDialogStr, sizeof(szDialogStr), "{FFFFFF}%s{FFFFFF} Cua ban {FF0000} se bi {FF0000}xoa vinh vien{FFFFFF}.\n\nBan co the xac nhan hoac huy viec xoa bay gio.", GetVehicleName(PlayerVehicleInfo[playerid][listitem][pvModelId]));
 				return ShowPlayerDialog(playerid, DIALOG_DELETECAR, DIALOG_STYLE_MSGBOX, "Xoa xe", szDialogStr, "Xoa", "Huy bo");
 			}
 			else return DeletePVar(playerid, "vDel");
@@ -6262,7 +6262,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 					g_mysql_SaveVehicle(playerid, listitem);
 
 					new vstring[128];
-					format(vstring, sizeof(vstring), "Ban da cat %s. Chiec xe da duoc chinh vao kho xe cua ban", VehicleName[PlayerVehicleInfo[playerid][listitem][pvModelId] - 400]);
+					format(vstring, sizeof(vstring), "Ban da cat %s. Chiec xe da duoc chinh vao kho xe cua ban", GetVehicleName(PlayerVehicleInfo[playerid][listitem][pvModelId]));
 					SendClientMessageEx(playerid, COLOR_WHITE, vstring);
 					CheckPlayerVehiclesForDesync(playerid);
 				}
@@ -6321,7 +6321,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				g_mysql_SaveVehicle(playerid, listitem);
 
 				new vstring[64];
-				format(vstring, sizeof(vstring), "Ban da lay %s cua ban ra khoi kho.", VehicleName[PlayerVehicleInfo[playerid][listitem][pvModelId] - 400]);
+				format(vstring, sizeof(vstring), "Ban da lay %s cua ban ra khoi kho.", GetVehicleName(PlayerVehicleInfo[playerid][listitem][pvModelId]));
 				SendClientMessageEx(playerid, COLOR_WHITE, vstring);
 				CheckPlayerVehiclesForDesync(playerid);
 				Vehicle_ResetData(iVeh);
@@ -6423,15 +6423,15 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 					for(new i, iModelID; i < MAX_PLAYERVEHICLES; i++) {
 						if((iModelID = PlayerVehicleInfo[playerid][i][pvModelId] - 400) >= 0) {
 							if(PlayerVehicleInfo[playerid][i][pvImpounded]) {
-								format(vstring, sizeof(vstring), "%s\n%s (Tich thu)", vstring, VehicleName[iModelID]);
+								format(vstring, sizeof(vstring), "%s\n%s (Tich thu)", vstring, GetVehicleName(iModelID));
 							}
 							else if(PlayerVehicleInfo[playerid][i][pvDisabled]) {
-								format(vstring, sizeof(vstring), "%s\n%s (Khong dung)", vstring, VehicleName[iModelID]);
+								format(vstring, sizeof(vstring), "%s\n%s (Khong dung)", vstring, GetVehicleName(iModelID));
 							}
 							else if(!PlayerVehicleInfo[playerid][i][pvSpawned]) {
-								format(vstring, sizeof(vstring), "%s\n%s (Trong kho)", vstring, VehicleName[iModelID]);
+								format(vstring, sizeof(vstring), "%s\n%s (Trong kho)", vstring, GetVehicleName(iModelID));
 							}
-							else format(vstring, sizeof(vstring), "%s\n%s", vstring, VehicleName[iModelID]);
+							else format(vstring, sizeof(vstring), "%s\n%s", vstring, GetVehicleName(iModelID));
 						}
 						else strcat(vstring, "\nEmpty");
 					}
@@ -6496,7 +6496,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 					}
 				}
 				new szstring[128];
-				format(szstring, sizeof(szstring), "Ban da chinh xe trong nhom cua ban (%s)", VehicleName[DynVehicleInfo[carid][gv_iModel] - 400]);
+				format(szstring, sizeof(szstring), "Ban da chinh xe trong nhom cua ban (%s)", GetVehicleName(DynVehicleInfo[carid][gv_iModel]));
 				SendClientMessageEx(playerid, COLOR_WHITE, szstring);
 			}
 			else 
@@ -6505,7 +6505,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		else {
 			DynVeh_Spawn(carid);
 			new szstring[128];
-			format(szstring, sizeof(szstring), "Ban da chinh xe trong nhom cua ban (%s)", VehicleName[DynVehicleInfo[carid][gv_iModel] - 400]);
+			format(szstring, sizeof(szstring), "Ban da chinh xe trong nhom cua ban (%s)", GetVehicleName(DynVehicleInfo[carid][gv_iModel]));
 			SendClientMessageEx(playerid, COLOR_WHITE, szstring);
 		}
 	}	
@@ -8146,10 +8146,10 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				iTargetID = GetPVarInt(playerid, "vRel");
 
 			if(PlayerVehicleInfo[iTargetID][listitem][pvTicket]) {
-				format(szMessage, sizeof(szMessage), "Ban da tra $%s tien ve phat cho %s's %s.", number_format(PlayerVehicleInfo[iTargetID][listitem][pvTicket]), GetPlayerNameEx(iTargetID), VehicleName[PlayerVehicleInfo[iTargetID][listitem][pvModelId] - 400]);
+				format(szMessage, sizeof(szMessage), "Ban da tra $%s tien ve phat cho %s's %s.", number_format(PlayerVehicleInfo[iTargetID][listitem][pvTicket]), GetPlayerNameEx(iTargetID), GetVehicleName(PlayerVehicleInfo[iTargetID][listitem][pvModelId]));
 				SendClientMessageEx(playerid, COLOR_GRAD2, szMessage);
 
-				format(szMessage, sizeof(szMessage), "%s da tra tien phat xe %s (%i).", GetPlayerNameEx(playerid), VehicleName[PlayerVehicleInfo[iTargetID][listitem][pvModelId] - 400], PlayerVehicleInfo[iTargetID][listitem][pvTicket]);
+				format(szMessage, sizeof(szMessage), "%s da tra tien phat xe %s (%i).", GetPlayerNameEx(playerid), GetVehicleName(PlayerVehicleInfo[iTargetID][listitem][pvModelId]), PlayerVehicleInfo[iTargetID][listitem][pvTicket]);
 				SendClientMessageEx(iTargetID, COLOR_LIGHTBLUE, szMessage);
 				PlayerVehicleInfo[iTargetID][listitem][pvTicket] = 0;
 				g_mysql_SaveVehicle(iTargetID, listitem);
@@ -8162,13 +8162,13 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 					return 1;
 				}
 
-				format(szMessage, sizeof(szMessage), "Ban da lay ra %s's %s.", GetPlayerNameEx(iTargetID), VehicleName[PlayerVehicleInfo[iTargetID][listitem][pvModelId] - 400]);
+				format(szMessage, sizeof(szMessage), "Ban da lay ra %s's %s.", GetPlayerNameEx(iTargetID), GetVehicleName(PlayerVehicleInfo[iTargetID][listitem][pvModelId]));
 				SendClientMessageEx(playerid, COLOR_LIGHTBLUE, szMessage);
 
-				format(szMessage, sizeof(szMessage), "%s da lay ra %s tu kho xe bi tich thu.", GetPlayerNameEx(playerid), VehicleName[PlayerVehicleInfo[iTargetID][listitem][pvModelId] - 400]);
+				format(szMessage, sizeof(szMessage), "%s da lay ra %s tu kho xe bi tich thu.", GetPlayerNameEx(playerid), GetVehicleName(PlayerVehicleInfo[iTargetID][listitem][pvModelId]));
 				SendClientMessageEx(iTargetID, COLOR_LIGHTBLUE, szMessage);
 
-				format(szMessage, sizeof(szMessage), "HQ: %s da lay ra %s's %s tu kho xe bi tich thu.", GetPlayerNameEx(playerid), GetPlayerNameEx(iTargetID), VehicleName[PlayerVehicleInfo[iTargetID][listitem][pvModelId] - 400]);
+				format(szMessage, sizeof(szMessage), "HQ: %s da lay ra %s's %s tu kho xe bi tich thu.", GetPlayerNameEx(playerid), GetPlayerNameEx(iTargetID), GetVehicleName(PlayerVehicleInfo[iTargetID][listitem][pvModelId]));
 				SendGroupMessage(PlayerInfo[playerid][pMember], RADIO, szMessage);
 
 				new rand = random(sizeof(DMVRelease));
@@ -8229,7 +8229,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 					}
 				}
 				Misc_Save();
-				format(szMessage, sizeof(szMessage), "Ban da tra $%s tien ve cho %s.", number_format(PlayerVehicleInfo[playerid][listitem][pvTicket]), VehicleName[PlayerVehicleInfo[playerid][listitem][pvModelId] - 400]);
+				format(szMessage, sizeof(szMessage), "Ban da tra $%s tien ve cho %s.", number_format(PlayerVehicleInfo[playerid][listitem][pvTicket]), GetVehicleName(PlayerVehicleInfo[playerid][listitem][pvModelId]));
 				SendClientMessageEx(playerid, COLOR_GRAD2, szMessage);
 				PlayerVehicleInfo[playerid][listitem][pvTicket] = 0;
 				g_mysql_SaveVehicle(playerid, listitem);
@@ -8247,7 +8247,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 					return SendClientMessage(playerid, COLOR_GRAD2, "Ban dang su dung qua nhieu xe duoc chinh ra.");
 				}
 
-				format(szMessage, sizeof(szMessage), "Ban da cong bo %s cua ban voi gia $%i.", VehicleName[PlayerVehicleInfo[playerid][listitem][pvModelId] - 400], iCost);
+				format(szMessage, sizeof(szMessage), "Ban da cong bo %s cua ban voi gia $%i.", GetVehicleName(PlayerVehicleInfo[playerid][listitem][pvModelId]), iCost);
 				SendClientMessage(playerid, COLOR_LIGHTBLUE, szMessage);
 				GivePlayerCash(playerid, -iCost);
                 Tax += (iCost / 100) * 30;
@@ -8536,7 +8536,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
             }
             else if(listitem == 7) //Further Help
            	{
-           		ShowPlayerDialog(playerid, FURTHERHELPFAQ, DIALOG_STYLE_MSGBOX, "Tro giup them", "Thong tin:\n\nNeu ban can them su tro giup, ban co the su dung /newb de hoi tren kenh hoi dap\nNeu ban can su tro giup nhanh, su dung /yeucautrogiup de co them su tro giup tu doi ngu co van  vien.\nSu dung /baocao neu phat hien ra dieu gi do khac thuong tai may chu GVN.", "Cam on", "Huy bo");
+           		ShowPlayerDialog(playerid, FURTHERHELPFAQ, DIALOG_STYLE_MSGBOX, "Tro giup them", "Thong tin:\n\nNeu ban can them su tro giup, ban co the su dung /newb de hoi tren kenh hoi dap\nNeu ban can su tro giup nhanh, su dung /yeucautrogiup de co them su tro giup tu doi ngu co van  vien.\nSu dung /baocao neu phat hien ra dieu gi do khac thuong tai may chu SVN.", "Cam on", "Huy bo");
 			}
 		}
  	}
@@ -14975,7 +14975,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 	    	    }
 	    	    case 2:
 	    	    {
-	    	        ShowPlayerDialog(playerid, DIALOG_NOTHING, DIALOG_STYLE_MSGBOX, "Shop cua hang", "Ban muon mua cua hang hoac gia han them cua hang cua ban? Du dung lenh /businessshop se cho phep ban mua hoac gia han them cua hang cua ban.\n Dieu quan trong khi kinh doanh tai GVN ban phai doc nhung quy dinh tren dien dan sampvn.blogspot.com Chu y: Khi mua cua hang se tu dong liet ke cac cua hang dang bay ban.", "Thoat", "");
+	    	        ShowPlayerDialog(playerid, DIALOG_NOTHING, DIALOG_STYLE_MSGBOX, "Shop cua hang", "Ban muon mua cua hang hoac gia han them cua hang cua ban? Du dung lenh /businessshop se cho phep ban mua hoac gia han them cua hang cua ban.\n Dieu quan trong khi kinh doanh tai SVN ban phai doc nhung quy dinh tren dien dan sampvn.blogspot.com Chu y: Khi mua cua hang se tu dong liet ke cac cua hang dang bay ban.", "Thoat", "");
 	    	    }
 	    	    case 3:
 	    	    {
@@ -15133,7 +15133,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			format(szQuery, sizeof(szQuery), "[RentaCar] [User: %s(%i)] [IP: %s] [Model: %d] [Credits: %s] [Gia tien: %s]", GetPlayerNameEx(playerid), GetPlayerSQLId(playerid), GetPlayerIpEx(playerid), GetPVarInt(playerid, "VehicleID"), number_format(PlayerInfo[playerid][pCredits]), number_format(ShopItems[20][sItemPrice]));
 			Log("logs/credits.log", szQuery), print(szQuery);
 
-			format(szQuery, sizeof(szQuery), "[Rent a Car] You have rented a %s for %s credits, the vehicle will last 3 hours.", VehicleName[GetPVarInt(playerid, "VehicleID") - 400], number_format(ShopItems[20][sItemPrice]));
+			format(szQuery, sizeof(szQuery), "[Rent a Car] You have rented a %s for %s credits, the vehicle will last 3 hours.", GetVehicleName(GetPVarInt(playerid, "VehicleID")), number_format(ShopItems[20][sItemPrice]));
 			SendClientMessageEx(playerid, COLOR_CYAN, szQuery);
 			SendClientMessageEx(playerid, COLOR_CYAN, "Commands Available: /park, /stoprentacar, /trackcar");
 
@@ -15195,10 +15195,10 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 					GetPlayerPos(playerid, arr_fPlayerPos[0], arr_fPlayerPos[1], arr_fPlayerPos[2]);
 					GetPlayerFacingAngle(playerid, arr_fPlayerPos[3]);
 
-					format(string, sizeof(string), "[CAR %i] [User: %s(%i)] [IP: %s] [Credits: %s] [Vehicle: %s] [Gia tien: %s]", AmountSold[5], GetPlayerNameEx(playerid), GetPlayerSQLId(playerid), GetPlayerIpEx(playerid), number_format(PlayerInfo[playerid][pCredits]), VehicleName[GetPVarInt(playerid, "VehicleID") - 400], number_format(ShopItems[5][sItemPrice]));
+					format(string, sizeof(string), "[CAR %i] [User: %s(%i)] [IP: %s] [Credits: %s] [Vehicle: %s] [Gia tien: %s]", AmountSold[5], GetPlayerNameEx(playerid), GetPlayerSQLId(playerid), GetPlayerIpEx(playerid), number_format(PlayerInfo[playerid][pCredits]), GetVehicleName(GetPVarInt(playerid, "VehicleID")), number_format(ShopItems[5][sItemPrice]));
 					Log("logs/credits.log", string), print(string);
 
-					format(string, sizeof(string), "[Car Shop] Ban da mua %s voi gia %s Credits.", VehicleName[GetPVarInt(playerid, "VehicleID") - 400], number_format(ShopItems[5][sItemPrice]));
+					format(string, sizeof(string), "[Car Shop] Ban da mua %s voi gia %s Credits.", GetVehicleName(GetPVarInt(playerid, "VehicleID")), number_format(ShopItems[5][sItemPrice]));
 					SendClientMessageEx(playerid, COLOR_CYAN, string);
 					DeletePVar(playerid, "BoatShop");
 			    }
@@ -15236,11 +15236,11 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 						DeletePVar(playerid, "ShopTP");
 					}
 					createdcar = CreatePlayerVehicle(playerid, GetPlayerFreeVehicleId(playerid), GetPVarInt(playerid, "VehicleID"), arr_fPlayerPos[0], arr_fPlayerPos[1], arr_fPlayerPos[2], arr_fPlayerPos[3], 0, 0, 2000000, GetPlayerVirtualWorld(playerid), GetPlayerInterior(playerid));
-					format(string, sizeof(string), "[CAR %i] [User: %s(%i)] [IP: %s] [Credits: %s] [Vehicle: %s] [Gia tien: %s]", AmountSold[5], GetPlayerNameEx(playerid), GetPlayerSQLId(playerid), GetPlayerIpEx(playerid), number_format(PlayerInfo[playerid][pCredits]), VehicleName[GetPVarInt(playerid, "VehicleID") - 400], number_format(ShopItems[5][sItemPrice]));
+					format(string, sizeof(string), "[CAR %i] [User: %s(%i)] [IP: %s] [Credits: %s] [Vehicle: %s] [Gia tien: %s]", AmountSold[5], GetPlayerNameEx(playerid), GetPlayerSQLId(playerid), GetPlayerIpEx(playerid), number_format(PlayerInfo[playerid][pCredits]), GetVehicleName(GetPVarInt(playerid, "VehicleID")), number_format(ShopItems[5][sItemPrice]));
 					Log("logs/credits.log", string), print(string);
                     IsPlayerEntering{playerid} = true;
 					PutPlayerInVehicle(playerid, createdcar, 0);
-					format(string, sizeof(string), "[Car Shop] Ban da mua %s voi gia %s Credits.", VehicleName[GetPVarInt(playerid, "VehicleID") - 400], number_format(ShopItems[5][sItemPrice]));
+					format(string, sizeof(string), "[Car Shop] Ban da mua %s voi gia %s Credits.", GetVehicleName(GetPVarInt(playerid, "VehicleID")), number_format(ShopItems[5][sItemPrice]));
 					SendClientMessageEx(playerid, COLOR_CYAN, string);
 				}
 			}
@@ -15267,11 +15267,11 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				GetPlayerPos(playerid, arr_fPlayerPos[0], arr_fPlayerPos[1], arr_fPlayerPos[2]);
 				GetPlayerFacingAngle(playerid, arr_fPlayerPos[3]);
 				createdcar = CreatePlayerVehicle(playerid, GetPlayerFreeVehicleId(playerid), GetPVarInt(playerid, "VehicleID"), arr_fPlayerPos[0], arr_fPlayerPos[1], arr_fPlayerPos[2], arr_fPlayerPos[3], 0, 0, 2000000, GetPlayerVirtualWorld(playerid), GetPlayerInterior(playerid));
-				format(string, sizeof(string), "[CAR %i] [User: %s(%i)] [IP: %s] [Credits: %s] [Vehicle: %s] [Gia tien: %s]", AmountSold[5], GetPlayerNameEx(playerid), GetPlayerSQLId(playerid), GetPlayerIpEx(playerid), number_format(PlayerInfo[playerid][pCredits]), VehicleName[GetPVarInt(playerid, "VehicleID") - 400], number_format(ShopItems[5][sItemPrice]));
+				format(string, sizeof(string), "[CAR %i] [User: %s(%i)] [IP: %s] [Credits: %s] [Vehicle: %s] [Gia tien: %s]", AmountSold[5], GetPlayerNameEx(playerid), GetPlayerSQLId(playerid), GetPlayerIpEx(playerid), number_format(PlayerInfo[playerid][pCredits]), GetVehicleName(GetPVarInt(playerid, "VehicleID")), number_format(ShopItems[5][sItemPrice]));
 				Log("logs/carvoucher.log", string), print(string);
      			IsPlayerEntering{playerid} = true;
 				PutPlayerInVehicle(playerid, createdcar, 0);
-				format(string, sizeof(string), "[Car Shop] Ban da mua %s cho 1 phieu han che xe.", VehicleName[GetPVarInt(playerid, "VehicleID") - 400]);
+				format(string, sizeof(string), "[Car Shop] Ban da mua %s cho 1 phieu han che xe.", GetVehicleName(GetPVarInt(playerid, "VehicleID")));
 				SendClientMessageEx(playerid, COLOR_CYAN, string);
 			}
 		}

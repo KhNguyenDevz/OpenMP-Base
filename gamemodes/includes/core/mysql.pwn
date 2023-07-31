@@ -3184,7 +3184,8 @@ stock SaveBusiness(id)
 	Businesses[id][bInt], Businesses[id][bCustomExterior], Businesses[id][bCustomInterior], Businesses[id][bGrade], Businesses[id][bVW], Businesses[id][bSupplyPos][0],Businesses[id][bSupplyPos][1], Businesses[id][bSupplyPos][2]);
 
 	for (new i; i < 17; i++) format(query, sizeof(query), "%s`Item%dPrice` = %d, ", query, i+1, Businesses[id][bItemPrices][i]);
-	for (new i; i < 5; i++)	format(query, sizeof(query), "%s`Rank%dPay` = %d, ", query, i, Businesses[id][bRankPay][i], id);
+	// for (new i; i < 5; i++)	format(query, sizeof(query), "%s`Rank%dPay` = %d, ", query, i, Businesses[id][bRankPay][i], id);
+	for (new i; i < 5; i++)	format(query, sizeof(query), "%s`Rank%dPay` = %d, ", query, i, Businesses[id][bRankPay][i]);
 	for (new i; i < MAX_BUSINESS_GAS_PUMPS; i++) format(query, sizeof(query), "%s `GasPump%dPosX` = %f, `GasPump%dPosY` = %f, `GasPump%dPosZ` = %f, `GasPump%dAngle` = %f, `GasPump%dModel` = %d, `GasPump%dCapacity` = %f, `GasPump%dGas` = %f, ", query, i+1, Businesses[id][GasPumpPosX][i],	i+1, Businesses[id][GasPumpPosY][i], i+1, Businesses[id][GasPumpPosZ][i], i+1, Businesses[id][GasPumpAngle][i], i+1, 1646,i+1, Businesses[id][GasPumpCapacity],	i+1, Businesses[id][GasPumpGallons]);
 
 	format(query, sizeof(query), "%s \
@@ -4653,8 +4654,8 @@ public OnLoadHouses()
 		if(HouseInfo[i][hMailX] != 0.0) RenderHouseMailbox(i);
 		i++;
 	}
-	if(i > 0) printf("[LoadHouses] %d ngoi nha duoc tai.", i);
-	else printf("[LoadHouses] Khong the tai vi tri ngoi nha.");
+	// if(i > 0) printf("[LoadHouses] %d ngoi nha duoc tai.", i);
+	// else printf("[LoadHouses] Khong the tai vi tri ngoi nha.");
 }
 
 forward OnLoadMailboxes();

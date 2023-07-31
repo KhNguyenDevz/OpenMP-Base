@@ -763,5 +763,8 @@ public OnPlayerLoad(playerid)
  	PlayerTextDrawShow(playerid, HudPTD[playerid][3]);
  	PlayerTextDrawShow(playerid, HudPTD[playerid][5]);
  	ShowPlayerHud(playerid);
+
+ 	LoadPlayerInventory(playerid);
+ 	
 	return 1;
 }

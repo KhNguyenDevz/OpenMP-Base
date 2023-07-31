@@ -1,0 +1,13 @@
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\core\functions.pwn(8038) : ïđåäóïđåæäåíèå 208: ôóíêöèÿ ñ ̣èïîâû́ đåçóëụ̈ạ̀î́ èñïîëüçóạ̊ñÿ ïåđåä îáúÿâëåíèǻ, èíèöèèđîâàíà ïåđåîáđàáị̂êà
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\core\functions.pwn(71) : îøèáêà 054: íåñîị̂âạ̊ṇ̃âó₫ùàÿ çàêđûâà₫ùàÿ ñêîáêà ("}")
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\core\functions.pwn(194) : îøèáêà 010: íåâåđíàÿ ôóíêöèÿ èëè îáúÿâëåíèå
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\core\functions.pwn(194) -- (198) : îøèáêà 010: íåâåđíàÿ ôóíêöèÿ èëè îáúÿâëåíèå
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\core\functions.pwn(194) -- (201) : îøèáêà 054: íåñîị̂âạ̊ṇ̃âó₫ùàÿ çàêđûâà₫ùàÿ ñêîáêà ("}")
+E:\SAMPVN\OpenMP-Base\gamemodes\includes\core\functions.pwn(194) -- (201) : ôạ̀àëüíàÿ îøèáêà 107: ñëèøêî́ ́íîăî îøèáîê íà îäíîé ṇ̃đîêå
+
+Êî́ïèëÿöèÿ îṇ̃àíîâëåíà.
+
+Pawn compiler 3.2.3664	 	 	Copyright (c) 1997-2016, ITB CompuPhase
+
+
+Îøèáîê:5.

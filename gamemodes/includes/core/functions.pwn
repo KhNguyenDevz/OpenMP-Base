@@ -11,10 +11,10 @@ Float:GetPointDistanceToPoint(Float:x1,Float:y1,Float:z1,Float:x2,Float:y2,Float
   return floatsqroot(x*x+y*y+z*z);
 }
 #endif
-new VehicleCustomName[][] = 
+new VehNameCustom[][] = 
 {
-    "arac",
-    " Ducati Diavel 1260",
+    "Arac",
+    "Ducati Diavel 1260",
     "Land Creiser",
     "McLaren",
     "Bentayga",
@@ -68,76 +68,76 @@ new VehicleCustomName[][] =
     "Ferrari",
     "None"
 };
+stock GetVehicleName(vehidzz)
+{
+	new VehName[1280];
+	if(vehidzz > 399 && vehidzz < 612) format(VehName, sizeof(VehName), "%s", VehicleName[vehidzz-400]);
+	else format(VehName, sizeof(VehName), "%s", VehNameCustom[GetVehicleNameExz(vehidzz)]);
+	return VehName;
+}
+stock GetVehiclesDefault(vehid)
+{
+    return VehicleName[GetVehicleModel(vehid)-400];
+}
 stock GetVehicleNameExz(vehid)
 {
-    if(vehid > 399 && vehid < 612){
-        return VehicleName[GetVehicleModel(vehid)-400];
-    }
-    else
-    {
-        new IndexVeh = GetVehicleModel(vehid);
-        // new stringNone[128] = "None";
-        switch(IndexVeh)
-        {
-            case 613: return VehicleCustomName[0];
-            case 662: return VehicleCustomName[1];
-            case 665: return VehicleCustomName[2];
-            case 667: return VehicleCustomName[3];
-            case 699: return VehicleCustomName[4];
-            case 794: return VehicleCustomName[5];
-            case 796: return VehicleCustomName[6];
-            case 798: return VehicleCustomName[7];
-            case 907: return VehicleCustomName[8];
-            case 909: return VehicleCustomName[9];
-            case 999: return VehicleCustomName[10];
-            case 1195: return VehicleCustomName[11];
-            case 1197: return VehicleCustomName[12];
-            case 1199: return VehicleCustomName[13];
-            case 1201: return VehicleCustomName[14];
-            case 1203: return VehicleCustomName[15];
-            case 1206: return VehicleCustomName[16];
-            case 1573: return VehicleCustomName[17];
-            case 2883: return VehicleCustomName[18];
-            case 3136: return VehicleCustomName[19];
-            case 3138: return VehicleCustomName[20];
-            case 3140: return VehicleCustomName[21];
-            case 3142: return VehicleCustomName[22];
-            case 3146: return VehicleCustomName[23];
-            case 3148: return VehicleCustomName[24];
-            case 3150: return VehicleCustomName[25];
-            case 3152: return VehicleCustomName[26];
-            case 3154: return VehicleCustomName[27];
-            case 3156: return VehicleCustomName[28];
-            case 3158: return VehicleCustomName[29];
-            case 3160: return VehicleCustomName[30];
-            case 3162: return VehicleCustomName[31];
-            case 3164: return VehicleCustomName[32];
-            case 3166: return VehicleCustomName[33];
-            case 3177: return VehicleCustomName[34];
-            case 3181: return VehicleCustomName[35];
-            case 3183: return VehicleCustomName[36];
-            case 3185: return VehicleCustomName[37];
-            case 3188: return VehicleCustomName[38];
-            case 3190: return VehicleCustomName[39];
-            case 3192: return VehicleCustomName[40];
-            case 3195: return VehicleCustomName[41];
-            case 3197: return VehicleCustomName[42];
-            case 3199: return VehicleCustomName[43];
-            case 3201: return VehicleCustomName[44];
-            case 3203: return VehicleCustomName[45];
-            case 3205: return VehicleCustomName[46];
-            case 3207: return VehicleCustomName[47];
-            case 3209: return VehicleCustomName[48];
-            case 3211: return VehicleCustomName[49];
-            case 3213: return VehicleCustomName[50];
-            case 3216: return VehicleCustomName[51];
-            case 3217: return VehicleCustomName[52];
-            default: return VehicleCustomName[53];
-        }
-        printf("IndexVeh: %d", IndexVeh);
-    }
-    return VehicleCustomName[53];
+	new vehmodel = vehid;
+	if(vehmodel == 613) IndexVeh = 0;
+    if(vehmodel == 662) IndexVeh = 1;
+    if(vehmodel == 665) IndexVeh = 2;
+    if(vehmodel == 667) IndexVeh = 3;
+    if(vehmodel == 699) IndexVeh = 4;
+    if(vehmodel == 794) IndexVeh = 5;
+    if(vehmodel == 796) IndexVeh = 6;
+    if(vehmodel == 798) IndexVeh = 7;
+    if(vehmodel == 907) IndexVeh = 8;
+    if(vehmodel == 909) IndexVeh = 9;
+    if(vehmodel == 999) IndexVeh = 10;
+    if(vehmodel == 1195) IndexVeh = 11;
+    if(vehmodel == 1197) IndexVeh = 12;
+    if(vehmodel == 1199) IndexVeh = 13;
+    if(vehmodel == 1201) IndexVeh = 14;
+    if(vehmodel == 1203) IndexVeh = 15;
+    if(vehmodel == 1206) IndexVeh = 16;
+    if(vehmodel == 1573) IndexVeh = 17;
+    if(vehmodel == 2883) IndexVeh = 18;
+    if(vehmodel == 3136) IndexVeh = 19;
+    if(vehmodel == 3138) IndexVeh = 20;
+    if(vehmodel == 3140) IndexVeh = 21;
+    if(vehmodel == 3142) IndexVeh = 22;
+    if(vehmodel == 3146) IndexVeh = 23;
+    if(vehmodel == 3148) IndexVeh = 24;
+    if(vehmodel == 3150) IndexVeh = 25;
+    if(vehmodel == 3152) IndexVeh = 26;
+    if(vehmodel == 3154) IndexVeh = 27;
+    if(vehmodel == 3156) IndexVeh = 28;
+    if(vehmodel == 3158) IndexVeh = 29;
+    if(vehmodel == 3160) IndexVeh = 30;
+    if(vehmodel == 3162) IndexVeh = 31;
+    if(vehmodel == 3164) IndexVeh = 32;
+    if(vehmodel == 3166) IndexVeh = 33;
+    if(vehmodel == 3177) IndexVeh = 34;
+    if(vehmodel == 3181) IndexVeh = 35;
+    if(vehmodel == 3183) IndexVeh = 36;
+    if(vehmodel == 3185) IndexVeh = 37;
+    if(vehmodel == 3188) IndexVeh = 38;
+    if(vehmodel == 3190) IndexVeh = 39;
+    if(vehmodel == 3192) IndexVeh = 40;
+    if(vehmodel == 3195) IndexVeh = 41;
+    if(vehmodel == 3197) IndexVeh = 42;
+    if(vehmodel == 3199) IndexVeh = 43;
+    if(vehmodel == 3201) IndexVeh = 44;
+    if(vehmodel == 3203) IndexVeh = 45;
+    if(vehmodel == 3205) IndexVeh = 46;
+    if(vehmodel == 3207) IndexVeh = 47;
+    if(vehmodel == 3209) IndexVeh = 48;
+    if(vehmodel == 3211) IndexVeh = 49;
+    if(vehmodel == 3213) IndexVeh = 50;
+    if(vehmodel == 3216) IndexVeh = 51;
+    if(vehmodel == 3217) IndexVeh = 52;
+    return IndexVeh;
 }
+
 CheckPointCheck(iTargetID)  {
 	if(GetPVarType(iTargetID, "hFind") > 0 || GetPVarType(iTargetID, "TrackCar") > 0 || GetPVarType(iTargetID, "DV_TrackCar") > 0 || GetPVarType(iTargetID, "Packages") > 0 || TaxiAccepted[iTargetID] != INVALID_PLAYER_ID || EMSAccepted[iTargetID] != INVALID_PLAYER_ID || BusAccepted[iTargetID] != INVALID_PLAYER_ID || gPlayerCheckpointStatus[iTargetID] != CHECKPOINT_NONE || MedicAccepted[iTargetID] != INVALID_PLAYER_ID || MechanicCallTime[iTargetID] >= 1) {
 		return 1;
@@ -2024,7 +2024,7 @@ PlacePokerTable(tableid, skipmisc, Float:x, Float:y, Float:z, Float:rx, Float:ry
 
 	// Create 3D Text Label
 	new szString[64];
-	format(szString, sizeof(szString), "B‡n Poker %d", tableid);
+	format(szString, sizeof(szString), "B√†n Poker %d", tableid);
 	PokerTable[tableid][pkrText3DID] = Create3DTextLabel(szString, COLOR_YELLOW, x, y, z+1.3, DRAWDISTANCE_POKER_MISC, virtualworld, 0);
 
 	return tableid;
@@ -2154,7 +2154,7 @@ JoinPokerTable(playerid, tableid)
 				SetPVarFloat(playerid, "pkrTableJoinZ", tmpPos[2]);
 
 				new string[128];
-				format(string, sizeof(string), "%s (IP:%s) da tham gia B‡n Poker (%d)", GetPlayerNameEx(playerid), GetPlayerIpEx(playerid), tableid);
+				format(string, sizeof(string), "%s (IP:%s) da tham gia B√†n Poker (%d)", GetPlayerNameEx(playerid), GetPlayerIpEx(playerid), tableid);
 				Log("logs/poker.log", string);
 
 				ApplyAnimation(playerid, "CASINO", "cards_out", 4.1, 0, 1, 1, 1, 1, 1);
@@ -2191,7 +2191,7 @@ LeavePokerTable(playerid)
 	GivePlayerCash(playerid, GetPVarInt(playerid, "pkrChips"));
 
 	new string[128];
-	format(string, sizeof(string), "%s (IP:%s) da roi khoi B‡n Poker voi $%s (%d)", GetPlayerNameEx(playerid), GetPlayerIpEx(playerid), number_format(GetPVarInt(playerid, "pkrChips")), tableid);
+	format(string, sizeof(string), "%s (IP:%s) da roi khoi B√†n Poker voi $%s (%d)", GetPlayerNameEx(playerid), GetPlayerIpEx(playerid), number_format(GetPVarInt(playerid, "pkrChips")), tableid);
 	Log("logs/poker.log", string);
 
 	// De-occuply Slot
@@ -2204,7 +2204,7 @@ LeavePokerTable(playerid)
 		KillTimer(PokerTable[tableid][pkrPulseTimer]);
 
 		new tmpString[64];
-		format(tmpString, sizeof(tmpString), "B‡n Poker %d", tableid);
+		format(tmpString, sizeof(tmpString), "B√†n Poker %d", tableid);
 		Update3DTextLabelText(PokerTable[tableid][pkrText3DID], COLOR_YELLOW, tmpString);
 
 		ResetPokerTable(tableid);
@@ -2326,18 +2326,18 @@ ShowCasinoGamesMenu(playerid, dialogid)
 			for(new i = 0; i < MAX_POKERTABLES; i++) {
 				if(PokerTable[i][pkrPlaced] == 1) { format(szPlaced, sizeof(szPlaced), "{00FF00}Hoat dong{FFFFFF}"); }
 				if(PokerTable[i][pkrPlaced] == 0) { format(szPlaced, sizeof(szPlaced), "{FF0000}Khong hoat dong{FFFFFF}"); }
-				format(szString, sizeof(szString), "%sB‡n Poker %d (%s)\n", szString, i, szPlaced, PokerTable[i][pkrPlayers]);
+				format(szString, sizeof(szString), "%sB√†n Poker %d (%s)\n", szString, i, szPlaced, PokerTable[i][pkrPlayers]);
 			}
-			return ShowPlayerDialog(playerid, DIALOG_CGAMESSELECTPOKER, DIALOG_STYLE_LIST, "Casino Games - (Chon B‡n Poker)", szString, "Chon", "Quay Lai");
+			return ShowPlayerDialog(playerid, DIALOG_CGAMESSELECTPOKER, DIALOG_STYLE_LIST, "Casino Games - (Chon B√†n Poker)", szString, "Chon", "Quay Lai");
 		}
 		case DIALOG_CGAMESSETUPPOKER:
 		{
 			new tableid = GetPVarInt(playerid, "tmpEditPokerTableID")-1;
 
 			if(PokerTable[tableid][pkrPlaced] == 0) {
-				return ShowPlayerDialog(playerid, DIALOG_CGAMESSETUPPOKER, DIALOG_STYLE_LIST, "{FFFFFF}Casino Games - (Cai dat Poker Minigame)", "{FFFFFF}Dat B‡n...", "Chon", "Quay lai");
+				return ShowPlayerDialog(playerid, DIALOG_CGAMESSETUPPOKER, DIALOG_STYLE_LIST, "{FFFFFF}Casino Games - (Cai dat Poker Minigame)", "{FFFFFF}Dat B√†n...", "Chon", "Quay lai");
 			} else {
-				return ShowPlayerDialog(playerid, DIALOG_CGAMESSETUPPOKER, DIALOG_STYLE_LIST, "{FFFFFF}Casino Games - (Cai dat Poker Minigame)", "{FFFFFF}Chinh sua B‡n...\nXoa B‡n...", "Chon", "Quay lai");
+				return ShowPlayerDialog(playerid, DIALOG_CGAMESSETUPPOKER, DIALOG_STYLE_LIST, "{FFFFFF}Casino Games - (Cai dat Poker Minigame)", "{FFFFFF}Chinh sua B√†n...\nXoa B√†n...", "Chon", "Quay lai");
 			}
 		}
 		case DIALOG_CGAMESCREDITS:
@@ -2402,7 +2402,7 @@ ShowCasinoGamesMenu(playerid, dialogid)
 		case DIALOG_CGAMESSETUPPGAME6:
 		{
 			if(GetPVarType(playerid, "pkrTableID")) {
-				return ShowPlayerDialog(playerid, DIALOG_CGAMESSETUPPGAME6, DIALOG_STYLE_INPUT, "{FFFFFF}Casino Games - (Mat khau)", "{FFFFFF}Dat mat khau cho B‡n:\n\nNote: De trong de tao phong cong cong", "Thay doi", "Quay lai");
+				return ShowPlayerDialog(playerid, DIALOG_CGAMESSETUPPGAME6, DIALOG_STYLE_INPUT, "{FFFFFF}Casino Games - (Mat khau)", "{FFFFFF}Dat mat khau cho B√†n:\n\nNote: De trong de tao phong cong cong", "Thay doi", "Quay lai");
 			}
 		}
 		case DIALOG_CGAMESSETUPPGAME7:
@@ -4777,7 +4777,7 @@ public StartLotto(stage)
 	    if(stage == 1) minutes = 6;
 	    else if(stage == 2) minutes = 4;
 	    else if(stage == 3) minutes = 2;
-		format(string, sizeof(string), "Tin Tuc Xo So: Chuong trinh xo so vi nguoi ngheo sap bat dau, hay mua ve xo so bat ki trong cua hang 24/7 , %d phut con lai.", minutes);
+		format(string, sizeof(string), "{34abeb}[Cong ty xo so]{FFFFFF}: Chuong trinh xo so vi nguoi ngheo sap bat dau, hay mua ve xo so bat ki trong cua hang 24/7 , %d phut con lai.", minutes);
 		OOCOff(COLOR_WHITE, string);
 		if(stage > 0)
 		{
@@ -4803,7 +4803,7 @@ public EndLotto(secondt)
 	}
 	else
 	{
-	    format(string, sizeof(string), "Tin Tuc Xo So: Xo so vi nguoi ngheo da duoc bat dau.");
+	    format(string, sizeof(string), "{34abeb}[Cong ty xo so]{FFFFFF}: Xo so vi nguoi ngheo da duoc bat dau.");
 		OOCOff(COLOR_WHITE, string);
 		new rand = Random(1, 300);
 		Lotto(rand);
@@ -5982,7 +5982,7 @@ public Lotto(number)
 {
 	new JackpotFallen = 0, TotalWinners = 0, string[128];
 
-	format(string, sizeof(string), "Tin Tuc Xo So: Xo so trung thuong cua ngay hom nay la... %d!.", number);
+	format(string, sizeof(string), "{34abeb}[Cong ty xo so]{FFFFFF}: Xo so trung thuong cua ngay hom nay la... %d!.", number);
 	OOCOff(COLOR_WHITE, string);
 
 	foreach(new i: Player)
@@ -6025,7 +6025,7 @@ public Lotto(number)
     			    AddFlag(i, INVALID_PLAYER_ID, LottoPrize);
     			}
 		        JackpotFallen = 1;
-				format(string, sizeof(string), "Tin Tuc Xo So: %s da trung so doc dac $%s khi mua ve so tai cua hang 24/7.", GetPlayerNameEx(i), number_format(Jackpot));
+				format(string, sizeof(string), "{34abeb}[Cong ty xo so]{FFFFFF}: %s da trung so doc dac $%s khi mua ve so tai cua hang 24/7.", GetPlayerNameEx(i), number_format(Jackpot));
 				OOCOff(COLOR_WHITE, string);
 				format(string, sizeof(string), "* Ban da chien thang $%s voi ve so cua ban - chuc mung ban!", number_format(Jackpot));
 				SendClientMessageEx(i, COLOR_YELLOW, string);
@@ -6047,7 +6047,7 @@ public Lotto(number)
     			    AddFlag(i, INVALID_PLAYER_ID, LottoPrize);
     			}
                 JackpotFallen = 1;
-				format(string, sizeof(string), "Tin Tuc Xo So: %s da trung so doc dac $%s khi mua ve so tai cua hang 24/7.", GetPlayerNameEx(i), number_format(Jackpot/TotalWinners));
+				format(string, sizeof(string), "{34abeb}[Cong ty xo so]{FFFFFF}: %s da trung so doc dac $%s khi mua ve so tai cua hang 24/7.", GetPlayerNameEx(i), number_format(Jackpot/TotalWinners));
 				OOCOff(COLOR_WHITE, string);
 				format(string, sizeof(string), "* Ban da chien thang $%s voi ve so cua ban - chuc mung ban!", number_format(Jackpot/TotalWinners));
 				SendClientMessageEx(i, COLOR_YELLOW, string);
@@ -6061,13 +6061,13 @@ public Lotto(number)
 	if(!JackpotFallen)
 	{
 		Misc_Save();
-		format(string, sizeof(string), "Tin Tuc Xo So: So tien thuong da duoc tang len $%s.", number_format(Jackpot));
+		format(string, sizeof(string), "{34abeb}[Cong ty xo so]{FFFFFF}: So tien thuong da duoc tang len $%s.", number_format(Jackpot));
 		OOCOff(COLOR_WHITE, string);
 	}
 	else
 	{
 	    Jackpot = 50000;
-	    format(string, sizeof(string), "Tin Tuc Xo So: Vong moi da duoc bat dau voi $%s.", number_format(Jackpot));
+	    format(string, sizeof(string), "{34abeb}[Cong ty xo so]{FFFFFF}: Vong moi da duoc bat dau voi $%s.", number_format(Jackpot));
 		OOCOff(COLOR_WHITE, string);
 	}
 	return 1;
@@ -8458,7 +8458,7 @@ stock ShowMainMenuDialog(playerid, frame)
 		case 1:
 		{
 			format(titlestring, sizeof(titlestring), "{3399FF}Dang nhap - %s", GetPlayerNameEx(playerid));
-			format(string, sizeof(string), "{FFFFFF}Chao mung ban den voi Cong dong GTA Online Viet Nam, %s.\n\nDia chi IP: %s\n\nNhan vat %s nay da duoc dang ky, vui lÚng dang nhap de tham gia:", GetPlayerNameEx(playerid),  GetPlayerIpEx(playerid), GetPlayerNameEx(playerid));
+			format(string, sizeof(string), "{FFFFFF}Chao mung ban den voi Cong dong GTA Online Viet Nam, %s.\n\nDia chi IP: %s\n\nNhan vat %s nay da duoc dang ky, vui l√≤ng dang nhap de tham gia:", GetPlayerNameEx(playerid),  GetPlayerIpEx(playerid), GetPlayerNameEx(playerid));
 			ShowPlayerDialog(playerid,MAINMENU,DIALOG_STYLE_PASSWORD,titlestring,string,"Dang nhap","Thoat");
 		}
 		case 2:
@@ -8519,7 +8519,7 @@ stock InvalidNameCheck(playerid) {
 			"com9", "lpt4", "lpt5", "lpt6",
 			"lpt7", "lpt8", "lpt9", "nul",
 			"clock$", "aux", "prn", "con",
-			"gvn", "abc", "fuck", "dit",
+			"SVN", "abc", "fuck", "dit",
 			"cho", "role", "play", "sex",
 			"InvalidNick"
 	    };
@@ -10523,35 +10523,6 @@ stock GetPlayerIpEx(playerid)
 	GetPlayerIp(playerid, ip, sizeof(ip));
 	return ip;
 }
-
-stock GetJobName(job)
-{
-	new name[20];
-	switch(job)
-	{
-		case 1: name = "Tham tu";
-		case 2: name = "Luat su";
-		case 3: name = "Gai diem";
-		case 4: name = "Ban thuoc phien";
-		case 6: name = "Phong vien tin tuc";
-		case 7: name = "Tho sua xe";
-		case 8: name = "Ve si";
-		case 9: name = "Nguoi ban vu khi";
-		case 10: name = "Dai ly xe hoi";
-		case 12: name = "Boxer";
-		case 14: name = "Buon lau ma tuy";
-		case 15: name = "Paper Boy";
-		case 16: name = "Nguoi dua hang";
-		case 17: name = "Tai xe taxi";
-		case 18: name = "Tho thu cong";
-		case 19: name = "Nguoi pha che";
-		case 20: name = "Nguoi dua hang";
-		case 21: name = "Pizza Boy";
-		default: name = "That nghiep";
-	}
-	return name;
-}
-
 stock GetJobLevel(playerid, job)
 {
 	new jlevel;
@@ -13965,7 +13936,7 @@ public SyncTime()
 		else
 		{
 		    if(SpecLotto) {
-		        format(string, sizeof(string), "Tin tuc xo so: Nho mua ve xo so tai cua hang 24/7. Thoi gian cong bo tiep theo vao hoi %s. Tong gia tri len toi $%s", ConvertToTwelveHour(tmphour), number_format(Jackpot));
+		        format(string, sizeof(string), "{34abeb}[Cong ty xo so]{FFFFFF}: Nho mua ve xo so tai cua hang 24/7. Thoi gian cong bo tiep theo vao hoi %s. Tong gia tri len toi $%s", ConvertToTwelveHour(tmphour), number_format(Jackpot));
 				SendClientMessageToAllEx(COLOR_WHITE, string);
 		        format(string, sizeof(string), "Special Prize: %s", LottoPrize);
 				SendClientMessageToAllEx(COLOR_WHITE, string);
@@ -14123,7 +14094,7 @@ public SyncTime()
 
 		foreach(new i: Player)
 		{
-			if(PlayerInfo[i][pLevel] <= 5) SendClientMessageEx(i,COLOR_LIGHTBLUE,"Viec su dung hack/cleo tai may chu GTA-VIETNAM ban se bi xoa tai khoan vinh vien khoi he thong!");
+			if(PlayerInfo[i][pLevel] <= 5) SendClientMessageEx(i,-1,"{fa6b86}Viec su dung hack/cleo tai may chu SVN ban se bi xoa tai khoan vinh vien khoi he thong!");
 			if(PlayerInfo[i][pAdmin] >= 2)
 			{
 				if(tmphour == 0) ReportCount[i] = 0;
@@ -14135,23 +14106,23 @@ public SyncTime()
 
 		if(tmphour == 0) CountCitizens();
 
-		for (new x = 0; x < MAX_POINTS; x++)
-		{
-			Points[x][Announced] = 0;
-			if (Points[x][Vulnerable] > 0)
-			{
-				Points[x][Vulnerable]--;
-				UpdatePoints();
-			}
-			if (Points[x][Vulnerable] == 0 && Points[x][Type] >= 0 && Points[x][Announced] == 0 && Points[x][ClaimerId] == INVALID_PLAYER_ID)
-			{
-				format(string, sizeof(string), "%s da san sang de chiem dong.", Points[x][Name]);
-				SendClientMessageToAllEx(COLOR_YELLOW, string);
-				//SetPlayerCheckpoint(i, Points[i][Pointx], Points[i][Pointy], Points[i][Pointz], 3);
-				ReadyToCapture(x);
-				Points[x][Announced] = 1;
-			}
-		}
+		// for (new x = 0; x < MAX_POINTS; x++)
+		// {
+		// 	Points[x][Announced] = 0;
+		// 	if (Points[x][Vulnerable] > 0)
+		// 	{
+		// 		Points[x][Vulnerable]--;
+		// 		UpdatePoints();
+		// 	}
+		// 	if (Points[x][Vulnerable] == 0 && Points[x][Type] >= 0 && Points[x][Announced] == 0 && Points[x][ClaimerId] == INVALID_PLAYER_ID)
+		// 	{
+		// 		format(string, sizeof(string), "%s da san sang de chiem dong.", Points[x][Name]);
+		// 		SendClientMessageToAllEx(COLOR_YELLOW, string);
+		// 		//SetPlayerCheckpoint(i, Points[i][Pointx], Points[i][Pointy], Points[i][Pointz], 3);
+		// 		ReadyToCapture(x);
+		// 		Points[x][Announced] = 1;
+		// 	}
+		// }
 		Misc_Save();
 		FMemberCounter(); // Family member counter (requested by game affairs to track gang activity)
 
@@ -16557,8 +16528,8 @@ stock SavePlants()
 		SavePlant(i);
 		i++;
 	}
-	if(i > 0) printf("[plant] %i plants saved", i);
-	else printf("[plant] Error: No plants saved!");
+	// if(i > 0) printf("[plant] %i plants saved", i);
+	// else printf("[plant] Error: No plants saved!");
 	return 1;
 }
 
@@ -18166,7 +18137,7 @@ stock ShowInventory(playerid,targetid)
 		Ong tiem: %s\n\
 		Giay: %s\n\
 		Day thung: %s\n\
-		Xi g‡: %s\n\
+		Xi g√†: %s\n\
 		Sprunk Cans: %s\n\
 		Spraycans: %s\n\
 		Tua vit: %s\n\
@@ -18411,26 +18382,6 @@ stock RehashTxtLabels()
 	}
 	LoadTxtLabels();
 }
-
-stock ShowVehicleHUDForPlayer(playerid)
-{
-	PlayerTextDrawShow(playerid, _vhudTextFuel[playerid]);
-	PlayerTextDrawShow(playerid, _vhudTextSpeed[playerid]);
-	PlayerTextDrawShow(playerid, _vhudSeatBelt[playerid]);
-	PlayerTextDrawShow(playerid, _vhudLights[playerid]);
-	_vhudVisible[playerid] = 1;
-}
-
-
-stock HideVehicleHUDForPlayer(playerid)
-{
-	PlayerTextDrawHide(playerid, _vhudTextFuel[playerid]);
-	PlayerTextDrawHide(playerid, _vhudTextSpeed[playerid]);
-	PlayerTextDrawHide(playerid, _vhudSeatBelt[playerid]);
-	PlayerTextDrawHide(playerid, _vhudLights[playerid]);
-	_vhudVisible[playerid] = 0;
-}
-
 stock ShowBackupActiveForPlayer(playerid)
 {
 	PlayerTextDrawShow(playerid, BackupText[playerid]);
@@ -18480,6 +18431,7 @@ stock UpdateVehicleHUDForPlayer(p, fuel, speed)
 		format(str, sizeof(str), "~b~Den: ~g~MO");
 		PlayerTextDrawSetString(p, _vhudLights[p], str);
 	}
+	
 }
 
 stock UpdateSpeedCamerasForPlayer(p)
